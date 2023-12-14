@@ -1,0 +1,262 @@
+body{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #fff;
+  color: #000;
+  background:url(../img/reservation_bg_light.png);
+}
+
+a{
+  color: #008858;
+}
+
+a:hover{
+  color: #000;
+  text-decoration: none;
+}
+
+.navbar{
+  background-color: #006A3A;
+  border-bottom: 1px solid #000000;
+}
+
+.navbar-brand{
+  color: #fff;
+}
+
+.navbar-brand:hover{
+  color: #ddd;
+}
+
+.card{
+  background-color: #fff;
+}
+
+.card.section{
+  border: 1px solid #b8a165;
+}
+
+.card-header.section-title{
+  background-color: #b8a165;
+  border-bottom: 1px solid #b8a165;
+  color: #fff;
+}
+
+.card-body{
+  background: none;
+}
+
+.log-in-and-out{
+  color: #c6ac6a !important;
+}
+
+.catalog-item, .placed-order, .item-qty{
+  min-height: 100%;
+}
+
+.catalog-item .card-header, .item-qty .card-header{
+  background: none;
+  border: none;
+}
+
+.input-group button, .input-group input{
+  border: 1px solid transparent;
+}
+
+.input-group input{
+  background-color: #fff;
+  max-width: 100px;
+  border: none;
+  text-align: center;
+  color: #008858 !important;
+  font-weight: bold;
+  -moz-appearance: textfield;
+  pointer-events: none;
+}
+
+.add-item, .input-group button{
+  cursor: pointer;
+}
+
+.btn:focus, .btn:active, select:focus, select:active, input:focus, input:active{
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.btn-classic
+{
+  background-color: #c6ac6a;
+  border-color: #c6ac6a;
+  color:#fff;
+}
+
+.btn-success
+{
+  background-color: #006A3A;
+  border-color: #006A3A;
+}
+
+.btn-danger {
+  background-color: #990101;
+  border-color: #990101;
+}
+
+.btn-light{
+  background-color: #dfdfdf;
+}
+
+.input-group button
+{
+  background: none;
+  font-weight: bold;
+  user-select: none;
+}
+
+.added-item{
+  border: 1px solid #008858 !important;
+  background-color: rgba(0, 136, 88, 0.05) !important;
+}
+
+.order-total{
+  background-color: #f8f9fa;
+  border-top: 1px solid rgba(0,0,0,.125);
+}
+
+.item-quantity, .item-quantity:disabled{
+  max-width: 100px; 
+  background: none;
+}
+
+#status-bar-container{
+  display: none;
+}
+
+.strike{
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
+}
+
+.given.btn-outline-success:before{
+  content: '\2713';
+}
+
+.given.btn-outline-danger:before, .delete-item:before, .delete-option:before, #add-competition.btn-danger:before, #add-administrator.btn-danger:before{
+  content: '\2717';
+}
+
+.order-is-paid.btn-outline-success:before{
+  content: 'Payé';
+}
+
+.order-is-paid.btn-outline-danger:before{
+  content: 'À payer';
+}
+
+.error-control{
+  border: 1px solid #d81313 !important;
+  background-color: rgba(216, 19, 19, 0.2)
+}
+
+.error-control:hover{
+  background-color: rgba(216, 19, 19, 0.1)
+}
+
+.error-control:focus{
+  background-color: rgba(216, 19, 19, 0.05)
+}
+
+.add-block, #request-orga-label, #request-orga-checkbox{
+  cursor: pointer;
+  user-select: none;
+}
+
+#request-orga-checkbox, .search-checkbox{
+  color: #c6ac6a !important;
+  accent-color: currentcolor;
+}
+
+#status-bar-container span{
+  background-color: none;
+}
+
+@media (prefers-color-scheme: dark){
+  
+  body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #fff;
+    color: #fff;
+    background:url(../img/reservation_bg_dark.png);
+  }
+
+  a:hover{
+    color: #aaa;
+    text-decoration: none;
+  }
+
+  .card-header.section-title{
+    background-color: #a9945d;
+    border-bottom: 1px solid #a9945d;
+    color: #fff;
+  }
+
+  .card, .list-group-item{
+    background-color: #0e0e0e;
+    color: #fff;
+  }
+
+  .card{
+    border-color: #495057;
+  }
+
+  .list-group-item{
+    border: var(--bs-list-group-border-width) solid #495057;
+  }
+
+  .catalog-item .card-footer, .placed-order .card-header, .block .card-header, .ordered-item .card-header{
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+
+  .catalog-item .card-footer{
+    border-top: 1px solid #495057;
+  }
+
+  .placed-order .card-header, .block .card-header, .ordered-item .card-header{
+    border-bottom: 1px solid #495057;
+  }
+
+  .btn.bg-transparent, .input-group button{
+    color: #fff;
+  }
+
+  .order-total, .handle-catalog{
+    background-color: #252525 !important;
+  }
+
+  #search{
+    background-color: #252525;
+    color: #fff;
+  }
+
+  select, input, textarea{
+    background-color: #252525 !important;
+    color: #fff !important;
+    border: 1px solid #495057 !important;
+  }
+
+  input.is-invalid{
+    border-color: #dc3545 !important;
+  }
+
+  .item-quantity, #file-input{
+    border: none !important;
+  }
+
+  .competition-name, .competition-contact,
+  .administrator-login, .administrator-email{
+    color: #fff;
+  }
+
+}

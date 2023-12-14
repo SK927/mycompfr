@@ -1,0 +1,55 @@
+body{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #fff;
+  color: #000;
+}
+
+a{
+  color: #650097;
+}
+
+a:hover{
+  color: #ddd;
+  text-decoration: none;
+}
+
+.navbar{
+  background-color: #650097;
+}
+
+.navbar-brand, .navbar-text{
+  color: #fff;
+}
+
+.navbar-brand:hover{
+  color: #ddd;
+}
+
+.log-in-and-out{
+  color: #ffc107 !important;
+}
+
+.check-attendance{
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.btn-success, .btn-success:hover, .YES{
+  background-color: #baf9cc !important;
+  color: #28a745;
+}
+
+.btn-danger, .btn-danger:hover, .NO{
+  background-color: #f9baba !important;
+  color: #dc3545;
+}
+
+.btn-link, .btn-link:hover{
+  text-decoration: none; 
+  color: grey;
+}
+
+#status-bar-container{
+  display: none;
+}
