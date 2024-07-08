@@ -41,7 +41,7 @@
                     </div>
                   <?php endif; ?>
                   <div class="col-12">
-                    <a class="card-link" href="https://www.worldcubeassociation.org/contact/website?competitionId=<?php echo $competition_id; ?>" target="_blank">Contacter l'équipe organisatrice</a>
+                    <a class="card-link" href="https://www.worldcubeassociation.org/contact?competitionId=<?php echo $competition_id; ?>&contactRecipient=competition" target="_blank">Contacter l'équipe organisatrice</a>
                   </div>
                   <div class="col-12">
                     <a class="card-link" href="src/pdf/pdf-generate-catalog?id=<?php echo urlencode( $_GET['id'] ); ?>">Télécharger le catalogue</a>
@@ -113,20 +113,25 @@
                           <div id="<?php echo $item_id ?>" class="catalog-item card">
                             <h5 class="card-header text-center"><?php echo $item_value['item_name']; ?></h5>
                             <div class="card-body pt-0 text-left">
+                              <?php if ( $item_value['item_image'] != '.' ): ?>
+                                <div class="col-12 my-3 text-center">
+                                  <img src="assets/img/icons/<?php echo $item_value['item_image']; ?>" alt="<?php echo $item_value['item_name']; ?>" />
+                                </div>
+                              <?php endif; ?>
                               <?php if ( $item_value['item_descr'] ): ?>
-                                <div class="item-description col-12 mt-2 p-0">
+                                <div class="item-description col-12 mt-3 p-0">
                                   <?php echo $item_value['item_descr']; ?>
                                 </div>
                               <?php endif; ?>
                               <?php if ( $item_value['options'] ): ?>
-                                <div class="item-includes col-12 mt-2 p-0">
-                                  Options :
+                                <div class="item-includes col-12 mt-3 p-0">
+                                  <b>Options :</b>
                                   <?php foreach ( $item_value['options'] as $option_name => $options ): ?>
                                     <?php echo $option_name . ' ; ' ?>
                                   <?php endforeach; ?>
                                 </div>
                               <?php endif; ?>
-                              <div class="item-price col-12 mt-2 p-0 text-muted">
+                              <div class="item-price col-12 mt-3 mb-3 p-0 text-muted">
                                 (<?php echo number_format( (float) $item_value['item_price'], 2, '.', '' ); ?> €)
                               </div>
                             </div>

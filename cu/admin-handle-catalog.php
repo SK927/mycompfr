@@ -50,7 +50,7 @@
                       createBlock( <?php echo json_encode( $block_name ) . ', ' . json_encode( $block_name ); ?> );
                       
                       <?php foreach ( $block_items as $item_id => $item_value ): ?>
-                        createItem( <?php echo json_encode( 'item-list' . $block_name ) . ', ' . json_encode( $item_id ) . ', ' . json_encode( $item_value['item_name'] ) . ", '" . $item_value['item_price'] . "', " . json_encode( $item_value['item_descr'] ); ?> );  
+                        createItem( <?php echo json_encode( 'item-list' . $block_name ) . ', ' . json_encode( $item_id ) . ', ' . json_encode( $item_value['item_name'] ) . ", '" . $item_value['item_price'] . "', " . json_encode( $item_value['item_descr'] ) . ", " . json_encode( $item_value['item_image'] ); ?> );  
 
                         <?php if ( ! empty( $item_value['options'] ) ): ?>
                           <?php foreach ( $item_value['options'] as $option_name => $option_values ): ?>

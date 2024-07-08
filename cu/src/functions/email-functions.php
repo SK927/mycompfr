@@ -187,7 +187,7 @@
     $message = '<html><body>';
     $message .= '<p>Bonjour,</p>';
     $message .= "<p>La comp&eacute;tition ID <b>{$competition_id}</b> a bien &eacute;t&eacute;";
-    $message .= ' supprim&eacute;e du site <a href="https://cu.bvre.fr/">Commande Utile</a>.</p>';
+    $message .= " supprim&eacute;e du site <a href=\"https://{$_SERVER['SERVER_NAME']}\">Commande Utile</a>.</p>";
     $message .= '<p>Bonne journ&eacute;e et &agrave; bient&ocirc;t.</p>';
     $message .= '<p>----</p>';
     $message .= '<p>L\'&eacute;quipe d\'administration de Commande Utile</p>';
@@ -231,7 +231,7 @@
     $message = '<html><body>';
     $message .= "<p>Bonjour {$administrator_login},</p>";
     $message .= '<p>Vos identifiants d\'administration ont &eacute;t&eacute;';
-    $message .= ' supprim&eacute;s du site <a href="https://cu.bvre.fr/">Commande Utile</a>.</p>';
+    $message .= " supprim&eacute;s du site <a href=\"https://{$_SERVER['SERVER_NAME']}\">Commande Utile</a>.</p>";
     $message .= '<p>Bonne journ&eacute;e et &agrave; bient&ocirc;t.</p>';
     $message .= '<p>----</p>';
     $message .= '<p>L\'&eacute;quipe d\'administration de Commande Utile</p>';
@@ -275,7 +275,7 @@
     $message = '<html><body>';
     $message .= '<p>Bonjour,</p>';
     $message .= "<p>La comp&eacute;tition ID <b>{$competition_id}</b> a bien &eacute;t&eacute;";
-    $message .= ' cr&eacute;&eacute;e sur le site <a href="https://cu.bvre.fr/">Commande Utile</a>.</p>';
+    $message .= " cr&eacute;&eacute;e sur le site <a href=\"https://{$_SERVER['SERVER_NAME']}\">Commande Utile</a>.</p>";
     $message .= '<p>Vous pouvez d&eacute;sormais vous connecter en tant qu\'organisateur·rice.</p>';
     $message .= '<p>Bonne journ&eacute;e et &agrave; bient&ocirc;t.</p>';
     $message .= '<p>----</p>';

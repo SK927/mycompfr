@@ -67,7 +67,7 @@
       <footer class="py-3 my-4">
         <ul class="nav justify-content-center pb-3 mb-3">
           <li class="nav-item">
-            <a href="https://commande-utile.mycomp.fr" class="nav-link px-2 text-muted">© My Comp 2021-<?php echo date( 'Y' ); ?></a>
+            <a href="https://mycomp.fr" class="nav-link px-2 text-muted">© My Comp 2021-<?php echo date( 'Y' ); ?></a>
           </li>
           <li class="nav-item">
             <a href="mailto:mlefebvre@worldcubeassociation.org" class="nav-link px-2 text-muted">Maxime Lefebvre</a>

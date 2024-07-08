@@ -122,7 +122,7 @@ $( document ).on( 'click', '.delete-order', function( e )
               { 
                 let [ blockName, itemName ] = elem.id.split( '_' );
 
-                if ( typeof array[ blockName ] != 'undefined' && typeof array[ blockName ][ itemName ] != 'undefined' && array != null )
+                if ( array != null && typeof array[ blockName ] != 'undefined' && typeof array[ blockName ][ itemName ] != 'undefined' )
                 {
                   document.getElementById( blockName + '_' + itemName ).innerHTML = array[ blockName ][ itemName ];
                 }

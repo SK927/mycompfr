@@ -1,6 +1,7 @@
 <?php
 
   require_once dirname( __DIR__, 1 ) . '/config.php';
+  require_once 'orders-functions.php';
   
   
   /** 
@@ -31,7 +32,9 @@
     if( $query_results )
     {
       while( $result_row = $query_results->fetch_assoc() )
-      {
+      { 
+        [ $error, $user_order ] = get_user_order( $result_row['competition_id'], $user_id, $mysqli );
+        $result_row['has_ordered'] = $error ? null : (! is_null( $user_order ));
         $user_imported_competitions[ $result_row['competition_id'] ] = $result_row;
       }
     }

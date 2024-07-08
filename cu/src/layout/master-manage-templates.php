@@ -7,7 +7,7 @@
       </div>
       <div class="col-md-8 competition-contact px-4 text-break align-middle"></div>
       <div class="col-12 mt-2 text-end">
-        <a class='competition-handle-url' href=""><button class="btn btn-light my-1">Editer</button></a>
+        <a class='competition-handle-url' href=""><button class="btn btn-light my-1">Administrer</button></a>
         <button class="delete-competition btn btn-danger my-1 me-1" name="">Suppr.</button>
       </div>
     </div>

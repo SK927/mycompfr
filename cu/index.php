@@ -26,22 +26,32 @@
                 <div class="card-body py-0">
                   <ul class="list-group list-group-flush">
                     <li class="list-group-item text-muted">
-                      <small>                        
-                        Dates : du <?php echo date( 'd/m/y', strtotime( $competition_data['competition_start_date'] ) ); ?> au <?php echo date( 'd/m/y', strtotime( $competition_data['competition_end_date'] ) ); ?>
-                      </small>
                       <small>
-                        Limite de commande : <?php echo $competition_data['orders_closing_date'] == '0000-00-00' ? '---' : date( 'd/m/y', strtotime( $competition_data['orders_closing_date'] ) ); ?>
+                        <p class="m-0">                        
+                          Dates : du <?php echo date( 'd/m/y', strtotime( $competition_data['competition_start_date'] ) ); ?> au <?php echo date( 'd/m/y', strtotime( $competition_data['competition_end_date'] ) ); ?>
+                        </p>
+                        <p class="m-0">
+                          Limite de commande : <?php echo $competition_data['orders_closing_date'] == '0000-00-00' ? '---' : date( 'd/m/y', strtotime( $competition_data['orders_closing_date'] ) ); ?>
+                        </p>
                       </small>
                     </li>
                     <?php if ( $competition_data['orders_closing_date'] != '0000-00-00' ): ?>
                       <?php if ( date( 'Y-m-d' ) <= $competition_data['orders_closing_date'] ): ?>
                         <li class="list-group-item">
-                          <a href="user-place-order?id=<?php echo urlencode( $competition_id ); ?>">Passer une commande</a>
+                          <a href="user-place-order?id=<?php echo urlencode( $competition_id ); ?>">
+                            <?php if ( ! $competition_data['has_ordered'] ): ?>
+                              Passer une commande
+                            <?php else: ?>
+                              Modifier ma commande
+                            <?php endif; ?>
+                          </a>
                         </li>
                       <?php endif; ?>
-                      <li class="list-group-item">
-                        <a href="user-view-order?id=<?php echo urlencode( $competition_id ); ?>">Voir ma commande</a>
-                      </li>
+                      <?php if ( $competition_data['has_ordered'] ): ?>
+                        <li class="list-group-item">
+                          <a href="user-view-order?id=<?php echo urlencode( $competition_id ); ?>">Voir ma commande</a>
+                        </li>
+                      <?php endif; ?>
                     <?php endif; ?>
                     <?php if ( in_array( $competition_data['competition_id'] , $_SESSION['manageable_competitions'] ) OR $_SESSION['is_admin'] ): ?>
                       <li class="list-group-item">

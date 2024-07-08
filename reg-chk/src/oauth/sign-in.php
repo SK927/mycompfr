@@ -52,8 +52,8 @@
   }
   else 
   {
-    // session_unset();
-    // session_destroy();
+    session_unset();
+    session_destroy();
     echo $error;
   }
   

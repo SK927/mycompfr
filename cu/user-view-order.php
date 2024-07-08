@@ -34,7 +34,7 @@
                     </div>
                   <?php endif; ?>
                   <div class="col-12">
-                    <a class="card-link" href="https://www.worldcubeassociation.org/contact/website?competitionId=<?php echo $competition_id; ?>" target="_blank">Contacter l'équipe organisatrice</a>
+                    <a class="card-link" href="https://www.worldcubeassociation.org/contact?competitionId=<?php echo $competition_id; ?>&contactRecipient=competition" target="_blank">Contacter l'équipe organisatrice</a>
                   </div>
                   <div class="col-12">
                     <a class="card-link" href="src/pdf/pdf-generate-catalog?id=<?php echo urlencode( $_GET['id'] ); ?>">Télécharger le catalogue</a>

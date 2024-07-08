@@ -168,16 +168,16 @@
 
   function send_checker_reminder( $competitors_email, $competition_name, $admin_email )
   {  
-    $to = decrypt_data( $admin_email );
+    $to = $competitors_email;
     $subject = "{$competition_name} - Please Confirm Your Registration!";
-    $from = $competitors_email;
+    $from = decrypt_data( $admin_email );
 
     /* To send HTML mail, the Content-type header must be set */
     $headers  = "MIME-Version: 1.0\r\n";
     $headers .= "Content-type: text/html; charset=utf-8\r\n";
      
     /* Create email headers */
-    $headers .= "From: RegistrationChecker\r\nBcc: [email]{$from}[/email]\r\n";
+    $headers .= "From: RegistrationChecker\r\nBcc: [email]{$to}[/email]\r\n";
     $headers .= "Reply-To: {$from}\r\nX-Mailer: PHP/" . phpversion();
      
     /* Compose a simple HTML email message */
@@ -194,7 +194,7 @@
     $message .= '</body></html>';
      
     /* Sending email */
-    if ( mail( $to, $subject, $message, $headers ) ) 
+    if ( mail( $from, $subject, $message, $headers ) ) 
     {
       return null; 
     }

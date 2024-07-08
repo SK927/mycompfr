@@ -47,7 +47,7 @@
                 <? else : ?>
                   <?php $order_status_text = $is_edit ? 'modifiée' : ' enregistrée'; ?>
                   <p>
-                    La commande n° <b><?php echo $user_order_id; ?></b> au nom de <b><?php echo $_SESSION['user_name']; ?></b> au nom de <b><?php echo $_SESSION['user_name']; ?></b> a bien été <?php echo $is_deletion ? 'supprimée' : $order_status_text; ?>.
+                    La commande n° <b><?php echo $user_order_id; ?></b> au nom de <b><?php echo $_SESSION['user_name']; ?></b> a bien été <?php echo $is_deletion ? 'supprimée' : $order_status_text; ?>.
                   </p>
                   <p>
                     Un e-mail de confirmation a &eacute;t&eacute; envoy&eacute; à l'adresse <b><?php echo decrypt_data( $_SESSION['user_email'] ); ?></b>.

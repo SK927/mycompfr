@@ -8,7 +8,7 @@
 
   function sanitize_value_manual( $value )
   {
-    $pattern = "/[<>'={}]/";
+    $pattern = "/[<>={}]/";
     return preg_replace( $pattern, '', $value );
   }
 
@@ -19,9 +19,20 @@
    * @return (string) the sanitized value
    */
 
-  function sanitize_value_csv($value)
+  function sanitize_value_csv( $value )
   {
-    return utf8_encode( sanitize_value_manual( $value ) );
+    // Test it and see if it is UTF-8 or not
+    $utf8 = \mb_detect_encoding( $value, ['UTF-8'], true );
+
+    if ( $utf8 !== false ) {
+      return $value;
+    }
+    else
+    {
+      return utf8_encode( $value );
+    }
   }
+
+
 
 ?>

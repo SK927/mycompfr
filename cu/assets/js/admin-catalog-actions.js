@@ -4,7 +4,7 @@ function getRandomInt() {
 
 //-------------------------------------
 
-function createBlock( id, name ='' )
+function createBlock( id, name = '' )
 {
   let template = document.getElementById( 'block' );
   let clone = template.content.cloneNode( true );
@@ -21,7 +21,7 @@ function createBlock( id, name ='' )
 
 //-------------------------------------
 
-function createItem( block, id, name = '', price = 0, description = '' )
+function createItem( block, id, name = '', price = 0, description = '', img = '.' )
 {
   let template = document.getElementById( 'item' );
   let clone = template.content.cloneNode( true );
@@ -36,6 +36,9 @@ function createItem( block, id, name = '', price = 0, description = '' )
   clone.querySelector( '.item-price' ).value = parseFloat( price ).toFixed( 2 ); 
   clone.querySelector( '.item-description' ).name = 'item_descr' + id;  
   clone.querySelector( '.item-description' ).value = description;  
+  clone.querySelector( '.item-image' ).id = 'item-image' + id; 
+  clone.querySelector( '.item-image' ).name = 'item_image' + id; 
+  clone.querySelector( '.item-image' ).value = img; 
   document.getElementById( block ).appendChild( clone );
 }
 
@@ -64,7 +67,7 @@ function updateList( array )
 
     $.each( block_value, function( item_key, item_value )
     {
-      createItem( 'item-list' + block_key, item_key, item_value['item_name'], item_value['item_price'], item_value['item_descr'] );
+      createItem( 'item-list' + block_key, item_key, item_value['item_name'], item_value['item_price'], item_value['item_descr'], item_value['item_image'] );
       
       if ( item_value['options'] != null )
       {
@@ -158,6 +161,12 @@ $( document ).on( 'click', '.clone-block', function( e )
   clone.querySelectorAll( '.item-description' ).forEach( function( elem, i ){ elem.name = 'item_descr' + ref[ i ]; } );
   clone.querySelectorAll( '.item-option-name' ).forEach( function( elem, i ){ opt.push( getRandomInt() ); elem.name = 'option_name' + opt[ i ]; } );
   clone.querySelectorAll( '.item-option-value' ).forEach( function( elem, i ){ elem.name = 'option_value' + opt[ i ]; } );
+  clone.querySelectorAll( '.item-image' ).forEach( function( elem, i )
+  {
+    elem.value = document.getElementById( elem.id ).options[document.getElementById( elem.id ).selectedIndex].value;
+    elem.name = 'item_image' + ref[i];
+    elem.id = 'item-image' + ref[i];
+  });
   document.getElementById( 'block-list' ).appendChild( clone );
   document.getElementById( 'block-name' + newBlockId ).focus();
 });

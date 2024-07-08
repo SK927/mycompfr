@@ -61,10 +61,11 @@
           { 
             $item['item_name'] = sanitize_value_csv( $line[0] ); 
             $item['item_descr'] = sanitize_value_csv( $line[2] );
-            
-            if ( $line[3] ) /* At least one option exists */
+            $item['item_image'] = $line[3] ? sanitize_value_csv( $line[3] ) : '.';
+
+            if ( $line[4] ) /* At least one option exists */
             {
-              $i = 3;
+              $i = 4;
               $options = array();
               while ( $line[$i] )
               {

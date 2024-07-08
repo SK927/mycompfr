@@ -58,7 +58,7 @@
             </div>
             <div class="card-body col-12">
               <div class="row pt-1">
-                <a class="mb-4" href="assets/">Télécharger le manuel administrateur</a>
+                <a class="mb-4" href="assets/admin-manual.pdf">Télécharger le manuel administrateur</a>
                 <div class="col-12">
                   <a href="admin-handle-catalog?id=<?php echo urlencode( $_GET['id'] ); ?>">
                     <button class="btn btn btn-light mb-2">Gérer le catalogue</button>

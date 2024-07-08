@@ -24,7 +24,7 @@
         <?php $formatted_data = format_registration_data( $competition_id, $user_id, $registration, $competitors_list ); ?>
         <?php if ( $formatted_data ): ?>
           <div class="card mb-2 p-4">
-            <form id="<?php echo $_GET['id']; ?>" class="card-body competition-id" name="registration_form" method="POST" action="src/admin/generate-scorecards.php">
+            <form id="<?php echo $_GET['id']; ?>" class="card-body competition-id" name="registration_form" method="POST" action="src/pdf/pdf-generate-scorecards.php">
               <input type="hidden" value="<?php echo encrypt_data( $user_id ); ?>" name="user_id" />
               <input type="hidden" value="<?php echo $formatted_data['user_data']['registrant_id']; ?>" name="user_registrant_id" />
               <div class="row text-center">

@@ -60,6 +60,11 @@ a:hover{
   border: none;
 }
 
+.catalog-item img{
+  max-height:128px;
+  width:auto;
+}
+
 .input-group button, .input-group input{
   border: 1px solid transparent;
 }
@@ -118,8 +123,8 @@ a:hover{
   background-color: rgba(0, 136, 88, 0.05) !important;
 }
 
-.order-total{
-  background-color: #f8f9fa;
+.order-total, .handle-catalog{
+  background-color: #f8f9fa !important;
   border-top: 1px solid rgba(0,0,0,.125);
 }
 

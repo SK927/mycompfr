@@ -20,7 +20,7 @@ function displayImported( id )
 {
   let template = document.getElementById( 'imported' );
   let clone = template.content.cloneNode( true );  
-  clone.querySelector( '.extract-data' ).href = 'admin-display-registrations?id=' + encodeURI( id );   
+  clone.querySelector( '.extract-data' ).href = 'admin-display-registrations?id=' + encodeURIComponent( id );   
   clone.querySelector( '.send-reminder' ).value = id;   
   clone.querySelector( '.update-competitors' ).value = id;   
   document.getElementById( id + '_admin' ).append( clone );

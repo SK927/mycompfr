@@ -14,7 +14,7 @@
 
   <body>
     <div class="container text-center">
-      <form class="row justify-content-center" action="src/admin/generate_scorecards.php" method="POST">
+      <form class="row justify-content-center" action="src/pdf/pdf-generate-scorecards.php" method="POST">
         <div class="col col-md-10 col-lg-8 col-xl-6 mx-auto my-2">
           <div class="col mt-4 fw-bold">Provide competition URL to generate dual scorecards for selected events</div>
           <input class="form-control text-center" type="text" name="competition_url" placeholder="https://www.worldcubeassociation.org/competitions/MyComp<?php echo date( 'Y' ); ?>"></input>

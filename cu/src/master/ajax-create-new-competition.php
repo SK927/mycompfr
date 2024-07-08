@@ -22,7 +22,7 @@
 
       foreach ( $contact_emails as $email )
       {
-        $pass == $pass && filter_var( $email, FILTER_VALIDATE_EMAIL );
+        $pass = $pass && filter_var( $email, FILTER_VALIDATE_EMAIL );
       }
       
       if ( ! $pass )

@@ -179,6 +179,17 @@
 
   function get_items_amount( $competition_id, $mysqli )
   {
+    $competition_data = get_competition_data( $competition_id, $mysqli );
+    $competition_catalog_blocks = from_pretty_json( $competition_data['competition_catalog'] );
+
+    foreach ( $competition_catalog_blocks as $block_name => $block_value ) 
+    {
+      foreach ( $block_value as $item_key => $item_value ) 
+      {
+        $items_amount[ $block_name ][ $item_value['item_name'] ] = 0;
+      }
+    }
+
     $competition_orders = get_competition_orders( $competition_id, $mysqli );
 
     while ( $result_row = $competition_orders->fetch_assoc() )
@@ -204,8 +215,8 @@
         }
       }   
     }
-    
-    return $items_amount;
+
+    return array_filter( array_map( 'array_filter', $items_amount ) );
   }
 
 ?>

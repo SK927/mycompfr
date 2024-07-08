@@ -133,14 +133,11 @@
 
   function create_dual_scorecards( $pdf, $competition_data, $competition_groups, $time_limit, $events_display, $events_id, $scorecard_count = 1 )
   {
-    $pdf->SetAutoPageBreak( false, 0 );
-    $pdf->title = "{$competition_data['id']}_{$events_display[0]} and {$events_display[1]}--" . date( 'Y-m-d' ) . '.pdf';
-    
     $offset = 5;
     $attempt_number = array( 1, 2, 3, '-' );
     $spacing = array( 0, 12.34, 24.68, 41.71 );
 
-    $pdf->SetFillColor( 240, 240, 240 );
+    $pdf->setFillColor( 240, 240, 240 );
     
     foreach ( $competition_groups as $person => $data )
     {
@@ -150,22 +147,21 @@
         
         if ( $is_new_page )
         {
-          $pdf->AddPage( 'P', 'A4' );
-          $pdf->SetDrawColor( 127, 127, 127 );
-          $pdf->SetDash( 2, 2 );
+          $pdf->AddPage();
+          $pdf->SetLineStyle( array( 'width' => 0.2, 'cap' => 'butt', 'join' => 'miter', 'dash' => '10,4', 'color' => array( 127, 127, 127 ) ) );
           $pdf->Line( 0, 148.5, 210, 148.5 );
-          $pdf->SetDash();
+          $pdf->SetLineStyle( array( 'width' => 0.2, 'cap' => 'butt', 'join' => 'miter', 'dash' => 0, 'color' => array( 0, 0, 0 ) ) );
         }
 
         $pdf->SetDrawColor( 0, 0, 0 );
         
         /* Print competition name */
-        $pdf->SetFont( 'Times', '', 16 );
+        $pdf->setFont( 'dejavusanscondensed', '', 16, '', true );
         $pdf->SetXY( 31.59, 3.70 + 148.5 * (($scorecard_count - 1) % 2) + $offset );
         $pdf->Cell( 146.83, 10.12, $competition_data['name'], false, 0, 'C', false );
         
         /* Print competitor info */
-        $pdf->SetFont( 'Times', '', 8 );
+        $pdf->SetFont( 'dejavusanscondensed', '', 8, '', true );
         $pdf->SetXY( 11.60, 16.22 + 148.5 * (($scorecard_count - 1) % 2) + $offset );
         $pdf->Cell( 14.07, 3.70, 'ID', false, 0, 'L', false );
         $pdf->Cell( 145.84, 3.70, 'Name', false, 0, 'L', false );
@@ -175,33 +171,37 @@
          /* Print scorecards results table */
         $pdf->SetXY( 3.70, 53.55 + 148.5 * (($scorecard_count - 1) % 2) + $offset );
         $pdf->Cell( 7.90, 4.69, '', false, 0, 'C', false );
-        $pdf->Cell( 11.49, 4.69, 'Ord', false, 0, 'C', false );
+        $pdf->Cell( 11.49, 4.69, 'Solve #', false, 0, 'C', false );
         $pdf->Cell( 11.49, 4.69, 'Scr', false, 0, 'C', false );
         $pdf->Cell( 45.59, 4.69, 'Result', false, 0, 'C', false );
         $pdf->Cell( 11.49, 4.69, 'Judge', false, 0, 'C', false );
         $pdf->Cell( 11.49, 4.69, 'Comp', false, 0, 'C', false );
         $pdf->Cell( 3.70, 4.69, '', false, 0, 'C', false );
-        $pdf->Cell( 11.49, 4.69, 'Ord', false, 0, 'C', false );
+        $pdf->Cell( 11.49, 4.69, 'Solve #', false, 0, 'C', false );
         $pdf->Cell( 11.49, 4.69, 'Scr', false, 0, 'C', false );
         $pdf->Cell( 45.59, 4.69, 'Result', false, 0, 'C', false );
         $pdf->Cell( 11.49, 4.69, 'Judge', false, 0, 'C', false );
         $pdf->Cell( 11.49, 4.69, 'Comp', false, 0, 'C', false );
             
-        $pdf->SetFont( 'Times', '', 14 );
+        $pdf->SetFont( 'dejavusanscondensed', '', 14, '', true );
         $pdf->SetXY( 11.60,21.22 + 148.5 * (($scorecard_count - 1) % 2) + $offset );
         $pdf->Cell( 14.07, 7.16, $data['registrant_id'], true, 0, 'C', false );
+        
+        $pdf->SetFont( 'cid0jp', '', 14 );
         $pdf->Cell( 145.84, 7.16, $data['competitor_name'], true, 0, 'L', false );
+
+        $pdf->SetFont( 'dejavusanscondensed', '', 14, '', true );
         $pdf->Cell( 13.57, 7.16, 1, true, 0, 'C', false );
         $pdf->Cell( 13.57, 7.16, max( $data[ $events_id[0] ], $data[ $events_id[1] ] ), true, 0, 'C', false );
-        
+
         /* Print events name */
-        $pdf->SetFont( 'Times', 'B', 36 );
+        $pdf->SetFont( 'dejavusanscondensed', 'B', 36, '', true );
         $pdf->SetXY( 11.60, 39.73 + 148.5 * (($scorecard_count - 1) % 2) + $offset );
         $pdf->Cell( 91.55, 9.13, $events_display[0], false, 0, 'C', false );
         $pdf->Cell( 3.70, 9.13, '', false, 0, 'C', false );
         $pdf->Cell( 91.55, 9.13, $events_display[1], false, 0, 'C', false );
       
-        $pdf->SetFont( 'Times','B',24 );
+        $pdf->SetFont( 'dejavusanscondensed','B',24, '', true );
 
         for( $i = 0 ; $i <= (count( $attempt_number ) - 1) ; $i++ )
         {
@@ -220,13 +220,13 @@
           $pdf->Cell( 11.49, 10.86, '', true, 0, 'C', false );
         }
         
-        $pdf->SetFont( 'Times', '', 10 );
+        $pdf->SetFont( 'dejavusanscondensed', '', 10, '', true );
         $pdf->SetXY( 4.90, 93.75 + 148.5 * (($scorecard_count - 1) % 2) + $offset );
         $pdf->Cell( 29.12, 6.42, 'Extra attempt', false, 0, 'L', false );
         
         /* Print time limit */
         $pdf->SetXY( 93.87, 117.46 + 148.5 * (($scorecard_count - 1) % 2) + $offset );
-        $pdf->Cell( 104.53, 6.42, "Time limit: $time_limit in total for " . $events_display[0] . ' and ' . $events_display[1], false, 0, 'R', false );
+        $pdf->Cell( 104.53, 6.42, "Time limit:{$time_limit} in total for {$events_display[0]} and {$events_display[1]}", false, 0, 'R', false );
          
         $scorecard_count++;
 
@@ -257,10 +257,9 @@
 
     if( $quarter_page_count ) /* If place remains, add dashed line to create two additionnal scorecards at the bottom of current page */
     {
-      $pdf->SetDrawColor( 127, 127, 127 );
-      $pdf->SetDash( 2, 2 );
+      $pdf->SetLineStyle( array( 'width' => 0.2, 'cap' => 'butt', 'join' => 'miter', 'dash' => '10,4', 'color' => array( 127, 127, 127 ) ) );
       $pdf->Line( 105, 148.5, 105, 297 );
-      $pdf->SetDash(  );
+      $pdf->SetLineStyle( array( 'width' => 0.2, 'cap' => 'butt', 'join' => 'miter', 'dash' => 0, 'color' => array( 0, 0, 0 ) ) );
     }
       
     $offset_x = array( 0, 105, 0, 105 );
@@ -272,21 +271,20 @@
       
       if ( ! $current_page ) /* Add new page if current page if filled */
       {
-        $pdf->AddPage( 'P', 'A4' );
-        $pdf->SetDrawColor( 127, 127, 127 );
-        $pdf->SetDash( 2, 2 );
+        $pdf->AddPage();
+        $pdf->SetLineStyle( array( 'width' => 0.2, 'cap' => 'butt', 'join' => 'miter', 'dash' => '10,4', 'color' => array( 127, 127, 127 ) ) );
         $pdf->Line( 0, 148.5, 210, 148.5 );
         $pdf->Line( 105, 0, 105, 297 );
-        $pdf->SetDash();
+        $pdf->SetLineStyle( array( 'width' => 0.2, 'cap' => 'butt', 'join' => 'miter', 'dash' => 0, 'color' => array( 0, 0, 0 ) ) );
       }
       
       /* Print competition name */
-      $pdf->SetFont( 'Times', '', 16 );
+      $pdf->SetFont( 'dejavusanscondensed', '', 16 );
       $pdf->SetXY( $offset_x[ $current_page ], 3.70 + $offset_y[ $current_page ] + $offset );
       $pdf->Cell( 105, 10.12, $competition_data['name'], false, 0, 'C', false );
       
       /* Print competitor info */
-      $pdf->SetFont( 'Times', '', 8 );
+      $pdf->SetFont( 'dejavusanscondensed', '', 8 );
       $pdf->SetXY( 5 + $offset_x[ $current_page ], 16.22 + $offset_y[ $current_page ] + $offset );
       $pdf->Cell( 13.57, 3.70, 'ID', false, 0, 'L', false );
       $pdf->Cell( 54.29, 3.70, 'Name', false, 0, 'L', false );
@@ -300,19 +298,23 @@
       $pdf->Cell( 11.49, 4.69, 'Judge', false, 0, 'C', false );
       $pdf->Cell( 11.49, 4.69, 'Comp', false, 0, 'C', false );
           
-      $pdf->SetFont( 'Times', '', 14 );
+      $pdf->SetFont( 'dejavusanscondensed', '', 14 );
       $pdf->SetXY( 5 + $offset_x[ $current_page ],21.22 + $offset_y[ $current_page ] + $offset );
       $pdf->Cell( 11.49, 7.16, $data['registrant_id'], true, 0, 'C', false );
+
+      $pdf->SetFont( 'cid0jp', '', 14 );
       $pdf->Cell( 60.53, 7.16, $data['competitor_name'], true, 0, 'L', false );
+
+      $pdf->SetFont( 'dejavusanscondensed', '', 14 );
       $pdf->Cell( 11.49, 7.16, 1, true, 0, 'C', false );
       $pdf->Cell( 11.49, 7.16, max( $data[ $events_id[0] ], $data[ $events_id[1] ] ), true, 0, 'C', false );
-      
+
       /* Print events name */
-      $pdf->SetFont( 'Times','B',36 );
+      $pdf->SetFont( 'dejavusanscondensed','B',36 );
       $pdf->SetXY( $offset_x[ $current_page ], 39.73 + $offset_y[ $current_page ] + $offset );
       $pdf->Cell( 105, 9.13, ( $data[ $events_id[0] ] ? $events_display[0] : $events_display[1] ), false, 0, 'C', false );
       
-      $pdf->SetFont( 'Times', 'B', 24 );
+      $pdf->SetFont( 'dejavusanscondensed', 'B', 24 );
 
       for( $i = 0 ; $i <= (count( $attempt_number ) - 1) ; $i++ )
       {
@@ -324,7 +326,7 @@
         $pdf->Cell( 11.49, 10.86, '', true, 0, 'C', false );
       }
       
-      $pdf->SetFont( 'Times', '', 10 );
+      $pdf->SetFont( 'dejavusanscondensed', '', 10 );
       $pdf->SetXY( 6.20 + $offset_x[ $current_page ], 93.75 + $offset_y[ $current_page ] + $offset );
       $pdf->Cell( 29.12, 6.42, 'Extra attempt', false, 0, 'L', false );
       
