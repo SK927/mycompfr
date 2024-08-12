@@ -132,7 +132,7 @@
       }
 
       $order_data = array_merge( array_flip( array_keys( $competition_catalog_blocks ) ), $user_order ); /* Reorder array by block name */
-      $user_order = to_pretty_json( $order_data );
+      $user_order = mysqli_real_escape_string( $mysqli, to_pretty_json( $order_data ) );
 
       $sql = "REPLACE INTO ". DB_PREFIX . "_{$competition_id} VALUE ('{$user_order_id}', '{$user_name_escaped}', '{$user_data['user_wca_id']}', '{$user_data['user_email']}', '{$user_order}', {$amount}, '{$user_comment_escaped}', 0, 0);";
 
