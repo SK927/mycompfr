@@ -20,6 +20,13 @@
           <div class="col mt-4 fw-bold">URL de la compétition</div>
           <input class="form-control text-center" type="text" name="competition_url" placeholder="https://www.worldcubeassociation.org/competitions/MyComp<?php echo date( 'Y' ); ?>"></input>
           <div class="col-auto mt-2">
+            <?php foreach ( glob( 'assets/addition_*.txt' ) as $file ): ?>
+              <?php $file = explode( "_", $file ) ?>
+              <input id="<?php echo $file[3]; ?>" class="ms-2" type="checkbox" name="<?php echo "addition_{$file[1]}"; ?>" /> 
+              <label class="me-2" for="<?php echo $file[3]; ?>"><?php echo $file[3]; ?></label>             
+            <?php endforeach; ?>
+          </div>
+          <div class="col-auto mt-4">
             <button class="btn btn-light">Pimpe ma FAQ !</button>
           </div>
         </div>
@@ -31,13 +38,13 @@
       <footer class="my-4 py-3">
         <ul class="nav justify-content-center mb-3 pb-3">
           <li class="nav-item">
-            <a href="https://#SUB_DOMAIN#.#BASE_URL#" class="nav-link px-2 text-muted">© Pimp My FAQ 2022-<?php echo date( 'Y' ); ?></a>
+            <a href="#" class="nav-link px-2 text-muted">© Pimp My FAQ 2022-<?php echo date( 'Y' ); ?></a>
           </li>
           <li class="nav-item">
             <a class="nav-link px-2 text-muted" href="mailto:mlefebvre@worldcubeassociation.org">Maxime Lefebvre</a>
           </li>
           <li class="nav-item">
-            <a href="https://github.com/SK927/mycompfr" class="nav-link px-2 text-muted">Github</a>
+            <a href="https://github.com/SK927/mycompfr" class="nav-link px-2 text-muted" target="_blank">Github</a>
           </li>
         </ul>
       </footer>

@@ -1,0 +1,59 @@
+
+###**[Français]**
+
+**Q : Comment je m’inscris ?**
+**R :** Tout d’abord, vous devez créer un compte sur le site de la WCA. Vous pouvez le faire en cliquant sur *[Inscription](https://www.worldcubeassociation.org/users/sign_up)*. Une fois que vous avez créé votre compte et confirmé votre adresse mail, allez dans l’onglet *[S’inscrire](https://www.worldcubeassociation.org/competitions/ID_COMP/register)* de la compétition qui vous intéresse, lisez et suivez les instructions attentivement.
+
+**Q : Je suis adhérent·e à l’AFS, ou c’est ma première compétition, et le site me demande quand même de payer, que faire ?**
+**R :** Comme indiqué sur la page de la compétition, pas besoin de payer ! Le site de la WCA fait apparaître par défaut la page de paiement puisqu'il ne peut pas savoir si votre inscription est payée par l'AFS ou non. Mais rassurez-vous : l'équipe d'organisation le saura, contrôlera qui a besoin de payer ou non et tiendra donc bien compte de cette donnée au moment de valider les inscriptions.
+Si vous n'êtes pas certains d'être adhérent·e à l'AFS, vérifiez en vous connectant sur le *[site de l'association](https://www.speedcubingfrance.org/)* puis en allant dans votre profil.
+
+**Q : Pourquoi ne suis-je pas sur la liste des compétiteur·rice·s ?**
+**R :** Merci de vous assurer d’avoir bien lu et suivi les instructions présentes dans la section *[S’inscrire](https://www.worldcubeassociation.org/competitions/ID_COMP/register)* de la compétition. Notamment, si vous n’êtes pas adhérent·e à l’AFS (voir [ici](https://www.speedcubingfrance.org/association/adhesion)) ou que ce n’est pas votre première compétition, merci de vérifier que vous avez bien payé la compétition. Il est aussi possible que vous soyez sur liste d’attente. Le nombre maximum de participant·e·s peut être trouvé sur la page principale de la compétition (onglet *[Informations générales](#general-info)*) et vous pouvez voir le nombre de personnes déjà acceptées sur la page *[Compétiteurs](https://www.worldcubeassociation.org/competitions/ID_COMP/registrations)*. Si vous avez tout fait correctement, payé si nécessaire, et que la compétition n’est pas remplie, soyez patient·e·s. Nous devons accepter manuellement les inscriptions et les équipes d’organisation ne sont pas disponibles tout le temps. Si vous pensez avoir tout fait correctement mais que vous n’êtes toujours pas accepté·e après deux jours, alors contactez nous en cliquant sur le lien de *[contact](https://www.worldcubeassociation.org/contact?competitionId=ID_COMP&contactRecipient=competition)* présent sur la page principale de la compétition, onglet *[Informations générales](#general-info)*.
+
+**Q : Est-ce que je peux changer les épreuves auxquelles je me suis inscrit·e après la validation de mon inscription ?**
+**R :** Si l'équipe d'organisation l'a autorisé, vous pouvez changer vos épreuves dans la section *[S’inscrire](https://www.worldcubeassociation.org/competitions/ID_COMP/register)*, sur le panneau *Détails de l'inscription*, jusqu'à la fin de la période d'inscription. Si ce n'est pas le cas, vous pouvez directement contacter l'équipe d'organisation via le lien de *[contact](https://www.worldcubeassociation.org/contact?competitionId=ID_COMP&contactRecipient=competition)* présent sur la page principale de la compétition, onglet *[Informations générales](#general-info)*.
+
+**Q : Je ne peux plus venir à la compétition ? Que dois-je faire ?**
+**R :** Merci de nous prévenir dès que vous savez que vous ne pouvez plus venir, en nous envoyant un e-mail en cliquant sur le lien de *[contact](https://www.worldcubeassociation.org/contact?competitionId=ID_COMP&contactRecipient=competition)* présent sur la page principale de la compétition, onglet *[Informations générales](#general-info)*. 
+Vous pouvez également vous désinscrire seul·e en vous rendant directement dans la section *[S’inscrire](https://www.worldcubeassociation.org/competitions/ID_COMP/register)* et en déroulant le panneau *Détails de l'inscription*.
+Les compétitions se remplissent généralement assez vite et nous prévenir de votre désinscription nous permet d’accepter quelqu’un de la liste d’attente. Votre paiement vous sera remboursé si vous vous désinscrivez avant la date inscrite sur la page des *[Informations générales](#general-info)*.
+
+**Q : Est-ce que je dois être très rapide pour pouvoir participer ?**
+**R :** Nous vous recommandons de regarder la page *[Planning](#competition-schedule)* de la compétition. Pour chaque épreuve, si vous pouvez résoudre le cube plus rapidement que le temps indiqué en *Limite de Temps*, vous êtes assez rapide ! Les épreuves appréciées des débutants (3x3, 2x2, pyraminx, skewb) ont la plupart du temps une *limite de temps* de 10 minutes, ce qui laisse à une grande majorité de compétiteur·rice·s la possibilité de participer. Beaucoup de personnes viennent en compétition dans le seul but de s’amuser et de battre leurs propres records, sans s’attendre à gagner.
+
+**Q : Y a-t-il différentes catégories ?**
+**R :** Tous les compétiteurs et les compétitrices participent ensemble, à chaque épreuve dans une seul et même catégorie. Tous les âges, genres, nationalités sont acceptés en compétition. 
+
+**Q : Est-ce que je dois participer à toutes les épreuves ?**
+**R :** Non. Il y a un classement pour chaque épreuve. Vous pouvez donc participer à celles qui vous plaisent uniquement. Il faudra pour cela sélectionner les bonnes images (elles apparaîtront alors en noir) lors de votre inscription.
+
+**Q : Dois-je amener mon propre matériel pour participer ?**
+**R :** Assurez vous d’apporter au moins un cube pour chaque épreuve à laquelle vous vous êtes inscrit.e.s et faites-y bien attention au cours de la compétition. Les vols sont très rares mais il est courant de prendre un cube similaire au sien sans y prêter attention.
+Assurez-vous également que votre cube est autorisé. Les cubes connectés ou encore les cubes avec plusieurs logos sont interdits pour les essais officiels. Notez que tout cube avec logo (même s'il n'y en a qu'un et qu'on ne peut pas le sentir au toucher) est interdit pour les épreuves à l'aveugle.
+Il n'y a cependant pas besoin de ramener de tapis ou de timer, sauf si vous souhaitez les utiliser pour vos entraîner. Ceux utilisés pour la compétition sont fournis par les organisateur·rice·s.
+
+**Q : Est ce que je peux venir seulement en tant que spectateur ou spectatrice ?**
+**R :** Oui. Sauf indication contraire dans les *[Informations générales](#general-info)* de la compétition, les compétitions sont accessibles gratuitement. Vous pouvez regarder l’onglet *[Planning](#competition-schedule)* pour vérifier les horaires de passage des épreuves qui vous intéressent. 
+
+**Q : A quelle heure dois-je arriver pour la compétition ?**
+**R :** Si c’est votre première compétition, nous vous conseillons de regarder sur le *[Planning](#competition-schedule)* l’heure du tutoriel ou de consulter les e-mails envoyés par l'équipe organisatrice. Dans tous les cas, merci d’arriver à la compétition environ 30 minutes avant le début de votre première épreuve. Merci de noter que si vous arrivez après la fin d’une de vos épreuves, nous ne pourrons pas vous faire rattraper.
+
+**Q : Que dois-je faire en arrivant à la compétition ?**
+**R :** La première chose à faire est de trouver l’accueil et de vous y présenter. Si vous êtes nouveau compétiteur ou nouvelle compétitrice, pensez à prendre avec vous une pièce d’identité (ou tout document mentionnant vos nom, prénom et date de naissance) car elle pourra vous être demandée à l’accueil. La personne qui vous accueillera pourra ensuite vous guider et répondre à vos premières questions.
+
+**Q : Quand est-ce que je peux partir de la compétition ?**
+**R :** Il est seulement nécessaire d’être présent·e lorsque vous devez participer ou juger / runner / mélanger (un planning individuel vous sera probablement remis à l’entrée de la compétition). Une fois que vous n’avez plus de tâches, vous êtes libres de partir. Pensez quand même à vérifier si vous vous êtes qualifié·e·s pour un autre tour, on ne sait jamais !
+
+**Q : Où est ce que je peux trouver les résultats ?**
+**R :** Durant la compétition, les résultats sont entrés manuellement sur *[WCA Live](https://live.worldcubeassociation.org/)* et seront disponibles en ligne environ une demi-heure après la fin de chaque tour. 
+A la fin de la compétition, tous les résultats seront disponibles sur cette même page, mais aussi sur le profil de chaque participant·e. 
+
+**Q : Comment créer mon identifiant WCA ?**
+**R :** Les identifiants sont créés automatiquement dès la publication des résultats (moins d’une semaine après la fin de la compétition). Le format est : Année de la première compétition – 4 premières lettres du nom de famille – deux chiffres servant à différencier les personnes qui auraient les mêmes informations.
+
+**Q : J’ai l’habitude de m'entraîner en écoutant de la musique. Puis-je utiliser un casque lors de mes essais officiels ?**
+**R :** Les casques audios ou les écouteurs sont strictement interdits durant les essais officiels, leur utilisation entraînerait donc une disqualification des essais concernés. Si le casque vous sert à être plus concentré ou moins stressé, alors vous pouvez utiliser un casque anti-bruit à l'unique condition qu'il ne comporte aucun composant électronique.
+
+**Q : Est ce que je peux filmer mes résolutions ?**
+**R :** C’est tout à fait possible, avec une caméra sur pied (GoPro ou autre) ou un téléphone portable. Attention cependant : dans le cas d’un téléphone portable ou d’un appareil avec un écran, celui-ci ne doit pas être dirigé vers vous. Une fois que la résolution commence, c’est à dire dès que l’inspection a commencé, il est strictement interdit de toucher à sa caméra, même si elle tombe, sous peine de disqualification de la résolution (DNF).
