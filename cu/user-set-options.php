@@ -35,46 +35,46 @@
                   <div class="col-12">
                     <?php foreach ( $competition_catalog_blocks as $block_name => $block_value ): ?>
                       <?php $block_items = search_for_block_items_only( $block_name, $_POST ); ?>
+                      <?php $items_with_options = false; ?>
                       <?php if ( $block_items ): ?>
-                        <?php $items_with_options = false; ?>
                         <div class="row mt-4 mb-2">
                           <h4 class="col-12"><?php echo $block_name; ?></h4>
                         </div>
-                      <?php endif; ?>
-                      <?php foreach ( $block_items as $item_id => $qty ): ?>
-                        <script>sessionStorage.setItem( '<?php echo $item_id; ?>', <?php echo $qty; ?> )</script>
-                        <input id="<?php echo $item_id; ?>" type="hidden" value="<?php echo $qty; ?>" name="<?php echo $item_id; ?>">
-                        <?php $info = explode( '***', $item_id ); ?>
-                        <?php $block = decrypt_data( $info[0] ); ?>
-                        <?php $item = $competition_catalog_blocks[ $block ][ $info[1] ]; ?>
-                        <?php if ( $item['options'] ): ?>
-                          <?php $items_with_options = $items_with_options || true; ?>
-                          <?php $selected_options = $user_order[ $block ][ $item['item_name'] ]['options']; ?>
-                          <?php for ( $i = 0 ; $i < $qty ; $i++ ): ?>             
-                            <div class="row mb-2">
-                              <div class="col-12 text-uppercase fw-bold mb-2"><?php echo "{$item['item_name']} #" . ($i + 1); ?></div> 
-                              <?php foreach ( $item['options'] as $option_name => $option_value ):?>
-                                <?php $option_id = "{$item_id}***" . encrypt_data( $option_name ) . "***{$i}"; ?>
-                                <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-                                  <div class="form-floating">
-                                    <select id="<?php echo $option_id; ?>" class="form-select mt-1 text-center" name="<?php echo $option_id; ?>">
-                                      <?php $options = explode(';', $option_value); ?>
-                                      <?php foreach ( $options as $option ): ?>
-                                        <option value="<?php echo $option; ?>"<?php if ( $selected_options[ $i ][ $option_name ] == $option ) echo ' selected'; ?>>
-                                          <?php echo $option; ?>
-                                        </option>  
-                                      <?php endforeach; ?>
-                                    </select>
-                                    <label for="<?php echo $option_id; ?>"><?php echo $option_name; ?></label>
+                        <?php foreach ( $block_items as $item_id => $qty ): ?>
+                          <script>sessionStorage.setItem( '<?php echo $item_id; ?>', <?php echo $qty; ?> )</script>
+                          <input id="<?php echo $item_id; ?>" type="hidden" value="<?php echo $qty; ?>" name="<?php echo $item_id; ?>">
+                          <?php $info = explode( '***', $item_id ); ?>
+                          <?php $block = decrypt_data( $info[0] ); ?>
+                          <?php $item = $competition_catalog_blocks[ $block ][ $info[1] ]; ?>
+                          <?php if ( $item['options'] ): ?>
+                            <?php $items_with_options = $items_with_options || true; ?>
+                            <?php $selected_options = $user_order[ $block ][ $item['item_name'] ]['options']; ?>
+                            <?php for ( $i = 0 ; $i < $qty ; $i++ ): ?>             
+                              <div class="row mb-2">
+                                <div class="col-12 text-uppercase fw-bold mb-2"><?php echo "{$item['item_name']} #" . ($i + 1); ?></div> 
+                                <?php foreach ( $item['options'] as $option_name => $option_value ):?>
+                                  <?php $option_id = "{$item_id}***" . encrypt_data( $option_name ) . "***{$i}"; ?>
+                                  <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+                                    <div class="form-floating">
+                                      <select id="<?php echo $option_id; ?>" class="form-select mt-1 text-center" name="<?php echo $option_id; ?>">
+                                        <?php $options = explode(';', $option_value); ?>
+                                        <?php foreach ( $options as $option ): ?>
+                                          <option value="<?php echo $option; ?>"<?php if ( $selected_options[ $i ][ $option_name ] == $option ) echo ' selected'; ?>>
+                                            <?php echo $option; ?>
+                                          </option>  
+                                        <?php endforeach; ?>
+                                      </select>
+                                      <label for="<?php echo $option_id; ?>"><?php echo $option_name; ?></label>
+                                    </div>
                                   </div>
-                                </div>
-                              <?php endforeach; ?>
-                            </div> 
-                          <?php endfor; ?>
+                                <?php endforeach; ?>
+                              </div> 
+                            <?php endfor; ?>
+                          <?php endif; ?>
+                        <?php endforeach; ?> 
+                        <?php if ( ! $items_with_options ): ?>
+                          Vous avez sélectionné un ou plusieurs produits pour ce bloc, mais aucun d'entre eux ne nécessite la sélection d'options.
                         <?php endif; ?>
-                      <?php endforeach; ?> 
-                      <?php if ( ! $items_with_options ): ?>
-                        Vous avez sélectionné un ou plusieurs produits pour ce bloc, mais aucun d'entre eux ne nécessite la sélection d'options.
                       <?php endif; ?>
                     <?php endforeach; ?> 
                     <?php if ( isset( $_POST['user_comment'] ) ): ?>
