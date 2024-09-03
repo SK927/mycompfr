@@ -96,7 +96,7 @@
           array_push( $temp_order, $order[ $block_name ]['given'] );
         }
         
-        $row = array_merge( array_slice( $row, 0, 4 ), $temp_order, array_slice( $row, 5 ) ); /* Remove Order_Data data and insert temporary block in final data */
+        $row = array_merge( array_slice( $row, 0, 3 ), array( decrypt_data( $row['user_email'] ) ), $temp_order, array_slice( $row, 5 ) ); /* Remove Order_Data data and insert temporary block in final data */
         fputcsv( $f, $row, $delimiter ); /* Write each order to buffer */
       } 
       
