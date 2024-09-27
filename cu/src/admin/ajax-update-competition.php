@@ -41,7 +41,7 @@
       $competition_contact_email = encrypt_data( $_POST['competition_contact_email'] );
     }
 
-    $competition_info = $_POST['competition_information'];
+    $competition_info = mysqli_real_escape_string( $conn, $_POST['competition_information'] );
 
     if ( ! $error_email && ! $error_date ) 
     {
