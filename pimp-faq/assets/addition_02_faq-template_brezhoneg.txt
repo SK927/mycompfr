@@ -1,60 +1,59 @@
-[Brezhoneg en traoñ]|||
-
-_________________
-
 ###**[Brezhoneg]**
 *Notenn: Graet oa bet an droidigezh-mañ gant un deskad. Ma welit fazioù, kasit ur c'hemennad da admin@speedcubingfrance.org, mar plij.*
 
 **G: Penaos en em enskrivañ?**
-**R:** Da gentañ, ret eo deoc'h krouiñ ur gont war lec’hienn an WCA. Gallout a rit ober se en ur glikañ war *[Enskrivañ](https://www.worldcubeassociation.org/users/sign_up)*. P'eo bet krouet ho kont ha kadarnaet ho chomlec’h postel, kit d’an ivinell *[Enskrivañ](https://www.worldcubeassociation.org/competitions/ID_COMP/register)* ar genstrivadeg a blij deoc’h, lennit ha heuilhit ar c’hemennoù gant evezh.
-
-**G: Perak n'emaon ket war roll ar gevezerien?**
-R: Lennit mat ha heuilhit ar c’hemennoù a gaver er rann *[Enskrivañ](https://www.worldcubeassociation.org/competitions/ID_COMP/register)* ar genstrivadeg, mar plij. Dreist-holl, ma n’oc’h ket ezel eus an AFS (gwelout [amañ](https://www.speedcubingfrance.org/association/adhesion)) ha ma n’eo ket ho kenstrivadeg kentañ, gwiriit hoc'h eus paeet ar genstrivadeg, mar plij. Marteze emaoc’h war listennad gortoz ivez. An niver brasañ a dud hag a c'hall kemer perzh zo war bajenn bennañ ar genstrivadeg (war ivinell *[Titouroù hollek (Informations générales)](#general-info)*) ha gallout a rit gwelet pet den zo bet degemeret dija war bajenn *[Kenstriverien (Compétiteurs)](https://www.worldcubeassociation.org/competitions/ID_COMP/registrations)* ar genstrivadeg. Ma’z eus bet graet pep tra mat, paeet ma’z eus ezhomm, ha ma n’eo ket leun ar genstrivadeg, chomit pasiant·ez. Ret eo dimp degemer an enskrivadurioù dre zorn ha n’eo ket hegerz noz-deiz skipailhoù aozañ. Ma soñjit hoc’h eus graet pep tra evel zo dleet met n’oc’h ket bet degemeret c’hoazh goude daou zevezh, kit e darempred ganimp en ur glikañ war al liamm Darempred a gaver war pajenn bennañ ar genstrivadeg, ivinell *[Titouroù hollek (Informations générales)](#general-info)*.
+**R:** Da gentañ, ret eo deoc'h krouiñ ur gont war lec’hienn an WCA. Gallout a rit ober se en ur glikañ war *[Enskrivañ](https://www.worldcubeassociation.org/users/sign_up)*. P'eo bet krouet ho kont ha kadarnaet ho chomlec’h postel, kit d’an ivinell*[Enskrivañ](https://www.worldcubeassociation.org/competitions/PllouvaraOpen2024/register)* ar genstrivadeg a blij deoc’h, lennit ha heuilhit ar c’hemennoù gant evezh.
 
 **G: Ezel eus an AFS on, pe ma c'henstrivadeg kentañ eo, ha goulenn a ra al lec’hienn diganin paeañ memes tra, petra ober?**
-**R:** Evel ma'z eo skrivet war bajenn ar genstrivadeg, n'eus ket ezhomm da baeañ! Gant lec'hienn ar WCA e vo diskouezet ar bajenn paeañ bepred peogwir ne c'hall ket gouzout hag-eñ e vez paeet hoc'h enskrivadur gant an AFS pe get, met, bezit sur e ouio ar skipailh aozañ piv en deus ezhomm da baeañ ha piv n'en deus ket ezhomm, ha dalc'het e vo kont eus an titouroù-se pa vo kadarnaet an enskrivadurioù.
-Ma n'oc'h ket sur mard oc'h ezel eus an AFS pe get, gwiriit en ur gevreañ ouzh lec'hienn ar gevredigezh ha mont da welout ho profil.
+**R:** Evel ma'z eo skrivet war bajenn ar genstrivadeg, n'eus ket ezhomm da baeañ! Gant lec'hienn an WCA e vo diskouezet ar bajenn paeañ bepred peogwir ne c'hall ket gouzout hag-eñ e oa paeet hoc'h enskrivadur gant an AFS pe get met bezit sur e ouio ar skipailh aozañ piv en deus ezhomm da baeañ ha piv n'en deus ket ezhomm ha dalc'het e vo kont eus an titouroù-se pa vo kadarnaet an enskrivadurioù.
+Ma n'oc'h ket sur mard oc'h ezel eus an AFS pe get, gwiriit en ur gevreañ ouzh *[lec'hienn ar gevredigezh](https://www.speedcubingfrance.org/)* ha mont da welout ho profil.
 
-**G: Daoust hag-eñ e c'hallan cheñch amprouennoù am eus roet pa'm eus kaset ma enskrivadur?**
-**R:** Ma'z eus bet aotreet gant ar skipailh aozañ e c'hallit cheñch hoc'h amprouennoù amañ betek dibenn ar mare enskrivañ. Ma n'eo ket posubl ober se, e c'hallit mont e darempred gant ar skipailh aozañ war-eeun dre al liamm Darempred war an ivinell *[Titouroù hollek (Informations générales)](#general-info)*.
+**G: Perak n'emaon ket war roll ar gevezerien?**
+R: Lennit mat ha heuilhit ar c’hemennoù a gaver er rann *[Enskrivañ](https://www.worldcubeassociation.org/competitions/PllouvaraOpen2024/register)* ar genstrivadeg, mar plij. Dreist-holl ma n’oc’h ket ezel eus an AFS (gwelout [amañ](https://www.speedcubingfrance.org/association/adhesion)) ha ma n’eo ket ho kenstrivadeg kentañ, gwiriit hoc'h eus paeet ar genstrivadeg. Marteze emaoc’h war listennad gortoz ivez. An niver brasañ a dud hag a c'hall kemer perzh zo war bajenn bennañ ar genstrivadeg (war ivinell *[Titouroù hollek (Informations générales)](#general-info)*) ha gallout a rit gwelet pet den zo bet degemeret dija war ar bajenn *[Kenstriverien (Compétiteurs)](https://www.worldcubeassociation.org/competitions/PllouvaraOpen2024/registrations)*. Ma’z eus bet graet pep tra mat, paeet ma’z eus ezhomm, ha ma n’eo ket leun ar genstrivadeg, chomit pasiant·ez. Ret eo dimp degemer an enskrivadurioù dre zorn ha n’eo ket hegerz noz-deiz skipailhoù aozañ. Ma soñjit hoc’h eus graet pep tra evel zo dleet met n’oc’h ket bet degemeret c’hoazh goude daou zevezh, kit e darempred ganimp en ur glikañ war al liamm *[darempred](https://www.worldcubeassociation.org/contact/website?competitionId=ID_COMP)* a gaver war bajenn bennañ ar genstrivadeg, ivinell *[Titouroù hollek (Informations générales)](#general-info)*.
+
+**G: Daoust hag-eñ e c'hallan cheñch amprouennoù am eus roet pa'm eus kaset ma enskrivadur goude bezañ degemeret?**
+**R:** Ma'z eus bet aotreet gant ar skipailh aozañ e c'hallit cheñch hoc'h amprouennoù e ur glikañ war *[Enskrivañ ("S'inscrire" e galleg ; "Register" e saozneg)](https://www.worldcubeassociation.org/competitions/ID_COMP/register)* ha goude war "Titouroù an enskrivadur" ("Détails de l'inscription" e galleg ; "Registrations details" e saozneg) betek dibenn ar mare enskrivañ. Ma n'eo ket posubl hen ober e c'hallit mont e darempred gant ar skipailh aozañ war-eeun dre al liamm *[darempred](https://www.worldcubeassociation.org/contact/website?competitionId=ID_COMP)* a vez kavet war ar bajenn pennañ war an ivinell *[Titouroù hollek ("Informations générales" e galleg ; "General info" e saozneg)](#general-info)*.
 
 **G: Ne c'hallan ket ken dont d'ar genstrivadeg? Petra eo ret din ober?**
-**R:** Kemennit dimp, mar plij, kerkent ha ma ouzoc'h ne c'hallit ket dont ken, dre gas ur postel dimp dre glikañ war al liamm Darempred a gaver war pajenn bennañ ar genstrivadeg, ivinell *[Titouroù hollek (Informations générales)](#general-info)*. Buan a-walc’h e vez leuniet ar c’henstrivadegoù peurliesañ ha pa lavarit dimp ne c’hallit ket dont eo possubl degemer unan bennak eus al listennad gortoz. Distroet e vo ho paeamant deoc'h ma tilezit hoc'h anv a-raok an deiz skrivet war bajenn an *[Titouroù hollek (Informations générales)](#general-info)*.
+**R:** Kemennit dimp, mar plij, kerkent ha ma ouzoc'h ne c'hallit ket dont ken dre gas ur postel dimp dre glikañ war al liamm *[darempred](https://www.worldcubeassociation.org/contact/website?competitionId=ID_COMP)* a gaver war bajenn pennañ ar genstrivadeg, ivinell *[Titouroù hollek ("Informations générales" e galleg ; "General info" e saozneg)](#general-info)*.
+Gallout a rit ivez dilemel hoc'h enskrivadur hoc'h unan-penn en ur glikañ war *[Enskrivañ ("S'inscrire" e galleg ; "Register" e saozneg)](https://www.worldcubeassociation.org/competitions/ID_COMP/register)*  ha goude war "Titouroù an enskrivadur" ("Détails de l'inscription" e galleg ; "Registrations details" e saozneg).
+Peurliesañ e vez leuniet ar c’henstrivadegoù buan a-walc’h ha neuze en ur lavar dimp ne c’hallit ket dont eo possubl dimp degemer unan bennak all eus al listennad gortoz. Restaolet e vo ho paeamant deoc'h ma tilezit hoc'h anv a-raok an deiz skrivet war bajenn an *[Titouroù hollek (Informations générales)](#general-info)*.
 
 **G: Ha ret eo din bezañ buan-kenañ evit kemer perzh?**
-**R:** Aliañ a reomp ac’hanoc’h da sellet ouzh pajenn *[Steuñvad (Planning)](#competition-schedule)* ar genstrivadeg. Evit pep amprouenn, ma c'hallit diskoulmañ an diñs buanoc'h eget an amzer merket en *Time limit*, neuze emaoc'h buan a-walc'h. An darn vrasañ eus an amprouennoù a blij ar muiañ d'an deraouidi (3x3, 2x2, pyraminx, skewb) o deus un *Time Limit* dindan 10 munut, ar pezh a ro an tu d'an darn vrasañ eus ar genstriverien da gemer perzh. Kalz a dud a zeu da gevezañ evit kaout plijadur ha pilat o rekordoù dezho, hep gortoz gounit.
+**R:** Aliañ a reomp ac’hanoc’h da sellet ouzh pajenn *[Steuñvad ("Planning" e galleg ; "Schedule" e saozneg)](#competition-schedule)* ar genstrivadeg. Evit pep amprouenn ma c'hallit diskoulmañ an diñs buanoc'h eget an amzer merket evel *Harz-amzer* ("Limite de temps" e galleg ; "Time limit e saozneg) neuze emaoc'h buan a-walc'h. An darn vrasañ eus an amprouennoù a blij ar muiañ d'an deraouidi (3x3, 2x2, pyraminx, skewb) o deus un *Harz-amzer* eus 10 munut, ar pezh a ro an tu d'an darn vrasañ eus ar genstriverien ha kenstriverezed da gemer perzh. Kalz a dud a zeu da gevezañ evit kaout plijadur ha pilat o rekordoù dezho, hep gortoz gounit.
 
 **G: Daoust ha rummadoù disheñvel zo?**
-**R:** Asambles e kemer perzh an holl genstriverien ha kenstriverezed hag an holl oadoù, jeneroù, broadelezhioù a vez degemeret er c’henstrivadegoù.
+**R:** Asambles e kemer perzh an holl genstriverien ha kenstriverezed evit pep amprouenn gant ur rummad hepken evit an holl dud. An holl oadoù, jeneroù, broadelezhioù a vez degemeret er c’henstrivadegoù.
 
 **G: Ha ret eo din kemer perzh en holl amprouennoù?**
-**R:** N'eo ket. Ur renkadur zo evit pep amprouenn. Neuze e c’hallit kemer perzh er re a blij deoc’h hepken. Evit se e vo ret dibab ar skeudennoù mat e-pad hoc'h enskrivadur.
+**R:** N'eo ket. Ur renkadur zo evit pep amprouenn. Neuze e c’hallit kemer perzh er re a blij deoc’h hepken. Evit hen ober e vo ret deoc’h dibab ar skeudennoù mat e-pad hoc'h enskrivadur (e du e vint diskouezet neuze).
 
-**G: Ha ret eo din implijout ma diñsoù din-me evit kemer perzh?**
-**R:** Ya! Gwiriit e vo degaset ganeoc’h un diñs da nebeutañ evit pep amprouenn hoc’h eus enskrivet, ha diwallit ho tiñsoù e-pad ar genstrivadeg. Ral-kenañ eo al laeroñsioù met alies e vez tapet un diñs damheñvel ouzh e hini hep teurel evezh outañ.
-Bezit sur eo aotreet ho tiñs, koulskoude. Difennet eo an diñsoù kevreet pe ivez an diñsoù gant meur a logo er c'henstrivadegoù ofisiel. Taolit evezh ivez, difennet eo an holl diñsoù gant ul logo (daoust ma n'eus nemet unan anezho ha ma "ne c'haller ket santout anezhañ pa douch") evit an amprouennoù dall.
+**G: Ha ret eo din degas ma diñsoù din-me evit kemer perzh?**
+**R:** Gwiriit e vo degaset ganeoc’h un diñs da nebeutañ evit pep amprouenn dibabet ganoc’h e-pad hoc'h enskrivadur ha diwallit ho tiñsoù e-pad ar genstrivadeg. Ral-kenañ eo al laeroñsioù met alies e vez tapet un diñs damheñvel ouzh e hini hep teurel evezh outañ.
+Bezit sur eo aotreet ho tiñs ivez. Difennet eo an diñsoù kevreet pe ivez an diñsoù gant meur a logo er c'henstrivadegoù ofisiel. Taolit evezh ivez: difennet eo an holl diñsoù gant ul logo (daoust ma n'eus nemet unan anezho ha ma "ne c'haller ket santout anezhañ pa douch") evit an amprouennoù dall.
+N'eus ket ezhomm avat da zegas un tapier pe ur c'hronometr, nemet pa fell deoc'h implijout anezho evit pleustriñ. Ar re implijet evit ar genstrivadeg a vez kinniget gant an aozerien.
 
 **G: Ha gallout a ran dont evel arvester·ez?**
-**R:** Ya, nemet e vefe meneget an enep e Titouroù hollek ar genstrivadeg e c'haller mont d'ar c'henstrivadegoù evit netra. Gallout a rit sellet ouzh an ivinell *[Steuñvad (Planning)](#competition-schedule)* evit gouzout pegoulz e vo an amprouennoù a blij deoc’h.
+**R:** Ya. Nemet ma vefe meneget an enep e Titouroù hollek ar genstrivadeg e c'haller mont d'ar c'henstrivadegoù evit netra. Gallout a rit sellet ouzh an ivinell *[Steuñvad (Planning)](#competition-schedule)* evit gouzout pegoulz e vo an amprouennoù a fell deoc’h gwelet.
 
 **G: Da bet eur eo ret din erruout evit ar genstrivadeg?**
-**R:** Ma’z eo ho kenstrivadeg kentañ e aliomp ac’hanoc’h da sellet ouzh eur an tutorial war ar *[Steuñvad (Planning)](#competition-schedule)* ha da erruout war-dro 20 munut a-raok. Ma n'eo ket, deuit war-dro 30 munut a-raok deroù hoc’h amprouenn gentañ, mar plij. Dalc'hit soñj ne vo ket posubl deoc'h kemer perzh en un amprouenn ma tegouezhit goude dibenn anezhi.
+**R:** Ma’z eo ho kenstrivadeg kentañ e aliomp ac’hanoc’h da sellet ouzh eur an tutorial war ar *[Steuñvad (Planning)](#competition-schedule)* pe da lennet ar posteloù a oa bet kaset gant ar skipailh aozañ. Forzh penaos deuit war-dro 30 munut a-raok deroù hoc’h amprouenn gentañ, mar plij. Dalc'hit soñj ne vo ket posubl deoc'h kemer perzh en un amprouenn ma tegouezhit goude dibenn anezhi.
 
 **G: Petra ober pa erruan er c'henstrivadeg?**
-**R:** Kavout ar burev degemer ha reiñ hoc'h anv eo an traoù kentañ da ober pa erruit. Ma'z oc'h ur c'henstriver pe ur genstriverez nevez, kemerit ganeoc'h un teul identelezh (pe nep teul gant hoc'h anv hag ho teiziad ganedigezh) rak goulennet e vo gant tud ar burev degemer. An den a zegemero ac’hanoc’h a c’hallo heñchañ ac’hanoc’h goude-se ha respont d’ho koulennoù kentañ.
+**R:** Kavout ar burev degemer ha reiñ hoc'h anv eo an traoù kentañ da ober pa erruit. Ma'z oc'h ur c'henstriver pe ur genstriverez nevez, kemerit ganeoc'h un teul identelezh (pe n'eus forzh petra teul gant hoc'h anv hag ho teiziad ganedigezh) rak gallout a ra bezañ goulennet gant tud ar burev degemer. An den a zegemero ac’hanoc’h a c’hallo heñchañ ac’hanoc’h goude-se ha respont d’ho koulennoù kentañ.
 
 **G: Pegoulz e c'hallan mont kuit eus ar genstrivadeg?**
-**R:** Ret eo deoc’h bezañ war al lec’h hepken pa vez ret deoc’h kemer perzh pe barn / redek / meskañ (ur steuñvad hiniennel a vo roet deoc’h pa erruit moarvat). Pa n’ho peus ket trevelloù ken, e c’hallit mont kuit. Soñjit, memes tra, gwiriañ hag-eñ oc’h perzheget evit un dro all, piv oar!
+**R:** Ret eo deoc’h bezañ war al lec’h hepken pa vez ret deoc’h kemer perzh pe barn / redek / meskañ (ur steuñvad hiniennel a vo roet deoc’h pa erruit moarvat). Pa n’ho peus ket trevelloù ken e c’hallit mont kuit. Soñjit memes tra gwiriañ hag-eñ oc’h perzheget evit un dro all, piv oar!
 
 **G: Pelec'h e c'hallan kavout an disoc'hoù?**
 **R:** E-pad ar genstrivadeg e vez lakaet an disoc'hoù war *[WCA Live](https://live.worldcubeassociation.org)* ha kavet e vezont enlinenn war-dro un hanter eurvezh goude fin pep tro.
-E dibenn ar genstrivadeg e vo kavet an holl zisoc'hoù war ar bajenn-mañ.
+E dibenn ar genstrivadeg e vo kavet an holl zisoc'hoù war ar bajenn-mañ met ivez war bajenn aelad pep kenstriver·ez.
 
 **G: Penaos krouiñ ma anaouder WCA (WCA ID)?**
-**R:** Krouet e vez an anaouderioù ent emgefreek kerkent ha ma vez embannet an disoc’hoù (dindan sizhun war-lerc’h fin ar genstrivadeg). Ar stumm eo : Bloavezh ar genstrivadeg kentañ – 4 lizherenn gentañ eus anv ar familh – daou sifr da zisheñvelaat an dud o defe ar memes titouroù.
+**R:** Krouet e vez an anaouderioù ent emgefreek kerkent ha ma vez embannet an disoc’hoù (dindan sizhun war-lerc’h fin ar genstrivadeg). Ar stumm eo: Bloavezh ar genstrivadeg kentañ – 4 lizherenn gentañ eus anv-familh – daou sifr da zisheñvelaat an dud o defe ar memes titouroù.
 
-**G: Boas on da bleustriñ en ur selaou sonerezh. Daoust hag-eñ e c'hallan implijout un tokarn selaou da-geñver ma zaolioù-esae ofisiel?**
-**R:** Difennet-groñs eo an tokarnioù selaou pe ar selaouelloù e-pad an taolioù-esae ofisiel, rak-se e vefe dizingalet an taolioù-esae-mañ. Ma implijit un tokarn selaou evit prederiañ pe distressañ, gallout a rit neuze implijout un tokarn-didrouzañ ma n'eo ket elektronek tamm ebet.
+**G: Boas on da bleustriñ en ur selaou sonerezh. Daoust hag-eñ e c'hallan implijout un tokarn selaou e-pad ma zaolioù-esae ofisiel?**
+**R:** Difennet-groñs eo an tokarnioù selaou pe ar selaouelloù e-pad an taolioù-esae ofisiel, rak-se e vefe divarrekaet an taolioù-esae-mañ. Ma implijit un tokarn selaou evit prederiañ pe distressañ, gallout a rit neuze implijout un tokarn-didrouzañ ma n'eo ket elektronek tamm ebet.
 
 **G: Ha gallout a ran filmañ ma ziluziaduroù?**
-**R:** Ya, possubl eo, gant ur c'hamera gant un troad (gopro pe traoù all) pe gant ur pellgomzer hezoug. Diwallit koulskoude : ma vez ur pellgomzer hezoug pe ur benveg gant ur skramm, ne zle ket bezañ durc’haet warnoc’h. Ur wech kroget an diluziadur, da lavaret eo kerkent ha ma'z eo kroget an ensellerezh, ez eo difennet strizh touchañ ar c'hamera (ivez pa gouezhfe), dindan boan dizingal an diluziadur (DNF).
+**R:** Ya, possubl eo, gant ur c'hamera gant un troad (GoPro pe all) pe gant ur pellgomzer hezoug. Diwallit koulskoude : ma vez ur pellgomzer hezoug pe ur benveg gant ur skramm, ne zle ket bezañ durc’haet warnoc’h. Ur wech kroget an diluziadur, da lavaret eo kerkent ha ma'z eo kroget an ensellerezh, ez eo difennet strizh touchañ ar c'hamera (ivez pa gouezhfe), dindan boan divarrekaat an diluziadur (DNF).
