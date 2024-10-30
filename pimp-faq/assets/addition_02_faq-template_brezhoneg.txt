@@ -1,3 +1,7 @@
+[Brezhoneg en traoñ]|||
+
+_________________
+
 ###**[Brezhoneg]**
 *Notenn: Graet oa bet an droidigezh-mañ gant un deskad. Ma welit fazioù, kasit ur c'hemennad da admin@speedcubingfrance.org, mar plij.*
 
@@ -40,7 +44,7 @@ N'eus ket ezhomm avat da zegas un tapier pe ur c'hronometr, nemet pa fell deoc'h
 **R:** Ma’z eo ho kenstrivadeg kentañ e aliomp ac’hanoc’h da sellet ouzh eur an tutorial war ar *[Steuñvad (Planning)](#competition-schedule)* pe da lennet ar posteloù a oa bet kaset gant ar skipailh aozañ. Forzh penaos deuit war-dro 30 munut a-raok deroù hoc’h amprouenn gentañ, mar plij. Dalc'hit soñj ne vo ket posubl deoc'h kemer perzh en un amprouenn ma tegouezhit goude dibenn anezhi.
 
 **G: Petra ober pa erruan er c'henstrivadeg?**
-**R:** Kavout ar burev degemer ha reiñ hoc'h anv eo an traoù kentañ da ober pa erruit. Ma'z oc'h ur c'henstriver pe ur genstriverez nevez, kemerit ganeoc'h un teul identelezh (pe n'eus forzh petra teul gant hoc'h anv hag ho teiziad ganedigezh) rak gallout a ra bezañ goulennet gant tud ar burev degemer. An den a zegemero ac’hanoc’h a c’hallo heñchañ ac’hanoc’h goude-se ha respont d’ho koulennoù kentañ.
+**R:** Kavout ar burev degemer ha reiñ hoc'h anv eo an traoù kentañ da ober pa erruit. Ma'z oc'h ur c'henstriver pe ur genstriverez nevez, kemerit ganeoc'h un teul identelezh (pe n'eus forzh peseurt teul gant hoc'h anv hag ho teiziad ganedigezh) rak gallout a ra bezañ goulennet gant tud ar burev degemer. An den a zegemero ac’hanoc’h a c’hallo heñchañ ac’hanoc’h goude-se ha respont d’ho koulennoù kentañ.
 
 **G: Pegoulz e c'hallan mont kuit eus ar genstrivadeg?**
 **R:** Ret eo deoc’h bezañ war al lec’h hepken pa vez ret deoc’h kemer perzh pe barn / redek / meskañ (ur steuñvad hiniennel a vo roet deoc’h pa erruit moarvat). Pa n’ho peus ket trevelloù ken e c’hallit mont kuit. Soñjit memes tra gwiriañ hag-eñ oc’h perzheget evit un dro all, piv oar!
