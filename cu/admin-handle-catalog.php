@@ -63,7 +63,7 @@
                 </div>
                 <div class="handle-catalog row fixed-bottom px-4 py-3">
                   <div class="col-12 col-md">
-                    <button id="confirm-button" class="btn btn-success">Sauver</button>
+                    <button id="confirm-button" class="btn btn-success">Sauvegarder</button>
                   </div>
                 </div>
               </form>
