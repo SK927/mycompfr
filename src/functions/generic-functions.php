@@ -9,9 +9,9 @@
    * @return (json string) formatted data as json string
    */
 
-  function to_pretty_json( $data )
+  function to_pretty_json( $data, $attr = JSON_ATTR )
   {
-    return json_encode( $data, JSON_ATTR );
+    return json_encode( $data, $attr );
   }  
 
 
@@ -21,7 +21,7 @@
    * @return (multi) formatted data as json string
    */
 
-  function from_pretty_json( $data )
+  function from_pretty_json( $data, $attr = JSON_ATTR )
   {
-    return json_decode( $data, true, 512, JSON_ATTR );
+    return json_decode( $data, true, 512, $attr );
   }
