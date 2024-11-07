@@ -27,7 +27,7 @@
       $competition_country = strtolower( $competition['schedule']['venues'][0]['countryIso2'] );
       $competition_registrations = [];
       
-      $competition_registrations = to_pretty_json( format_wcif_persons_data( $competition['persons'] ) );
+      $competition_registrations = to_pretty_json( format_wcif_persons_data( $competition['persons'] ), JSON_HEX_APOS );
 
       $sql = "REPLACE INTO " . DB_PREFIX . "_Main (competition_id, competition_name, competition_start_date, competition_end_date, competition_country_iso, competition_registrations) VALUES ('{$competition_id}', '{$competition_name}', '{$competition_start_date}', '{$competition_end_date}', '{$competition_country}', '{$competition_registrations}');";
       
