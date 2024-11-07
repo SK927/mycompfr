@@ -8,7 +8,7 @@
     require_once 'src/custom-functions.php';
     require_once 'src/layout/main-templates.php';
 
-    $user_upcoming_manageable_competitions = from_pretty_json ( decrypt_data( $_SESSION['encrypted_competitions_data'] ) );
+    $user_upcoming_manageable_competitions = $_SESSION['manageable_competitions'];
     
 ?>
       <script src="assets/js/index-actions.js"></script> <!-- Custom JS to handle current page actions -->
@@ -24,16 +24,16 @@
           <div class="card">
             <div class="card-header">MY COMPETITIONS</div>
             <div class="card-body"> 
-              <?php foreach ( $user_upcoming_manageable_competitions as $competition ): ?>  
-                <div id="<?php echo $competition['id']; ?>_admin" class="row my-2 px-4 py-2">
+              <?php foreach ( $user_upcoming_manageable_competitions as $competition_id => $competition_data ): ?>  
+                <div id="<?php echo $competition_id; ?>_admin" class="row my-2 px-4 py-2">
                   <div class="col-12 col-sm-auto text-left my-2 mt-sm-0">
-                    <p class="m-0 p-0 text-break"><?php echo $competition['name']; ?></p>
-                    <p class="m-0 p-0 text-muted"><?php echo $competition['start']." to ".$competition['end']; ?></p>
+                    <p class="m-0 p-0 text-break"><?php echo "{$competition_data['name']}"; ?></p>
+                    <p class="m-0 p-0 text-muted"><?php echo "{$competition_data['start']} to {$competition_data['end']}"; ?></p>
                   </div>
-                  <?php if ( $competition['is_imported'] ): ?>
-                    <script>displayHandle( '<?php echo addslashes( $competition['id'] ); ?>' );</script>
+                  <?php if ( $competition_data['is_imported'] ): ?>
+                    <script>displayHandle( '<?php echo addslashes( $competition_id ); ?>' );</script>
                   <?php else:?>
-                    <script>displayToImport( '<?php echo addslashes( $competition['id'] ); ?>' );</script>
+                    <script>displayToImport( '<?php echo addslashes( $competition_id ); ?>' );</script>
                   <?php endif; ?>
                 </div>
               <?php endforeach; ?>      

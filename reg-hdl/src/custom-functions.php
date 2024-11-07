@@ -74,9 +74,8 @@
   function get_user_manageable_competitions( $user_token, $mysqli )
   {
     $manageable_competitions = [];
-    $_SESSION['manageable_competitions'] = array();
     
-    [$competitions_managed_by_user, $error] = get_competitions_managed_by_user( $user_token );
+    [ $competitions_managed_by_user, $error ] = get_competitions_managed_by_user( $user_token );
 
     if ( ! $error )
     {
@@ -86,18 +85,15 @@
                 
         $is_imported = $query_results->fetch_assoc()['id'] ? true : false;
           
-        array_push( $_SESSION['manageable_competitions'], $competition['id'] );
-
-        $manageable_competitions[] = array(
-                                      'id' => encrypt_data( $competition['id'] ),
+        $manageable_competitions[ $competition['id'] ] = array(
                                       'name' => $competition['name'],
                                       'start' => date( 'd-m-Y', strtotime( $competition['start_date'] ) ),
                                       'end' => date( 'd-m-Y' , strtotime( $competition['end_date'] ) ),
                                       'is_imported' => $is_imported,
                                     ); 
-      }
-      
-      $_SESSION['encrypted_competitions_data'] = encrypt_data( to_pretty_json( $manageable_competitions ) );
+
+        $_SESSION['manageable_competitions'] = $manageable_competitions;
+      }  
 
       return null;
     }

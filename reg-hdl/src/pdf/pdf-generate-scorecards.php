@@ -1,11 +1,12 @@
 <?php
 
   require_once dirname( __DIR__, 3 ) . '/src/sessions/session-handler.php';
+  require_once dirname( __DIR__, 3 ) . '/src/functions/generic-functions.php';
   require_once dirname( __DIR__, 3 ) . '/src/functions/encrypt-functions.php';
 
-  $competition_id = decrypt_data( $_POST['competition_id'] );
+  $competition_id = $_POST['competition_id'];
 
-  if ( $_SESSION['logged_in'] AND ! empty( $_POST ) AND in_array( $competition_id, $_SESSION['manageable_competitions'] ) )
+  if ( $_SESSION['logged_in'] AND ! empty( $_POST ) AND in_array( $competition_id,  array_keys( from_pretty_json( $_SESSION['manageable_competitions'] ) ) ) )
   {
     require_once '../config.php';
 

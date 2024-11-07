@@ -3,9 +3,9 @@
   require_once dirname( __DIR__, 3 ) . '/src/sessions/session-handler.php';
   require_once dirname( __DIR__, 3 ) . '/src/functions/encrypt-functions.php';
  
-  $competition_id = decrypt_data( $_POST['competition_id'] );
+  $competition_id = $_POST['competition_id'];
 
-  if ( $_SESSION['logged_in'] AND $_POST['valid'] AND in_array( $competition_id, $_SESSION['manageable_competitions'] ) ) 
+  if ( $_SESSION['logged_in'] AND $_POST['valid'] AND in_array( $competition_id, array_keys( $_SESSION['manageable_competitions'] ) ) ) 
   {
     require_once dirname( __DIR__, 3 ) . '/src/mysql/mysql-connect.php';
     require_once '../custom-functions.php';

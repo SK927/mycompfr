@@ -5,14 +5,14 @@
   require_once dirname( __DIR__, 3 ) . '/src/sessions/session-handler.php';
   require_once dirname( __DIR__, 3 ) . '/src/functions/encrypt-functions.php';
 
-  $competition_id = 'CharenteOpen2024';
+  $competition_id = $_POST['competition_id'];
 
-  if ( $_SESSION['logged_in'] AND in_array( $competition_id, $_SESSION['manageable_competitions'] ) )
+  if ( $_SESSION['logged_in'] AND in_array( $competition_id, array_keys( $_SESSION['manageable_competitions'] ) ) )
   {
     require_once dirname( __DIR__, 3 ) . '/src/mysql/mysql-connect.php';
     require_once '../custom-functions.php';
 
-    $user_id = 167964;
+    $user_id = decrypt_data( $_POST['user_id'] );
     
     /* Query all registrations stored in DB for selected competition */
     $query_results = $conn->query( "SELECT competition_registrations FROM " . DB_PREFIX . "_Main WHERE competition_id = '{$competition_id}';" );

@@ -1,14 +1,16 @@
 <?php 
 
   require_once 'src/layout/_header.php';
+  require_once '../src/functions/generic-functions.php';
   
-  if ( $_SESSION['logged_in'] )
+  $competition_id = $_GET['id']; 
+
+  if ( $_SESSION['logged_in'] AND in_array( $competition_id, array_keys( $_SESSION['manageable_competitions'] ) ) )
   {    
     require_once '../src/mysql/mysql-connect.php';
     require_once '../src/functions/encrypt-functions.php';
     require_once 'src/custom-functions.php';
 
-    $competition_id = decrypt_data( $_GET['id'] ); 
     [ $competition_name, $events, $registrations ] = get_competition_data_from_db( $competition_id, $conn );
     [ $competitors_list, $error ] = get_competitors_from_public_wcif( $competition_id );
 
@@ -81,8 +83,7 @@
   }
   else
   {
-    header( "Location: https://{$_SERVER['SERVER_NAME']}" );    
-    exit();
+    echo "Cannot access this page!";
   }
 
   require_once 'src/layout/_footer.php';
