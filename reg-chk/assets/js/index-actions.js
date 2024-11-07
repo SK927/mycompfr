@@ -167,26 +167,29 @@ $( document ).on( 'click', '.not-going', function( e )
 $( document ).on( 'click', '.send-reminder', function( e )
 {
   e.preventDefault();
-  
-  let target = $( this );
-  
-  setStatusBar();
-  
-  $.ajax( {
-    type: 'POST',
-    url: '../../src/admin/ajax-send-reminder.php',
-    data: { competition_id: target.val() },
-    success: function( response )
-    {     
-      let result = JSON.parse( response );
-      
-      setStatusBar( result.text_to_display, result.error );
-    },
-    error: function( xhr, status, error ) 
-    {
-      setStatusBar( xhr, error );
-    }
-  } );
+
+  if ( confirm( 'Confirm you want to send a reminder?' ) )
+  {
+    let target = $( this );
+    
+    setStatusBar();
+    
+    $.ajax( {
+      type: 'POST',
+      url: '../../src/admin/ajax-send-reminder.php',
+      data: { competition_id: target.val() },
+      success: function( response )
+      {     
+        let result = JSON.parse( response );
+        
+        setStatusBar( result.text_to_display, result.error );
+      },
+      error: function( xhr, status, error ) 
+      {
+        setStatusBar( xhr, error );
+      }
+    } );
+  }
 } ); 
 
 //-------------------------------------
