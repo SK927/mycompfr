@@ -80,6 +80,7 @@
                   <sub>
                     Pour vous connecter au site, vous devez avoir un compte sur le site de la <a href="https://worldcubeassociation.org" target="_blank">World Cube Association</a>. En cliquant sur "Se connecter avec la WCA", vous serez redirigé·e vers le site de la WCA pour vous identifier, puis vers le site Commande Utile où vous serez alors connecté·e. En vous connectant au site Commande Utile vous acceptez l'utilisation des cookies nécessaires au fonctionnement du site ainsi que le traitement de vos données personnelles dans le cadre de votre commande. Ce site nécessite que JavaScript soit activé sur votre navigateur.<br/>
                     <a href="assets/user-manual.pdf" target="_blank">Télécharger le manuel utilisateur</a>
+                    <a href="assets/admin-manual.pdf" target="_blank">Télécharger le manuel administrateur</a>
                   </sub>
                 </div>
               </div>
