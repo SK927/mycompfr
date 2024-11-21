@@ -158,7 +158,7 @@
         /* Print competition name */
         $pdf->setFont( 'dejavusanscondensed', '', 16, '', true );
         $pdf->SetXY( 31.59, 3.70 + 148.5 * (($scorecard_count - 1) % 2) + $offset );
-        $pdf->Cell( 146.83, 10.12, $competition_data['name'], false, 0, 'C', false );
+        $pdf->Cell( 146.83, 10.12, utf8_encode( $competition_data['name'] ), false, 0, 'C', false );
         
         /* Print competitor info */
         $pdf->SetFont( 'dejavusanscondensed', '', 8, '', true );
@@ -185,12 +185,8 @@
             
         $pdf->SetFont( 'dejavusanscondensed', '', 14, '', true );
         $pdf->SetXY( 11.60,21.22 + 148.5 * (($scorecard_count - 1) % 2) + $offset );
-        $pdf->Cell( 14.07, 7.16, $data['registrant_id'], true, 0, 'C', false );
-        
-        $pdf->SetFont( 'cid0jp', '', 14 );
-        $pdf->Cell( 145.84, 7.16, $data['competitor_name'], true, 0, 'L', false );
-
-        $pdf->SetFont( 'dejavusanscondensed', '', 14, '', true );
+        $pdf->Cell( 14.07, 7.16, $data['registrant_id'], true, 0, 'C', false );    
+        $pdf->Cell( 145.84, 7.16, utf8_encode( $data['competitor_name'] ), true, 0, 'L', false );
         $pdf->Cell( 13.57, 7.16, 1, true, 0, 'C', false );
         $pdf->Cell( 13.57, 7.16, max( $data[ $events_id[0] ], $data[ $events_id[1] ] ), true, 0, 'C', false );
 
@@ -281,7 +277,7 @@
       /* Print competition name */
       $pdf->SetFont( 'dejavusanscondensed', '', 16 );
       $pdf->SetXY( $offset_x[ $current_page ], 3.70 + $offset_y[ $current_page ] + $offset );
-      $pdf->Cell( 105, 10.12, $competition_data['name'], false, 0, 'C', false );
+      $pdf->Cell( 105, 10.12, utf8_encode( $competition_data['name'] ), false, 0, 'C', false );
       
       /* Print competitor info */
       $pdf->SetFont( 'dejavusanscondensed', '', 8 );
@@ -301,11 +297,7 @@
       $pdf->SetFont( 'dejavusanscondensed', '', 14 );
       $pdf->SetXY( 5 + $offset_x[ $current_page ],21.22 + $offset_y[ $current_page ] + $offset );
       $pdf->Cell( 11.49, 7.16, $data['registrant_id'], true, 0, 'C', false );
-
-      $pdf->SetFont( 'cid0jp', '', 14 );
-      $pdf->Cell( 60.53, 7.16, $data['competitor_name'], true, 0, 'L', false );
-
-      $pdf->SetFont( 'dejavusanscondensed', '', 14 );
+      $pdf->Cell( 60.53, 7.16, utf8_encode( $data['competitor_name'] ), true, 0, 'L', false );
       $pdf->Cell( 11.49, 7.16, 1, true, 0, 'C', false );
       $pdf->Cell( 11.49, 7.16, max( $data[ $events_id[0] ], $data[ $events_id[1] ] ), true, 0, 'C', false );
 
