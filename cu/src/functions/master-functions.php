@@ -16,7 +16,7 @@
 
   function get_all_imported_competitions( $mysqli )
   {   
-    $query_results = $mysqli->query( "SELECT * FROM " . DB_PREFIX . "_Main ORDER BY competition_name ASC;" );
+    $query_results = $mysqli->query( "SELECT * FROM " . DB_PREFIX . "_Main ORDER BY competition_start_date, competition_name ASC;" );
 
     return $query_results;
   }
