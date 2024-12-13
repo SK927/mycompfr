@@ -1,0 +1,85 @@
+{
+  "PRE": "Esperanto malsupre",
+  "LOCALE": "ESPERANTO",
+  "FAQ": {
+    "ALIAS": {
+      "QUESTION": "D",
+      "ANSWER": "R"
+    },
+    "DATA": [
+      {
+        "Q":"Kiel mi registriĝu?",
+        "A":"Unue, vi devas krei konton en la retejo de la WCA. Vi povas fari tion alklakante *[Ensaluti](https://www.worldcubeassociation.org/users/sign_up)*. Post kiam vi kreis vian konton kaj konfirmis vian retadreson, iru al la langeto *[Registriĝi](https://www.worldcubeassociation.org/competitions/ID_COMP/register)* de la konkurso pri kiu vi interesiĝas, legu kaj sekvu la instrukciojn zorge."
+      },
+      {
+        "Q":"Mi estas AFS-membro, aŭ ĉi tiu estas mia unua konkurso, kaj la retejo ankoraŭ petas min pagi, kion mi faru?",
+        "A":"Kiel diras la konkurspaĝo, ne necesas pagi! La retejo de la WCA montras la pagpaĝon defaŭlte ĉar ĝi ne povas scii ĉu via registriĝo estas pagita de la AFS aŭ ne, sed, estu certa, la organiza teamo scios, kontrolos kiu devas pagi kaj kiu ne bezonas, kaj tial konsideru ĉi tiujn datumojn dum validado de registradoj.\nSe vi ne certas ĉu vi estas AFS-membro, kontrolu ensalutante al la *[retejo de la asocio](https://www.speedcubingfrance.org/)* kaj poste irante al via profilo."
+      },
+      {
+        "Q":"Kial mi ne estas en la listo de konkursantoj?",
+        "A":"Bonvolu certigi, ke vi legis kaj sekvis la instrukciojn en la sekcio *[Registriĝi](https://www.worldcubeassociation.org/competitions/ID_COMP/register)* de la konkurso. Precipe, se vi ne estas AFS-membro (vidu [tie](https://www.speedcubingfrance.org/association/adhesion)) kaj se ĉi tio ne estas via unua konkurso, bonvolu kontroli, ke vi pagis por la konkurso. Vi ankaŭ povas esti en la atendolisto. La maksimuma nombro de partoprenantoj troviĝas sur la ĉefpaĝo de la konkurso (langeto *[Ĝeneralaj informoj](#general-info)*) kaj vi povas vidi la nombron da homoj jam akceptitaj sur la paĝo *[Konkursantoj ](https://www.worldcubeassociation.org/competitions/ID_COMP/registrations)* de la konkurso. Se vi faris ĉion ĝuste, pagis se necese, kaj la konkurso ne estas plena, paciencu. Ni devas permane akcepti registriĝojn kaj organizaj teamoj ne estas disponeblaj ĉiam. Se vi pensas, ke vi faris ĉion ĝuste, sed vi ankoraŭ ne estas akceptita post du tagoj, tiam kontaktu nin alklakante la ligilon *Kontakto* ĉe la ĉefpaĝo de la konkurso, langeto *[Ĝenerala informo](#generalo-info)*."
+      },
+      {
+        "Q":"Ĉu mi povas ŝanĝi la konkurserojn por kiuj mi registriĝis post aprobon de mia registriĝo?",
+        "A":"Se la organiza teamo permesis tion, vi povas ŝanĝi viajn konkurserojn en la sekcio *[Registriĝi](https://www.worldcubeassociation.org/competitions/ID_COMP/register)*, en la panelo \"Registriĝaj detaloj\" ĝis la fino de la registriĝperiodo. Se tio ne eblas, vi povas kontakti la organizan teamon rekte per la ligilo de *[kontakto](https://www.worldcubeassociation.org/contact/website?competitionId=ID_COMP)* kiu troviĝas ĉe la ĉefa paĝo, langeto *[Ĝeneralaj informoj](#general-info)*."
+      },
+      {
+        "Q":"Mi ne plu povas veni al la konkurso. Kion mi faru ?",
+        "A":"Bonvolu sciigi nin tuj kiam vi scias, ke vi ne plu povas veni, sendante al ni retmesaĝon alklakante la ligilon de*[kontakto](https://www.worldcubeassociation.org/contact/website?competitionId=ID_COMP)* kiu troviĝas ĉe la ĉefpaĝo de la konkurso, langeto *[Ĝenerala Informo]( #general-info)*.\nVi ankaŭ povas forigi vian registriĝon per vi mem irante al la sekcio *[Registriĝi](https://www.worldcubeassociation.org/competitions/ID_COMP/register)* kaj poste en la panelo \"Registriĝdetaloj\".\nKonkursoj kutime pleniĝas sufiĉe rapide kaj sciigi nin pri via malregistriĝo permesas al ni akcepti iun el la atendolisto. Via pago estos repagata se vi malregistriĝas antaŭ la dato skribita sur la paĝo *[Ĝenerala Informo](#general-info)*."
+      },
+      {
+        "Q":"Ĉu mi devas esti tre rapida por povi partopreni",
+        "A":"Ni rekomendas rigardi la paĝon *[Horplano](#competition-schedule)* de la konkurso. Por ĉiu provo, se vi povas solvi la kubon pli rapide ol la tempo indikita en *Tempolimo*, vi estas sufiĉe rapida! La konkurseroj kiujn ĝenerale ŝatas komencantoj (3x3, 2x2, Pyraminx, Skewb) plejofte havas *tempolimon* de 10 minutoj, kio lasas al granda plimulto de konkursantoj la ŝancon partopreni. Multaj homoj venas al konkurso kun la sola celo amuziĝi kaj plibonigi siajn proprajn rekordojn, sen pensi pri venkado."
+      },
+      {
+        "Q":"Ĉu ekzistas malsamaj kategorioj?",
+        "A":"Ĉiuj konkursantoj partoprenas kune en ĉiu konkursero en nur unu kategorio. Ĉiuj aĝoj, genroj, naciecoj estas akceptitaj en konkursoj."
+      },
+      {
+        "Q":"Ĉu mi devas partopreni en ĉiujn konkurserojn?",
+        "A":"Ne. Estas rangotabelo por ĉiu konkursero. Do vi povas partopreni nur en tiuj, kiujn vi ŝatas. Vi devos elekti la ĝustajn bildojn (tiam ili aperos nigre) dum registrado."
+      },
+      {
+        "Q":"Ĉu mi devas uzi miajn proprajn kubojn por partopreni?",
+        "A":"Certigu, ke vi kunportu almenaŭ unu kubon por ĉiu konkursero al kiu vi registriĝis kaj atentu ilin dum la konkurso. Ŝteloj estas tre maloftaj sed kutimas preni kubon similan al via sen atenti ĝin.\nCertiĝu ankaŭ ke via kubo estas permesata. Konektitaj kuboj aŭ kuboj kun pluraj emblemoj estas malpermesataj por oficialaj provoj. Notu ke iu ajn kubo kun emblemo (eĉ se ekzistas nur unu kaj ne povas esti \"sentita per tuŝo\") estas malpermesita por blindaj konkurseroj.\nTamen, ne necesas kunporti tapiŝeton aŭ tempigilon, krom se vi volas uzi ilin por trejnado. Tiuj uzataj por la konkurso estas provizitaj de la organizantoj."
+      },
+      {
+        "Q":"Ĉu mi povas veni nur kiel spektanto?",
+        "A":"Jes. Krom se alie specifita en la Ĝeneralaj informoj de la konkurso, la konkursoj estas alireblaj senpage. Vi povas rigardi la langeton *[Horplano](#competition-schedule)* por kontroli la horarojn por la konkurseroj kiuj interesas vin."
+      },
+      {
+        "Q":"Je kioma horo mi alvenu por la konkurso?",
+        "A":"Se ĉi tio estas via unua konkurso, ni konsilas al vi rigardi la *[Horplanon](#competition-schedule)* por scii kiam okazos la lernotempo, aŭ kontroli la retpoŝtmesaĝojn kiuj sendis la organizanta teamo. En ĉiuj kazoj, bonvolu alveni al la konkurso proksimume 30 minutojn antaŭ la komenco de via unua konkursero. Bonvolu noti, ke se vi alvenos post la fino de unu el viaj konkurseroj, ni ne povos lasi vin partopreni por tiu ĉi."
+      },
+      {
+        "Q":"Kion mi faru kiam mi alvenos al la konkurso?",
+        "A":"La unua afero estas trovi la akceptejon kaj prezenti vin tie. Se vi estas nova konkursanto, memoru kunporti identan dokumenton (aŭ ajnan dokumenton menciantan vian nomon, antaŭnomon kaj naskiĝdaton) ĉar ĝi povas esti petita de vi ĉe la akceptejo. La persono, kiu bonvenigos vin, povas tiam gvidi vin kaj respondi viajn unuajn demandojn."
+      },
+      {
+        "Q":"Kiam mi povas forlasi la konkurson?",
+        "A":"Necesas nur ĉeesti kiam vi devas partopreni aŭ juĝi/kuri/miksi (individua horplano verŝajne estos donita al vi ĉe la enirejo de la konkurso). Post kiam vi ne plu havas taskojn, vi rajtas foriri. Memoru kontroli ĉu vi kvalifikiĝis por alia rondo, oni neniam scias!"
+      },
+      {
+        "Q":"Kie mi povas trovi la rezultojn?",
+        "A":"Dum la konkurso, rezultoj estas enmetitaj permane en *[WCA Live](https://live.worldcubeassociation.org/)* kaj disponeblos interrete proksimume duonhoron post la fino de ĉiu raŭndo.\nJe la fino de la konkurso, ĉiuj rezultoj estos disponeblaj sur ĉi tiu paĝo sed ankaŭ sur la profilpaĝo de ĉiu partoprenanto."
+      },
+      {
+        "Q":"Kiel krei mian WCA-ID?",
+        "A":"WCA-ID estas kreitaj aŭtomate tuj kiam la rezultoj estas publikigitaj (malpli ol semajnon post la fino de la konkurso). La formato estas: Jaro de la unua konkurso – unuaj 4 literoj de la familia nomo – du ciferoj uzataj por diferencigi homojn, kiuj havas la samajn informojn."
+      },
+      {
+        "Q":"Mi kutime trejnas aŭskultante muzikon. Ĉu mi povas uzi kapaŭskultilo dum miaj oficialaj provoj?",
+        "A":"Kapaŭskultiloj estas strikte malpermesitaj dum la oficialaj testoj, ilia uzo do kondukus al malkvalifiko de la koncernaj provoj. Se la kapaŭskultilo helpas vin esti pli koncentrita aŭ malpli streĉita, tiam vi povas uzi bru-nuligantajn kapaĵojn nur kondiĉe, ke ili enhavas nenia elektronika komponanto."
+      },
+      {
+        "Q":"Ĉu mi povas filmi miajn solvojn?",
+        "A":"Tute eblas, per fotilo kun piedo (GoPro aŭ alia) aŭ poŝtelefono. Atentu tamen: se vi uzas poŝtelefonon aŭ aparaton kun ekrano, ĝi ne devas esti direktita al vi. Post kiam la solvo komenciĝas, tio estas tuj kiam la inspektado komenciĝis, estas strikte malpermesata tuŝi vian fotilon, eĉ se ĝi falas, sub puno de malkvalifiko de la solvo (DNF)."
+      }
+    ]
+  },
+  "WAITING LIST": "Tiuj kiuj estas en la atendolisto povas esti akceptitaj ĝis la limdato indikita en la registriĝaj postuloj.\nĈiu kiu estas akceptita sur la ĉefa listo el la atendolisto **post** la repaga limdato ne povos esti repagata se ili finfine ne povas veni al la konkurson.\n\nSe vi estas en la atendolisto, vi povas kontroli vian rangon sur la [registriĝpaĝo](https://www.worldcubeassociation.org/competitions/ID_COMP/register), alklakante \"4. Aprobo de organizanta teamo\" (eĉ se vi ne pagis ĉar vi ne devis).",
+  "OTS": {
+    "ACCEPTED": "Surlokaj registriĝoj estos akceptitaj nur en la sekva kazo: almenaŭ unu loko disponeblas en la listo de konkursantoj **je la momento** de la fermiĝo de registriĝoj.\nEn ĉi tiu kazo, surlokaj aliĝoj estos akceptitaj, laŭ havebleco, en la ordo de alveno kaj prezento al la kontaktpersono (CONTACT_NAME).\nAlie, surlokaj registriĝoj simple ne eblos, eĉ se aliaj konkursantoj ne venas por la konkurso.",
+    "NOT ACCEPTED": "Surlokaj registriĝoj **ne eblos**."
+  }
+}

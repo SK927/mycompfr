@@ -110,11 +110,25 @@
 
   function get_competitions_managed_by_user( $user_token )
   {
-    $start_date = date( 'Y-m-d', strtotime( date( 'Y-m-d' ) .  '-7 day' ) ) . "T00:00:00.000Z"; /* Look for competitions from last week onwards */ 
+    $manageable_competitions = array();
 
-    [ $response, $error ] = get_wca_data_via_api( "https://www.worldcubeassociation.org/api/v0/competitions?managed_by_me=1&start={$start_date}", $user_token );
+    $start_date = date( 'Y-m-d', strtotime( date( 'Y-m-d' ) . '-28 day' ) ) . "T00:00:00.000Z"; /* Look for competitions from last month onwards */ 
 
-    $function_return = $error ? array( null, $error ) : array( array_reverse( $response ), $error );
+    [ $competitions_managed_by_user, $error ] = get_wca_data_via_api( "https://www.worldcubeassociation.org/api/v0/competitions?managed_by_me=1&start={$start_date}", $user_token );
+
+    if ( ! $error )
+    {
+      foreach ( $competitions_managed_by_user as $competition )
+      {       
+        $manageable_competitions[ $competition['id'] ] = array(
+                                                            'name' => $competition['name'],
+                                                            'start' => date( 'd-m-Y', strtotime( $competition['start_date'] ) ),
+                                                            'end' => date( 'd-m-Y' , strtotime( $competition['end_date'] ) ),
+                                                          ); 
+      }
+    }
+
+    $function_return = $error ? array( null, $error ) : array( array_reverse( $manageable_competitions ), $error );
 
     return $function_return;
   }

@@ -45,6 +45,7 @@
       $this->check_required_options_set();
     }
 
+
     /**
      * Send request to WCA and return JSON.
      * @param (string) url: URL to send request

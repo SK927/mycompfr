@@ -1,6 +1,6 @@
 <?php
 
-  require_once dirname( __FILE__ ) . '/mysql-credentials.php';
+  require_once dirname( __DIR__, 2 ) . '/config/config-mysql.php';
 
   /* Connect to DB */
   mysqli_report( MYSQLI_REPORT_STRICT );

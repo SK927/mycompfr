@@ -1,0 +1,42 @@
+body{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #fff;
+  color: #000;
+}
+
+a, a:visited{
+  color: #cc2828;
+}
+
+a:hover{
+  color: #000;
+  text-decoration: none;
+}
+
+.navbar{
+  background-color: #cc2828;
+}
+
+.navbar-brand, .navbar-text{
+  color: #fff;
+}
+
+.navbar-brand:visited{
+  color: #fff;
+}
+
+.navbar-brand:hover{
+  color: #ddd;
+}
+
+.log-in-and-out{
+  color: #ffdb16 !important;
+}
+
+input[type="checkbox"]
+{
+  color: #d82652 !important;
+  accent-color: currentcolor;
+}

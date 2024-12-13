@@ -3,6 +3,8 @@
   require_once dirname( __DIR__, 3 ) . '/src/tcpdf/tcpdf.php';
   require_once '../custom-functions.php';
   
+  $competition_id = ( ! in_array( $_POST['competition_select'], array( '', 'Other' ) ) ) ? trim( $_POST['competition_select'] ) : trim( $_POST['competition_id'] );
+
   /* Setup strings to generate PDF */
   $is_bld = ( $_POST['event_select'] == 'bld' );
   
@@ -21,10 +23,8 @@
                       $is_bld ? '5x5 BLD' : '7x7',
                     );
 
-  if ( ! empty( $_POST ) )
+  if ( $competition_id )
   {
-    $competition_id = get_competition_id_from_url( $_POST['competition_url'] );
-  
     [ $competition_data, $error ] = read_competition_data_from_public_wcif( $competition_id );
 
     if ( ! $error )
@@ -43,8 +43,8 @@
       $pdf->setAuthor( PDF_AUTHOR );
 
       // remove default header/footer
-      $pdf->setPrintHeader(false);
-      $pdf->setPrintFooter(false);
+      $pdf->setPrintHeader( false );
+      $pdf->setPrintFooter( false );
 
       // set default monospaced font
       $pdf->SetDefaultMonospacedFont( PDF_FONT_MONOSPACED );
@@ -70,9 +70,8 @@
 
       [ $pdf, $competition_groups, $current_page ] = create_single_scorecards( $pdf, $competition_data, $competition_groups, $time_limit, $events_display, $events_id, $quarter_page_count );
       
-      $pdf->Output( "{$title}", 'I'); /* Generate PDF */
+      $pdf->Output( "{$title}", 'I' ); /* Generate PDF */
     }
   }
   
-
 ?>

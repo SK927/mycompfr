@@ -2,19 +2,48 @@
 
   require_once 'src/layout/_header.php';
 
-?>
-      <form class="row justify-content-center" action="display-compared-lists.php" method="POST">
-        <div class="col col-md-10 col-lg-8 col-xl-6 mx-auto my-2">
-          <div class="col mt-4 fw-bold">Provide competitions URL to compare their competitor list</div>
-          <input class="form-control text-center" type="text" name="competition_url1" placeholder="https://www.worldcubeassociation.org/competitions/MyFirstComp<?php echo date( 'Y' ); ?>"></input>
-          <input class="form-control text-center mt-2" type="text" name="competition_url2" placeholder="https://www.worldcubeassociation.org/competitions/MySecondComp<?php echo date( 'Y' ); ?>"></input>
-          <div class="col-auto">
-            <button class="btn btn-light mt-2">Send</button>
+  $is_admin = isset( $_SESSION['manageable_competitions'] );
+
+?>  
+  
+<div class="container<?php if ( ! $_SESSION['logged_in'] ) echo "-fluid" ?>">
+  <?php if ( $_SESSION['logged_in'] ): ?>  
+    <div class="row mt-4 justify-content-center text-center">
+      <div class='col-12 col-md-9'>
+        <h3>SELECT COMPETITIONS ID</h3>
+        <div class="card py-3">
+          <div class="card-body text-center">
+            <form action="display-compared-lists.php" method="POST" name="select-competition">
+              <div class="row justify-content-center">
+                <?php for ( $i = 1 ; $i <= 2 ; $i++): ?>
+                  <div class="col-md-6 mb-4 px-3">
+                    <?php if ( $is_admin ): ?>
+                      <div class="row">
+                        <div class="col">
+                          <select id="competition-select-<?php echo $i ?>" class="form-select text-center" name="competition_select_<?php echo $i ?>">
+                            <?php foreach ( $_SESSION['manageable_competitions'] as $id => $data ): ?>
+                              <option value="<?php echo $id ?>"><?php echo $id ?></option>
+                            <?php endforeach ?>
+                            <option value="Other">Other competition...</option>
+                          </select>
+                        </div>
+                      </div>
+                    <?php endif ?>
+                    <input id="other-competition-<?php echo $i ?>" class="form-control text-center<?php if ( $is_admin ) echo " mt-2" ?>" type="text" name="competition_id_<?php echo $i ?>" placeholder="MyCompOpen_<?php echo $i ?>-<?php echo date( 'Y' ) ?>"<?php if ( $is_admin ) echo " style=\"display:none\"" ?>></input>
+                </div> 
+                <?php endfor ?>
+                <div class="col-md-6 mt-2 mt-md-1 ">
+                  <button class="btn btn-light">Show me the lists</button>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
-      </form>
-<?php 
+      </div>
+    </div>
+  <?php else: ?>
+    Please sign in to continue
+  <?php endif ?>
+</div>
 
-  require_once 'src/layout/_footer.php';
-
-?>
+<?php require_once '../src/layout/_footer.php' ?>

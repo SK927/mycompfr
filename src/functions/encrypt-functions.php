@@ -1,8 +1,7 @@
 <?php
 
-  const CRYPT_METHOD = '';
-  const CRYPT_KEY = '';
-  const CRYPT_IV = '';
+  require_once dirname( __DIR__, 2 ) . '/config/config-encrypt.php';
+
 
   /**
    * hash_data(): hash the provided data with provided key using MD5
@@ -41,4 +40,3 @@
   }
   
 ?>
-  

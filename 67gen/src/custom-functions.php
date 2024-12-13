@@ -5,21 +5,6 @@
 
 
   /**
-   * get_competition_id_from_url(): extract and return the competition ID contained in WCA competition page URL
-   * @param (string) competition_url: WCA competition page URL
-   * @return (string) the competition ID
-   */
-
-  function get_competition_id_from_url( $competition_url )
-  {
-    $pattern = '/competitions\/(.*?)(?=\/|\#|$)/';
-    preg_match( $pattern, $competition_url, $matches );
-    
-    return $matches[1]; /* matches[0] is the full match of the pattern, [1] is the group we look for */
-  }
-
-
-  /**
     * get_shared_cumulative(): retrieve cumulative time for selected events
     * @param (array) competition_data: competition data extracted from WCIF
     * @param (array) events_alias: selected events aliases (e.g. 444bf)
@@ -33,9 +18,9 @@
       if ( $event['id'] == $events_alias[0] )
       {
         $time_limit = gmdate( 'H:i:s', $event['rounds'][0]['timeLimit']['centiseconds'] / 100 );
+        break;
       }
     }
-
     return $time_limit;
   }
 
@@ -73,7 +58,6 @@
         }
       }
     }  
-
     return $assignments_id;
   }
 
@@ -114,7 +98,6 @@
         } 
       }        
     }
-
     return $competition_groups;
   }
 
@@ -229,12 +212,11 @@
         unset( $competition_groups[ $person ] ); /* Remove person from assignment array has it has been processed */
       }
     }
-
     return array( $pdf, $competition_groups, $is_new_page );
   }
 
   /**
-   * create_dual_scorecards(): generate dual scorecard for all concerned competitors
+   * create_single_scorecards(): generate dual scorecard for all concerned competitors
    * @param (pdf) pdf: reference to the PDF being created
    * @param (array) competition_data: competition data extracted from WCIF
    * @param (array) competition_groups: group assignments for all competitors participating in selected events
@@ -330,6 +312,7 @@
       
       unset( $competition_groups[ $person ] ); /* Remove person from assignment array has it has been processed */
     }
-    
     return array( $pdf, $competition_groups, $current_page );
   }
+
+?>

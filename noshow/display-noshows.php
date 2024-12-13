@@ -1,63 +1,43 @@
 <?php
 
   require_once 'src/layout/_header.php';
+  require_once 'src/custom-functions.php';
 
-  require_once dirname( __DIR__, 1 ) . '/67gen/src/custom-functions.php';
+  $competition_id = get_competition_id( $_POST );
 
-  if ( ! empty( $_POST ) )
+  if ( $competition_id )
   {
-    $competition_id = get_competition_id_from_url( $_POST['competition_url'] );
-  
-    [ $competition_data, $error ] = read_competition_data_from_public_wcif( $competition_id );
-
-    $events = to_pretty_json( $competition_data['events'] );
-
-    if ( ! $error )
-    {
-      foreach ( $competition_data['persons' ] as $person )
-      {
-        if ( $person['registration']['status'] == 'accepted' )
-        {
-          $pattern = "/\"personId\": {$person['registrantId']},/";
-          $has_results = preg_match( $pattern, $events ); 
-
-          if ( ! $has_results )
-          {
-            $person['wcaId'] = $person['wcaId'] != "" ? $person['wcaId'] : "<b>newcomer</b>";
-            $noshows_list[ $person['name'] ] = array(
-                                                  'wca_id' =>$person['wcaId'], 
-                                                  'registrant_id' => $person['registrantId'],
-                                                );
-          }
-        }
-      }
-    }
+    [ $noshow_list, $competition_data ] = get_noshow_list( $competition_id );
   }
   
 ?>
-      <div class="row">
-        <div class="col my-4">
-          No-shows list for <b><?php echo $competition_data['name'] ?></b></b>
+
+<div class="container<?php if ( ! $_SESSION['logged_in'] ) echo "-fluid" ?>">
+  <?php if ( $_SESSION['logged_in'] ): ?>  
+    <div class="row mt-4 justify-content-center text-center">
+      <div class='col-12 col-lg-9'>
+        <h3>No-shows list for <b><?php echo $competition_data['name'] ?></b></h3>
+         <div class="row justify-content-center mt-4">
+            <div class="col px-3">
+              <table class="table table-striped">
+                <tbody>
+                  <?php foreach ( $noshow_list as $person_name => $person_info ): ?>
+                    <tr>
+                      <th scope="row"><?php echo $person_info['wca_id'] ?></th>
+                      <td><?php echo $person_name ?></td>
+                      <td>(registrant id: <?php echo $person_info['registrant_id'] ?>)</td>
+                    </tr>
+                  <? endforeach; ?>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col d-flex justify-content-center">
-          <table class="table table-striped w-auto ">
-            <tbody>
-              <?php foreach ( $noshows_list as $person_name => $person_info ): ?>
-                <tr>
-                  <th scope="row"><?php echo $person_info['wca_id'] ?></th>
-                  <td><?php echo $person_name ?></td>
-                  <td>(registrant id: <?php echo $person_info['registrant_id'] ?>)</td>
-                </tr>
-              <? endforeach; ?>
-            </tbody>
-          </table>
-        </div>
-      </div>
+    </div>
+  <?php else: ?>
+    Please sign in to continue
+  <?php endif ?>
+</div>
 
-<?php 
-
-  require_once 'src/layout/_header.php';
-
-?>
+<?php '../src/layout/_footer.php' ?>

@@ -1,0 +1,57 @@
+body{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #fff;
+  color: #000;
+}
+
+a, a:visited{
+  color: #c84322;
+}
+
+a:hover{
+  color: #000;
+  text-decoration: none;
+}
+
+.navbar{
+  background: rgb(220,86,67);
+  background: linear-gradient(142deg, rgba(220,86,67,1) 0%, rgba(240,125,86,1) 28%, rgba(252,255,34,1) 41%, rgba(71,199,108,1) 74%, rgba(0,97,255,1) 100%);
+}
+
+.navbar-brand, .navbar-text{
+  color: #fff;
+}
+
+.navbar-brand:visited{
+  color: #fff;
+}
+
+.navbar-brand:hover{
+  color: #ddd;
+}
+
+.log-in-and-out{
+  color: #ffdb16 !important;
+}
+
+#new-content, #contact{
+  display:none;
+}
+
+#new-content .selected{
+  background: rgba(252,255,34,0.1);
+}
+
+.bg-red{
+  background-color: rgba(220,86,67,0.1);
+}
+
+.bg-blue{
+  background-color: rgba(71,199,108,0.1);
+}
+
+.bg-green{
+  background-color: rgba(0,97,255,0.1);
+}

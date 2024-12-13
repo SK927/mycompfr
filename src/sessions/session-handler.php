@@ -1,6 +1,6 @@
 <?php 
   
-  require_once dirname( __FILE__ ) . '/../config.php';
+  require_once dirname( __DIR__, 2 ) . '/config/config-db.php';
 
   class MySQLSessionHandler
   {
@@ -8,7 +8,7 @@
 
     public function __construct()
     {
-      require_once dirname( __FILE__ ) . '/../mysql/mysql-credentials.php';
+      require_once dirname( __DIR__, 2 ) . '/config/config-mysql.php';
       
       /* Open DB connection */
       $this->connection = new mysqli( HOST, USERNAME, PASSWORD, DB );
