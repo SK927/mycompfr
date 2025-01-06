@@ -71,7 +71,7 @@
 	}
 	
 	$result = array( 
-				'resulting_string_faq' => $header . $competition_id . "\r\n" . $result_faq,
+				'resulting_string_faq' => $header . "\r\n" . $result_faq,
 				'resulting_string_wl' => $header . "\r\n" . $result_wl,
 			);
 
