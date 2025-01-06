@@ -30,7 +30,7 @@
                             'FR' => array(
                                       'target' => 'Vous essayez d\'accéder à',
                                       'access1' => 'Pour accéder à ce site, vous devez utiliser un compte',
-                                      'access2' => '(WCA). Cliquer sur « Se connecter avec la WCA » vous redirigera vers le site web de la WCA pour confirmer que vous (avez) autorisé MyComp à accéder à vos données personnelles.',
+                                      'access2' => '(WCA). Cliquer sur « Se connecter avec la WCA » vous redirigera vers le site web de la WCA pour confirmer que vous autorisez/avez autorisé MyComp à accéder à vos données personnelles.',
                                       'privacy' => 'En vous connectant à MyComp, vous acceptez l’utilisation de cookies. Tous nos cookies sont utilisés à des fins fonctionnelles uniquement. Veuillez lire notre politique de confidentialité',
                                       'here' => 'ici',
                                       'signin' => 'Se connecter avec la WCA',
