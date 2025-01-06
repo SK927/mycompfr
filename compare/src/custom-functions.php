@@ -1,6 +1,5 @@
 <?php
 
-  require_once dirname( __DIR__, 2 ) . '/src/log/log-handler.php';
   require_once dirname( __DIR__, 2 ) . '/src/functions/wcif-functions.php';
 
 
@@ -51,10 +50,6 @@
                                                 );
         }
       }
-    }
-    else
-    {
-      log_message( $error1 ? $error1 : $error2 );
     }
 
     return array( $comparison_list, $competition1_data, $competition2_data );
