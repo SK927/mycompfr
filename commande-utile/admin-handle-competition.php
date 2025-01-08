@@ -43,7 +43,7 @@
               <?php if ( empty( $competition_data['competition_information'] ) ): ?>
                 <a href="#" class="add-comment card-link">+ Ajouter une note</a>
               <?php else: ?>
-                <script>showComment( $('#comment-area'), '<?php echo htmlspecialchars( addslashes( $competition_data['competition_information'] ) ); ?>' );</script>
+                <script>showComment( $('#comment-area'), `<?php echo htmlspecialchars( addslashes( $competition_data['competition_information'] ) ); ?>` );</script>
               <?php endif ?>
             </div>
           </div> 
