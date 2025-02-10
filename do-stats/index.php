@@ -7,15 +7,19 @@
 ?>  
 
 <div class="container-fluid">
+  <script src="https://<?php echo "{$_SERVER['SERVER_NAME']}/{$site_alias}" ?>/assets/js/worldmap.js"></script>
+  <script src="https://<?php echo "{$_SERVER['SERVER_NAME']}/{$site_alias}" ?>/assets/js/mapdata1.js"></script>
+  <script>var mapDelegated = simplemaps_worldmap.create()</script>
+  <script src="https://<?php echo "{$_SERVER['SERVER_NAME']}/{$site_alias}" ?>/assets/js/mapdata2.js"></script>
+  <script>var mapOrganized = simplemaps_worldmap.create()</script>
   <?php if ( $_SESSION['logged_in'] ): ?>  
     <?php $view_as = isset( $_GET['view_as'] ) ? $_GET['view_as'] : $_SESSION['user_name'] ?>
     <?php $organized_competitions = get_competitions_managed_by_user_in_past( $view_as, 'organizer', $conn ) ?>
-    <?php $delegated_competitions = get_competitions_managed_by_user_in_past( $view_as, 'wcaDelegate', $conn ) ?>
-    <script src="assets/js/index-actions.js"></script> <!-- Custom JS to handle current page actions -->
+    <?php $delegated_competitions = get_competitions_managed_by_user_in_past( $view_as, 'delegate', $conn ) ?>
     <div class="col-12">
       <div class="card">
-        <div class="card-header">My statistics as Delegate/Organizer</div>
-        <div id="stats" class="card-body px-5 py-3"> 
+        <div class="card-header"><?php echo $view_as ?> statistics as Delegate/Organizer</div>
+        <div id="stats" class="card-body px-md-5 py-3"> 
           <div class="row text-center justify-content-center">
             <?php if ( count( $delegated_competitions->competitions ) ): ?>
               <div class="col-12 col-sm-8 col-lg-6">
@@ -25,7 +29,7 @@
                     <tr>
                       <td>
                         <?php foreach ( $delegated_competitions->competitions as $competition_id ): ?>
-                          <?php echo "&#8226; {$competition_id}" ?>
+                          <?php echo "&#8226;&nbsp;{$competition_id}" ?>
                         <?php endforeach ?>
                       </td>
                     </tr>
@@ -37,7 +41,7 @@
                     <tr>
                       <td>
                         <?php foreach ( $delegated_competitions->countries as $country => $cnt ): ?>
-                          <?php echo "&#8226; {$country} ({$cnt})" ?>
+                          <?php echo "&#8226;&nbsp;{$country}&nbsp;({$cnt})" ?>
                         <?php endforeach ?>
                       </td>
                     </tr>
@@ -49,7 +53,19 @@
                     <tr>
                       <td>
                         <?php foreach ( $delegated_competitions->years as $year => $cnt ): ?>
-                          <?php echo "&#8226; " . str_replace( 'e', '', $year ) . " ({$cnt})" ?>
+                          <?php echo "&#8226;&nbsp;" . str_replace( 'e', '', $year ) . "&nbsp;({$cnt})" ?>
+                        <?php endforeach ?>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <table class="table table-striped w-auto">
+                  <tbody>
+                    <tr>
+                      <td>
+                        <?php foreach ( $delegated_competitions->events as $event => $cnt ): ?>
+                          <?php echo "&#8226;&nbsp;{$event}&nbsp;({$cnt})" ?>
                         <?php endforeach ?>
                       </td>
                     </tr>
@@ -61,12 +77,34 @@
                     <tr>
                       <td>
                         <?php foreach ( $delegated_competitions->users as $co => $cnt ): ?>
-                          <?php echo "&#8226; <a href=\"?view_as={$co}\">{$co}</a> ({$cnt})" ?>
+                          <?php $co_alt = str_replace( ' ', '&nbsp;', $co )?>
+                          <?php echo "&#8226;&nbsp;<a href=\"?view_as={$co}\">{$co_alt}</a>&nbsp;({$cnt})" ?>
                         <?php endforeach ?>
                       </td>
                     </tr>
                   </tbody>
                 </table>
+
+                <script>
+                  <?php $cnt = 0 ?>
+                  <?php foreach ( $delegated_competitions->locations as $latitude => $location ): ?>
+                    <?php foreach ( $location as $longitude => $id ): ?>
+                      <?php if ( $latitude or $longitude ): ?>
+                          mapDelegated.mapdata['locations'][<?php echo $cnt ?>] = {
+                            name: "<?php echo $id ?>",
+                            lat: "<?php echo $latitude ?>",
+                            lng: "<?php echo $longitude ?>",
+                            color: "default",
+                            description: "default",
+                            url: "default"
+                          };
+                        <?php $cnt++ ?>
+                      <?php endif ?>
+                    <?php endforeach ?>
+                  <?php endforeach ?>
+                </script>
+
+                <div id="map-delegated" class="my-4"></div>
               </div>
             <?php endif ?>
 
@@ -78,7 +116,7 @@
                     <tr>
                       <td>
                         <?php foreach ( $organized_competitions->competitions as $competition_id ): ?>
-                          <?php echo "&#8226; {$competition_id}" ?>
+                          <?php echo "&#8226;&nbsp;{$competition_id}" ?>
                         <?php endforeach ?>
                       </td>
                     </tr>
@@ -90,7 +128,7 @@
                     <tr>
                       <td>
                         <?php foreach ( $organized_competitions->countries as $country => $cnt ): ?>
-                          <?php echo "&#8226; {$country} ({$cnt})" ?>
+                          <?php echo "&#8226;&nbsp;{$country}&nbsp;({$cnt})" ?>
                         <?php endforeach ?>
                       </td>
                     </tr>
@@ -102,7 +140,19 @@
                     <tr>
                       <td>
                         <?php foreach ( $organized_competitions->years as $year => $cnt ): ?>
-                          <?php echo "&#8226; " . str_replace( 'e', '', $year ) . " ({$cnt})" ?>
+                          <?php echo "&#8226;&nbsp;" . str_replace( 'e', '', $year ) . "&nbsp;({$cnt})" ?>
+                        <?php endforeach ?>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <table class="table table-striped w-auto">
+                  <tbody>
+                    <tr>
+                      <td>
+                        <?php foreach ( $organized_competitions->events as $event => $cnt ): ?>
+                          <?php echo "&#8226;&nbsp;{$event}&nbsp;({$cnt})" ?>
                         <?php endforeach ?>
                       </td>
                     </tr>
@@ -114,16 +164,37 @@
                     <tr>
                       <td>
                         <?php foreach ( $organized_competitions->users as $co => $cnt ): ?>
-                          <?php echo "&#8226; <a href=\"?view_as={$co}\">{$co}</a> ({$cnt})" ?>
+                          <?php echo "&#8226;&nbsp;<a href=\"?view_as={$co}\">{$co}</a>&nbsp;({$cnt})" ?>
                         <?php endforeach ?>
                       </td>
                     </tr>
                   </tbody>
                 </table>
+
+                <script>
+                  <?php $cnt = 0 ?>
+                  <?php foreach ( $organized_competitions->locations as $latitude => $location ): ?>
+                    <?php foreach ( $location as $longitude => $id ): ?>
+                      <?php if ( $latitude or $longitude ): ?>
+                          mapOrganized.mapdata['locations'][<?php echo $cnt ?>] = {
+                            name: "<?php echo $id ?>",
+                            lat: "<?php echo $latitude ?>",
+                            lng: "<?php echo $longitude ?>",
+                            color: "default",
+                            description: "default",
+                            url: "default"
+                          };
+                        <?php $cnt++ ?>
+                      <?php endif ?>
+                    <?php endforeach ?>
+                  <?php endforeach ?>
+                </script>
+
+                <div id="map-organized" class="my-4"></div>
               </div>
             <?php endif ?>
             <div class="col-12 mt-4">
-              <u>Nota:</u> stats do not account for competitions organized across multiple countries.
+              <u>Nota:</u> people lists do not account for competitions organized across multiple countries.
             </div>
           </div>
         </div>
