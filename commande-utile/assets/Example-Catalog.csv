@@ -1,7 +1,9 @@
-SAMEDI;;;;;;;
-Menu;1;Description 1;_sandwich.png;Sandwich;"Poulet;Jambon";Boisson;"Eau;Coca"
-Sandwich;1,5;Description 2;_sandwich.png;;;;
-;;;;;;;
-DIMANCHE;;;;;;;
-Menu;1;Description 1;_sandwich.png;Sandwich;"Poulet;Jambon";Boisson;"Eau;Coca"
-Sandwich;1,5;Description 2;_sandwich.png;;;;
+SAMEDI
+Test1;10.00;Description1;_pain.png;Option1;"Selection1(+1.00+);Selection2(+2.00+)";Option2;"Selection3;Selection4(+4.00+)"
+Test2;20.00;Description2;_pain.png
+Test4;40.00;Description4;_pain.png;Option3;"Selection5;Selection6"
+DIMANCHE
+Test3;30.00;Description3;_pain.png;Option4;"Selection7;Selection8"
+Test4;40.00;Description4;_pain.png
+LUNDI
+Test5;50.00;Description5;_pain.png;Option5;"Selection9(+9.00+);Selection10(+10.00+)"
