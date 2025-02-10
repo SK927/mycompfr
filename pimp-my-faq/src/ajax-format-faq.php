@@ -16,7 +16,7 @@
 
    	$files = array();
 
-    foreach ( $_POST as $key =>$value )
+    foreach ( $_POST as $key => $value )
     {  
     	if ( $value == 'on') /* If file is selected */
     	{
@@ -38,7 +38,7 @@
         $header .= "*{$content['PRE']}*\r\n";
       }
 
-      if ( $result_faq != '' )
+      if ( $result_faq )
       {
         $result_faq .= "\r\n---\r\n\r\n";
         $result_wl .= "\r\n\r\n---\r\n\r\n";
