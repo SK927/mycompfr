@@ -26,7 +26,7 @@
                   <div class="card-body">  
                     <div class="col-12">
                       <?php echo $tool['description'] ?>
-                      <a href="https://<?php echo "{$_SERVER['SERVER_NAME']}/portal?captive_for={$tool['folder']}&locale={$tool['locale']}"?>">(<?php echo $tool['link'] ?>)</a>
+                      <a href="https://<?php echo "{$_SERVER['SERVER_NAME']}/{$tool['folder']}"?>">(<?php echo $tool['link'] ?>)</a>
                     </div>    
                   </div>    
                 </div>    
