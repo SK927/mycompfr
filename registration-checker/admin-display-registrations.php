@@ -1,14 +1,13 @@
 <?php 
 
-  require_once 'src/layout/_header.php';
-  require_once '../src/functions/encrypt-functions.php';
+  require_once 'src/_header.php';
 
   $competition_id = $_GET['id'];
 
-  if ( $_SESSION['logged_in'] AND in_array( $competition_id, array_keys( $_SESSION['manageable_competitions'] ) ) ) 
+  if ( in_array( $competition_id, array_keys( $_SESSION['manageable_competitions'] ) ) ) 
   {    
-    require_once '../src/mysql/mysql-connect.php';
-    require_once 'src/custom-functions.php';
+    require_once '../src/mysql_connect.php';
+    require_once 'src/_functions.php';
     
     $registrations = get_competition_registrations_from_db( $competition_id, $conn ); 
 
@@ -44,7 +43,7 @@
        
 <?php 
   
-      require_once '../src/layout/_status-bar.php';
+      require_once '../src/_status-bar.php';
     }
   }
   else
@@ -53,7 +52,7 @@
     exit(); 
   } 
 
-  require_once '../src/layout/_footer.php'
+  require_once '../src/_footer.php'
 
 ?>
 

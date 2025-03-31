@@ -1,4 +1,4 @@
-<?php require_once 'src/layout/_header.php' ?>
+<?php require_once 'src/_header.php' ?>
 
 <div class="container">
   <div class="row mt-2 text-center">
@@ -11,7 +11,7 @@
         <div class="card-body p-5">
           <p>The purpose of this privacy policy is to inform users of the site:</p>
           <ul>
-            <li>How their personal data is collected. Personal data is any information that identifies a user. As such, it may be: their first and last names, their date of birth, or their e-mail address (non-exhaustive list);</li>
+            <li>How their personal data is collected. Personal data is any information that identifies a user. As such, it may be: their first and last names, their date of birth, or their email address (non-exhaustive list);</li>
             <li>About their rights to this data;</li>
             <li>On the person responsible for processing personal data collected and processed;</li>
             <li>About the recipients of this personal data;</li>
@@ -54,21 +54,21 @@
           <h5>Article 3.1: Data collected</h5>
           <p>The personal data collected in the course of our activity are as follows:</p>
           <ul>
-            <li>WCA User ID; ;</li> 
+            <li>WCA user ID;</li> 
             <li>First and last name;</li> 
             <li>Date of birth;</li> 
             <li>Email address;</li> 
             <li>WCA ID;</li> 
             <li>Gender;</li> 
             <li>Country of representation;</li> 
-            <li>WCA API Connection Token;</li> 
+            <li>WCA API connection token;</li> 
             <li>Competitions managed on the WCA site.</li> 
           </ul>
-                    <p>The collection and processing of this data is for the following purpose(s):</p>
+          <p>The collection and processing of this data is for the following purpose(s):</p>
           <ul>
             <li>Identification of users;</li>     
-            <li>Sending confirmation email;</li>     
-            <li>Raegistration into the Competitor List;</li>     
+            <li>Sending confirmation emails;</li>     
+            <li>Registration into the Competitor List;</li>     
             <li>Display of managed competitions;</li>     
             <li>Display of participation competitions;</li>     
             <li>Display of competition history.</li>         
@@ -78,9 +78,10 @@
           <p>When you use our site, no data is collected automatically. </p>
           <p>Personal data is collected when you perform the following operations on the platform:</p>
           <ul>
-            <li>Signing in to the site.</li>            
+            <li>Signing in to the site;</li>            
+            <li>Willingly using a tool in a manner that clearly necessitates to data to be stored (e.g. placing an order).</li>            
           </ul>
-          <p>They are kept by the controller under reasonable security conditions for a maximum of two hours after your last activity on the site.</p>
+          <p>They are kept by the controller under reasonable security conditions for a maximum of two weeks after the competition you interacted with if finished.</p>
           <p>The site may retain certain personal data beyond the periods announced above in order to comply with its legal or regulatory obligations.</p>
 
           <h5 class="mt-5">Article 3.3: Data Hosting</h5>
@@ -142,11 +143,11 @@
           <p>The publisher of the MyComp site reserves the right to modify this Policy at any time in order to ensure that users of the site comply with the applicable law.</p>
           <p>Any changes will not affect previous purchases made on the site, which remain subject to the Policy in force at the time of purchase and as accepted by the user upon validation of the purchase.</p>
           <p>The user is invited to read this Policy each time he uses our services, without being required to notify him formally</p>
-          <p>This policy has been updated on <?php echo date( 'd/m/Y à H:i:s', filemtime( pathinfo(__FILE__, PATHINFO_FILENAME) . '.php' ) )?>.
+          <p>This policy has been updated on <?php echo date( 'd/m/Y à H:i:s', filemtime( pathinfo( __FILE__, PATHINFO_FILENAME ) . '.php' ) )?>.
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<?php require_once 'src/layout/_footer.php' ?>
+<?php require_once 'src/_footer.php' ?>

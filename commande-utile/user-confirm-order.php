@@ -1,13 +1,13 @@
 <?php
 
-  require_once 'src/layout/_header.php';
+  require_once 'src/_header.php';
  
   $competition_id = $_GET['id'];
 
-  if ( $_SESSION['logged_in'] AND ( in_array( $competition_id, $_SESSION['commande_utile']['my_imported_competitions'] ) OR $_SESSION['is_admin'] ) )
+  if ( in_array( $competition_id, $_SESSION['commande_utile']['my_imported_competitions'] ) OR $_SESSION['is_admin'] )
   {
-    require_once '../src/mysql/mysql-connect.php';
-    require_once 'src/functions/orders-functions.php';
+    require_once '../src/mysql_connect.php';
+    require_once 'src/_functions-orders.php';
 
     $competition_data = get_competition_data( $competition_id, $conn );
     $user_order_id = hash_data( $_SESSION['user_id'], $competition_id );
@@ -80,7 +80,7 @@
     </div>
   </div>
 </div>
-<script>sessionStorage.clear();</script>
+<script>sessionStorage.clear()</script>
 
 <?php 
     
@@ -92,6 +92,6 @@
     exit();
   }
 
-  require_once '../src/layout/_footer.php'; 
+  require_once '../src/_footer.php'; 
 
 ?>

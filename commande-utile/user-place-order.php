@@ -1,15 +1,15 @@
 <?php
 
-  require_once 'src/layout/_header.php';
-  require_once '../src/functions/encrypt-functions.php';
+  require_once 'src/_header.php';
+  require_once '../src/_functions-encrypt.php';
 
   $competition_id = $_GET['id'];
 
-  if ( $_SESSION['logged_in'] AND ( in_array( $competition_id, $_SESSION['commande_utile']['my_imported_competitions'] ) OR $_SESSION['is_admin'] ) )
+  if ( in_array( $competition_id, $_SESSION['commande_utile']['my_imported_competitions'] ) OR $_SESSION['is_admin'] )
   {
-    require_once '../src/mysql/mysql-connect.php';
-    require_once 'src/functions/orders-functions.php';
-    require_once 'src/layout/place-order-templates.php';
+    require_once '../src/mysql_connect.php';
+    require_once 'src/_functions-orders.php';
+    require_once 'src/templates_place-order.php';
     
     $competition_data = get_competition_data( $competition_id, $conn );
 
@@ -21,10 +21,12 @@
 ?> 
    
 <?php if ( ! $error ) : ?>
+  <script src="assets/js/user-order-actions.js"></script>
   <div class="container text-center">
-    <script src="assets/js/user-order-actions.js"></script> <!-- Custom JS to handle current page actions -->
     <div class="row">
-      <h1 class="col-12 text-uppercase"><?php echo $competition_data['competition_name'] ?></h1>
+      <h1 class="col-12 text-uppercase">
+        <?php echo $competition_data['competition_name'] ?>
+      </h1>
     </div>
     <form id="order-form" class="row" action="user-set-options?id=<?php echo urlencode( $_GET['id'] ) ?>" method="POST" name="order_form">
       <div class="col-12 col-md-6 mt-3">
@@ -45,12 +47,12 @@
                     </div>
                   </div>
                 </div>
-              <?php endif; ?>
+              <?php endif ?>
               <div class="col-12">
                 <a class="card-link" href="https://www.worldcubeassociation.org/contact?competitionId=<?php echo $competition_id ?>&contactRecipient=competition" target="_blank">Contacter l'équipe organisatrice</a>
               </div>
               <div class="col-12">
-                <a class="card-link" href="src/pdf/pdf-generate-catalog?id=<?php echo urlencode( $_GET['id'] ) ?>">Télécharger le catalogue</a>
+                <a class="card-link" href="src/pdf_generate-catalog?id=<?php echo urlencode( $_GET['id'] ) ?>">Télécharger le catalogue</a>
               </div>
             </div>
           </div>
@@ -69,11 +71,18 @@
                 <h6 class="card-subtitle mb-2 text-muted"><?php echo $_SESSION['user_wca_id'] ?></h6>
               </div>              
               <div id="comment" class="col-12">
-                <?php if ( empty( $user_comment ) ): ?>
-                  <a href='#' class="add-comment card-link">(+) Ajouter un commentaire</a>
-                <?php else: ?>
-                  <script>showComment( $('#comment'), '<?php echo htmlspecialchars( addslashes( $user_comment ) ) ?>' );</script>
-                <?php endif; ?>
+                <a href="#" id="add-comment" class="card-link">(+) Ajouter un commentaire</a>
+                <script>
+                  if ( sessionStorage.getItem( 'comment' )  )
+                  {
+                    addComment();
+                  }
+                  else if ( ! <?php echo var_export( empty( $user_comment ) ) ?> )
+                  {
+                    sessionStorage.setItem( 'comment', '<?php echo htmlspecialchars( addslashes( $user_comment ) ) ?>' );
+                    addComment();
+                  }
+                </script>
               </div>
             </div>             
           </div>
@@ -118,7 +127,7 @@
                       <script>
                         if ( ! (sessionStorage.getItem( '<?php echo $item_id; ?>' ) || sessionStorage.getItem( 'isBack' )) )
                         {
-                          sessionStorage.setItem( '<?php echo $item_id; ?>', <?php echo $user_order[ $block_key ]['items'][ $item_key ]['qty'] ?> ); 
+                          sessionStorage.setItem( '<?php echo $item_id ?>', <?php echo $user_order[ $block_key ]['items'][ $item_key ]['qty'] ?> ); 
                         }
                       </script>
                     <?php endif ?>
@@ -148,7 +157,7 @@
                             (<?php echo number_format( (float) $item['price'], 2, '.', '' ) ?> €)
                           </div>
                         </div>
-                        <script>showAdd( '<?php echo $item_id ?>' );</script>
+                        <script>showAdd( '<?php echo $item_id ?>' )</script>
                       </div>
                     </div>
                   <?php endforeach ?>  
@@ -173,14 +182,14 @@
           <div class="col-12 col-md text-md-end">
             <?php if ( $user_order ): ?>
               <button id="delete-button" class="btn btn-danger my-1" name="delete">Supprimer la commande</button>
-            <?php endif; ?>
+            <?php endif ?>
             <button id="confirm-button" class="btn btn-success my-1"></button>
           </div>
         </div>
       </div>
     </form>
   </div>
-  <script>updateItemsQuantity();</script>
+  <script>updateItemsQuantity()</script>
 <?php else: ?>
   <div class="container-fluid">
     <div class="row">
@@ -211,6 +220,6 @@
     exit();
   }
   
-  require_once '../src/layout/_footer.php'; 
+  require_once '../src/_footer.php'; 
 
 ?>

@@ -1,13 +1,13 @@
 <?php
 
-  require_once 'src/layout/_header.php';
+  require_once 'src/_header.php';
 
   $competition_id = $_GET['id'];
 
-  if ( $_SESSION['logged_in'] AND $_POST AND ( in_array( $competition_id, $_SESSION['commande_utile']['my_imported_competitions'] ) OR $_SESSION['is_admin'] ) )
+  if ( $_POST AND ( in_array( $competition_id, $_SESSION['commande_utile']['my_imported_competitions'] ) OR $_SESSION['is_admin'] ) )
   {  
-    require_once '../src/mysql/mysql-connect.php';
-    require_once 'src/functions/orders-functions.php';
+    require_once '../src/mysql_connect.php';
+    require_once 'src/_functions-orders.php';
     
     $competition_data = get_competition_data( $competition_id, $conn );
     $competition_catalog_blocks = from_pretty_json( $competition_data['competition_catalog'] );
@@ -51,15 +51,12 @@
                     <div class="row mt-4 mb-2">
                       <h4 class="col-12"><?php echo $block['name'] ?></h4>
                     </div>
-                    
                     <?php foreach ( $block_items_selected as $item_key => $item_qty ): ?>
                       <script>sessionStorage.setItem( '<?php echo $item_key ?>', <?php echo $item_qty ?> )</script>
                       <input id="<?php echo $item_key ?>" type="hidden" value="<?php echo $item_qty ?>" name="<?php echo $item_key ?>">
-
-                      <?php $split_id = explode( '-', $item_key ); ?>
+                      <?php $split_id = explode( '-', $item_key ) ?>
                       <?php if ( $block['items'][ $split_id[1] ]['options'] ): ?>
                         <?php for ( $i = 0 ; $i < $item_qty ; $i++ ): ?>
-
                           <div class="row mb-2">
                             <div class="col-12 text-uppercase fw-bold mb-2">
                               <?php echo "{$block['items'][ $split_id[1] ]['name']} #" . ($i + 1) ?>
@@ -73,29 +70,27 @@
                                     <?php foreach ( $option['selections'] as $selection_key => $selection ): ?>
                                       <?php $value = $selection['name'] ?>
                                       <?php if ( $selection['price'] != '0.00' ) $value .= " (+{$selection['price']}€)" ?>
-
                                       <option value="<?php echo $selection_key ?>"<?php if ( isset( $selected ) and $selected == $selection_key ) echo 'selected' ?>>
                                         <?php echo $value ?>
                                       </option>  
-                                    <?php endforeach; ?>
+                                    <?php endforeach ?>
                                   </select>
                                   <label for="<?php echo $option_id ?>"><?php echo $option['name'] ?></label>
                                 </div>
                               </div>
                             <?php endforeach ?>
                           </div>
-
                         <?php endfor ?>     
                         <?php $items_with_options = true ?>
                       <?php endif ?>
                     <?php endforeach ?>
-
                     <?php if ( ! $items_with_options ): ?>
                       Vous avez sélectionné un ou plusieurs produits pour ce bloc, mais aucun d'entre eux ne nécessite la sélection d'options.
                     <?php endif ?>
                   <?php endif ?>
                 <?php endforeach ?> 
                 <?php if ( isset( $_POST['user_comment'] ) ): ?>
+                  <script>sessionStorage.setItem( 'comment', '<?php echo $_POST['user_comment'] ?>' )</script>
                   <input type="hidden" value="<?php echo $_POST['user_comment'] ?>" name="user_comment">
                 <?php endif ?>
               </div>
@@ -119,7 +114,7 @@
       </div>
     </div>
   </div>
-  <script>setNewAmount();</script>
+  <script>setNewAmount()</script>
 <?php else : ?>
   <div class="row">
     Erreur lors du chargement de la commande.
@@ -135,6 +130,6 @@
     exit();
   }
 
-  require_once '../src/layout/_footer.php'; 
+  require_once '../src/_footer.php'; 
 
 ?>

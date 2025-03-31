@@ -43,6 +43,7 @@ function displayCompetition( competitionId, competitionName, competitionDate, co
   {
     let eventsInfo = document.getElementById( 'event-info' ).content.cloneNode( true );
     eventsInfo.querySelector( '.event-checkbox' ).name = key;
+    eventsInfo.querySelector( '.event-checkbox' ).id = competitionId + '_' + key;
     
     if( competitorRegistration != null && competitorRegistration['events'][key] ) 
     {
@@ -50,9 +51,9 @@ function displayCompetition( competitionId, competitionName, competitionDate, co
     }
     
     eventsInfo.querySelector( '.event-label' ).innerHTML = value.alias;    
-    $( eventsInfo.querySelector( '.event-label' ) ).attr( 'for', key );    
+    $( eventsInfo.querySelector( '.event-label' ) ).attr( 'for', competitionId + '_' + key );    
     eventsDiv.prepend( eventsInfo );
-  };
+  }
   return clone;
 }
 
@@ -62,21 +63,25 @@ function updateCompetitionsList()
 {
   $.ajax( {
     type: 'POST',
-    url: 'src/admin/ajax-get-updated-competition-list.php',
+    url: 'src/admin_ajax-get-updated-competition-list.php',
     data: { valid: true },
     success: function( response )
     { 
       let result = JSON.parse( response );
       let competitionList = result.competition_list;
       let target = document.getElementById( 'imported-competitions' );
-      target.innerHTML = '';
-
-      if( competitionList != null )
+      
+      if( target )
       {
-        competitionList.forEach( function( elem, i ){
-          let competition = displayCompetition( elem.competition_id, elem.competition_name, elem.competition_start_date, elem.competition_events, elem.competition_registrations, elem.competitor_registration );
-          target.append( competition );
-        } );
+        target.innerHTML = '';
+
+        if( competitionList )
+        {
+          competitionList.forEach( function( elem, i ){
+            let competition = displayCompetition( elem.competition_id, elem.competition_name, elem.competition_start_date, elem.competition_events, elem.competition_registrations, elem.competitor_registration );
+            target.append( competition );
+          } );
+        }
       }
     } 
   } );
@@ -94,12 +99,12 @@ $( document ).on( 'click', '.import-competition', function( e )
   
   $.ajax( {
     type: 'POST',
-    url: 'src/admin/ajax-import-competition.php',
+    url: 'src/admin_ajax-import-competition.php',
     data: { valid: true, competition_id: target.val() },
     success: function( response )
     {
       let result = JSON.parse( response );
-      
+
       setStatusBar( result.text_to_display, result.error );
       
       if( !result.error )
@@ -134,7 +139,6 @@ $( document ).on( 'click', '.confirm-registration', function( e )
     success: function( response )
     {
       let result = JSON.parse( response );
-      
       setStatusBar( result.text_to_display, result.error );
     },
     error: function( xhr, status, error ) 

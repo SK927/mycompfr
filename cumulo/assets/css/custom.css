@@ -1,0 +1,23 @@
+body{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #fff;
+  color: #000;
+}
+
+.navbar{
+  background-color: #b03b59;
+}
+
+.navbar-brand{
+  color: #fff;
+}
+
+.navbar-brand:visited{
+  color: #fff;
+}
+
+.navbar-brand:hover{
+  color: #ddd;
+}

@@ -16,7 +16,7 @@ a:hover{
 }
 
 .navbar{
-  background-color: #00c3ac;
+  background-color: #009987;
 }
 
 .navbar-brand, .navbar-text{
@@ -32,5 +32,9 @@ a:hover{
 }
 
 .log-in-and-out{
-  color: #08675c !important;
+  color: #ffdb16 !important;
+}
+
+sub{
+  color: #a2a2a2;
 }

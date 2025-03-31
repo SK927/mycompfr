@@ -1,27 +1,27 @@
 <?php
 
-  require_once 'src/layout/_header.php';
+  require_once 'src/_header.php';
 
   $competition_id = $_GET['id'];
 
-  if ( $_SESSION['logged_in'] AND ( in_array( $competition_id, array_keys( $_SESSION['manageable_competitions'] ) ) or $_SESSION['is_admin'] ) )
+  if ( in_array( $competition_id, array_keys( $_SESSION['manageable_competitions'] ) ) or $_SESSION['is_admin'] )
   {
-    require_once '../src/mysql/mysql-connect.php';
-    require_once '../src/functions/generic-functions.php';
-    require_once 'src/functions/competition-data-functions.php';
-    require_once 'src/layout/handle-catalog-templates.php';
+    require_once '../src/mysql_connect.php';
+    require_once '../src/_functions-generic.php';
+    require_once 'src/_functions-competition-data.php';
+    require_once 'src/templates_handle-catalog.php';
 
     $competition_data = get_competition_data( $competition_id, $conn );
 
 ?>
 
-<script src="assets/js/admin-catalog-actions.js"></script> <!-- Custom JS to handle current page actions -->
+<script src="assets/js/admin-catalog-actions.js"></script>
 <div class="container text-center">
   <div class="row">
     <h1 class="col-12 text-uppercase"><?php echo $competition_data['competition_name'] ?></h1>
   </div>
   <div class="row">
-    <div class="col-12 mt-3" action="src/admin/ajax-update-catalog" method="POST">
+    <div class="col-12 mt-3" action="src/admin_ajax-update-catalog" method="POST">
       <div class="card section">
         <div class="card-header section-title fw-bold">
           CATALOGUE
@@ -34,12 +34,12 @@
                   <img src="assets/img/CU-tee.png" alt="CU-tee"/>
                 </div>
                 <div class="col speech-bubble p-3">
-                  Vous pouvez ajouter un catalogue directement depuis un fichier CSV ou à la main. Si vous souhaitez faire un import depuis un fichier CSV, vous pouvez vous baser sur le fichier d'exemple fourni.Si vous décidez de le faire à la main, vous devez fournir l'ensemble des éléments pour chaque bloc, chaque produit et chaque options éventuelle. Le montant des produits ou options peut être renseigné sans virgule (ex : 1234 pour 12,34€).
+                  Vous pouvez ajouter un catalogue directement depuis un fichier CSV ou à la main. Si vous souhaitez faire un import depuis un fichier CSV, vous pouvez vous baser sur le fichier d'exemple fourni. Si vous décidez de le faire à la main, vous devez fournir l'ensemble des éléments pour chaque bloc, chaque produit et chaque options éventuels. Le montant des produits ou options peut être renseigné sans virgule (ex : 1234 pour 12,34€).
                 </div>
               </div>
             </div>
           </div>
-          <form id="form-csv" action="src/admin/ajax-update-catalog-via-csv?id=<?php echo urlencode( $_GET['id'] ) ?>" method="POST" enctype="multipart/form-data">
+          <form id="form-csv" action="src/admin_ajax-update-catalog-via-csv?id=<?php echo urlencode( $_GET['id'] ) ?>" method="POST" enctype="multipart/form-data">
             <input id="file-input" class="mb-2" type="file" name="file" required />
             <button id="load-file" class="btn btn-light" name="upload">Charger le fichier</button>
           </form>
@@ -51,11 +51,9 @@
           <div class="add-block alert alert-secondary p-2 fw-bold">
             AJOUTER UN NOUVEAU BLOC
           </div>
-          <form id="form-manual" class="col-12" action="src/admin/ajax-update-catalog-manually?id=<?php echo urlencode( $_GET['id'] ) ?>" method="POST">
+          <form id="form-manual" class="col-12" action="src/admin_ajax-update-catalog-manually?id=<?php echo urlencode( $_GET['id'] ) ?>" method="POST">
             <div id="block-list">
-              <script>
-                updateList();
-              </script>
+              <script>updateList()</script>
             </div>
             <div class="handle-catalog row fixed-bottom px-4 py-3">
               <div class="col-12 col-md">
@@ -73,7 +71,7 @@
 
     $conn->close();
 
-    require_once '../src/layout/_status-bar.php';
+    require_once '../src/_status-bar.php';
   }
   else
   {
@@ -81,6 +79,6 @@
     exit();
   }
 
-  require_once '../src/layout/_footer.php'; 
+  require_once '../src/_footer.php'; 
 
 ?>  

@@ -1,0 +1,333 @@
+sbr:
+  #original_hash: 3ddc304
+  locale: BREZHONEG
+  #original_hash: da39a3e
+  prepend: Brezhoneg en traoñ
+  faq:
+    alias:
+      #original_hash: 584d267
+      question: 'G:'
+      #original_hash: 5e0f088
+      answer: 'R:'
+    data:
+      q1:
+        #original_hash: 27c9007
+        q: Penaos en em enskrivañ?
+        #original_hash: 993acf1
+        a: |
+          Da gentañ, ret eo deoc'h krouiñ ur gont war lec’hienn an WCA. Gallout
+          a rit ober se en ur glikañ war *[Krouiñ ur
+          gont](https://www.worldcubeassociation.org/users/sign_up)*. P'eo bet
+          krouet ho kont ha kadarnaet ho chomlec’h postel, kit d’an ivinell
+          *[Enskrivañ](https://www.worldcubeassociation.org/competitions/ID_COMP/register)*
+          er genstrivadeg a blij deoc’h, lennit ha heuilhit ar c’hemennoù gant
+          evezh.
+      q2:
+        #original_hash: 7bd38af
+        q: |
+          Ezel an AFS on, pe ma c'henstrivadeg kentañ eo, ha goulenn a ra al
+          lec’hienn diganin paeañ memes tra, petra ober?
+        a:
+          #original_hash: eeb1682
+          p1: |
+            Evel skrivet war bajenn ar genstrivadeg, n'eus ket ezhomm da baeañ!
+            Diskouezet e vo ar bajenn paeañ gant lec'hienn an WCA bepred peogwir
+            ne c'hall ket gouzout hag-eñ eo paeet hoc'h enskrivadur gant an AFS
+            pe get. Met bezit sur e ouio ar skipailh aozañ piv en deus ezhomm da
+            baeañ ha piv n'en deus ket d'hen ober ha dalc'het e vo kont eus an
+            titouroù-se pa vo kadarnaet an enskrivadurioù.
+          #original_hash: 42127ed
+          p2: |
+            Ma n'oc'h ket sur hag-eñ oc'h ezel an AFS pe get, gwriit en ur
+            gevreañ war *[lec'hienn an AFS](https://www.speedcubingfrance.org/)*
+            ha goude en ur vont en hoc'h aelad.
+      q3:
+        #original_hash: d4ae6f4
+        q: Perak n'emaon ket war roll ar gevezerien?
+        #original_hash: f1fdd42
+        a: |
+          Lennit mat ha heuilhit ar c’hemennoù a gaver er rann Enskrivañ er
+          genstrivadeg, mar plij. Dreist-holl ma n’oc’h ket ezel an AFS (gwelout
+          [amañ](https://www.speedcubingfrance.org/association/adhesion)) ha ma
+          n’eo ket ho kenstrivadeg kentañ, gwiriit hoc'h eus paeet evit ar
+          genstrivadeg. Marteze emaoc’h war listennad gortoz ivez. An niver
+          brasañ a dud hag a c'hall kemer perzh a vez kavet war bajenn bennañ ar
+          genstrivadeg (war ivinell *[Titouroù
+          hollek](https://www.worldcubeassociation.org/competitions/ID_COMP#general-info)*)
+          ha gallout a rit gwelet pet den zo bet degemeret dija war *[bajenn ar
+          Genstriverien](https://www.worldcubeassociation.org/competitions/ID_COMP/registrations)*.
+          M'ho peus graet pep tra evel zo dleet, paeet mar bez ezhomm, ha ma
+          n’eo ket leun ar genstrivadeg, chomit pasiant·ez. Ret eo deomp degemer
+          an enskrivadurioù dre zorn ha n’eo ket hegerz noz-deiz skipailhoù
+          aozañ. Ma soñjit hoc’h eus graet pep tra evel zo dleet met n’oc’h ket
+          bet degemeret c’hoazh goude daou zevezh, kit e darempred ganeomp en ur
+          glikañ war al liamm
+          *[darempred](https://www.worldcubeassociation.org/contact?competitionId=ID_COMP&contactRecipient=competition)*
+          a vez kavet war bajenn bennañ ar genstrivadeg, ivinell *[Titouroù
+          hollek](https://www.worldcubeassociation.org/competitions/ID_COMP#general-info)*.
+      q4:
+        #original_hash: 1034e79
+        q: |
+          Ha gallout a ran cheñch an amprouennoù a oa bet dibabet ganin pa 'm
+          boa lakaet ma anv, goude bezañ degemeret?
+        #original_hash: 184a54a
+        a: |
+          Mard eo bet aotreet gant ar skipailh aozañ e c'hallit cheñch hoc'h
+          amprouennoù e ur glikañ war
+          *[Enskrivañ](https://www.worldcubeassociation.org/competitions/ID_COMP/register)*
+          ha goude war ar penel *Enskrivañ, Dibabit hoc'h amprouennoù*, betek
+          dibenn ar mare enskrivañ merket er c'hondisinoù evit lakaat e anv. Ma
+          n'eo ket posupl hen ober e c'hallit mont e darempred gant ar skipailh
+          aozañ war-eeun dre al liamm
+          *[darempred](https://www.worldcubeassociation.org/contact?competitionId=ID_COMP&contactRecipient=competition)*
+          a vez kavet war ar bajenn bennañ en ivinell *[Titouroù
+          hollek](https://www.worldcubeassociation.org/competitions/ID_COMP#general-info)*.
+      q5:
+        #original_hash: c60e2af
+        q: Ne c'hallan ket ken dont d'ar genstrivadeg? Petra eo ret din ober?
+        a:
+          #original_hash: b484083
+          p1: |
+            Kemennit deomp, mar plij, kerkent ha ma ouzoc'h ne c'hallit ket dont
+            ken en ur gas ur postel deomp gant ar furmskrid darempred. Evit hen
+            ober klikit war al liamm
+            *[darempred](https://www.worldcubeassociation.org/contact?competitionId=ID_COMP&contactRecipient=competition)*
+            a vez kavet war bajenn bennañ ar genstrivadeg en ivinell *[Titouroù
+            hollek](https://www.worldcubeassociation.org/competitions/ID_COMP#general-info)*.
+          #original_hash: c55b4a5
+          p2: |
+            Gallout a rit ivez dilemel hoc'h enskrivadur hoc'h unan-penn en ur
+            glikañ war
+            *[Enskrivañ](https://www.worldcubeassociation.org/competitions/ID_COMP/register)*
+            ha goude war "Titouroù an enskrivadur".
+          #original_hash: a52f35a
+          p3: |
+            Alies e vez leun ar c’henstrivadegoù buan a-walc’h ha neuze en ur
+            lavar deomp ne c’hallit ket dont eo posupl deomp degemer unan bennak
+            all eus ar roll gortoz. Restaolet e vo ho paeamant ma tilezit hoc'h
+            anv a-raok an deiz skrivet war bajenn an *[Titouroù
+            hollek](https://www.worldcubeassociation.org/competitions/ID_COMP#general-info)*.
+      q6:
+        #original_hash: fba07c0
+        q: Ha ret eo din bezañ buan-kenañ evit gallout kemer perzh?
+        #original_hash: 91517a1
+        a: |
+          Erbedet eo sellet ouzh ar bajenn
+          *[Steuñvad](https://www.worldcubeassociation.org/competitions/ID_COMP#competition-schedule)*
+          ar genstrivadeg. Buan a-walc'h out da gemer perzh en un amprouenn ma
+          c'hallit diskoulmañ an diñs buanoc'h eget an amzer merket evel
+          *Harz-amzer*! Alies e vez 10 munut an *harz-amzer* evit an amprouennoù
+          a blij ar muiañ d'an deraouidi (3x3, 2x2, Pyraminx, Skewb), ar pezh a
+          ro an tu d'an darn vrasañ eus ar genstriverien ha kenstriverezed da
+          gemer perzh. Nemet evit ar blijadur hag evit pilat o rekordoù dezho e
+          teu kalz tud e kenstrivadegoù, hep kaout spi gounit.
+      q7:
+        #original_hash: 398afdd
+        q: Ha bez ez eus rummadoù disheñvel?
+        #original_hash: 9ada24f
+        a: |
+          Asambles e kemer perzh an holl genstriverien ha kenstriverezed evit
+          pep amprouenn gant ur rummad hepken evit an holl dud. An holl oadoù,
+          jeneroù, broadelezhioù a vez degemeret er c’henstrivadegoù.
+      q8:
+        #original_hash: 51f929c
+        q: Ha ret eo din kemer perzh en holl amprouennoù?
+        #original_hash: b9f1d07
+        a: |
+          N'eo ket. Ur renkadur a zo evit pep amprouenn. Neuze e c’hallit kemer
+          perzh er re a blij deoc’h hepken. Evit hen ober e vo ret deoc’h dibab
+          ar skeudennoù mat e-pad hoc'h enskrivadur (e gwer e vint diskouezet
+          neuze).
+      q9:
+        #original_hash: ca79641
+        q: Ha ret eo din degas ma diñsoù din-me evit kemer perzh?
+        a:
+          #original_hash: 05fd076
+          p1: |
+            Gwiriit e vo degaset ganeoc’h un diñs da nebeutañ evit pep amprouenn
+            dibabet ganoc’h e-pad hoc'h enskrivadur ha diwallit ouzh ho tiñsoù
+            e-pad ar genstrivadeg. Ral-kenañ eo al laeroñsioù met alies e vez
+            tapet un diñs damheñvel ouzh e hini hep teurel evezh outañ.
+          #original_hash: ab19a61
+          p2: |
+            Bezit sur eo aotreet ho tiñs ivez. Difennet eo an diñsoù kevreet pe
+            ivez an diñsoù gant meur a logo en amprouennoù ofisiel. Taolit evezh
+            ivez: difennet eo an holl diñsoù gant ul logo (daoust ma n'eus nemet
+            unan ha ma "ne c'haller ket santout anezhañ pa douch") evit an
+            amprouennoù "4x4x4 dall", "5x5x5 dall" ha "3x3x3 meur a hini dall".
+          #original_hash: 864976b
+          p3: |
+            Koulskoude n'eus ket ezhomm da zegas un tapis pe ur c'hronometr
+            nemet pa fell deoc'h implijout anezho evit pleustriñ. Ar re implijet
+            evit ar genstrivadeg a vez kinniget gant ar skipailh aozañ.
+      q10:
+        #original_hash: 98299c6
+        q: Ha gallout a ran dont evel arvester pe arvesterez hepken?
+        #original_hash: c56a849
+        a: |
+          Ya. Nemet ma vefe meneget ar c'hontrol en ivinell *[Titouroù
+          hollek](https://www.worldcubeassociation.org/competitions/ID_COMP#general-info)*
+          ar genstrivadeg e c'haller mont evit sellet ouzh ar c'henstrivadegoù
+          evit netra. Gallout a rit sellet ouzh an ivinell
+          *[Steuñvad](https://www.worldcubeassociation.org/competitions/ID_COMP#competition-schedule)*
+          evit gouzout pegoulz e vo an amprouennoù a fell deoc’h gwelet.
+      q11:
+        #original_hash: 20ae6e4
+        q: Da bet eur eo ret din erruout d'ar genstrivadeg?
+        #original_hash: a9a9a7d
+        a: |
+          Ma’z eo ho kenstrivadeg kentañ eo erbedet sellet ouzh eur ar prantad
+          kelenn er
+          *[Steuñvad](https://www.worldcubeassociation.org/competitions/ID_COMP#competition-schedule)*
+          pe lenn ar posteloù bet kaset gant ar skipailh aozañ. Forzh penaos
+          deuit war-dro 30 munut a-raok deroù hoc’h amprouenn gentañ, mar plij.
+          Dalc'hit soñj ne vo ket posupl deoc'h kemer perzh en un amprouenn ma
+          tegouezhit goude dibenn anezhi.
+      q12:
+        #original_hash: 0b90447
+        q: Petra ober pa erruan er c'henstrivadeg?
+        #original_hash: a9bf82a
+        a: |
+          Kavout ar burev degemer ha reiñ hoc'h anv eo an traoù kentañ da ober
+          pa erruit. Ma'z oc'h ur c'henstriver pe ur genstriverez nevez, kemerit
+          ganeoc'h un teul identelezh (pe n'eus forzh peseurt teul gant hoc'h
+          anv hag ho teiziad ganedigezh) rak gallout a ra bezañ goulennet gant
+          tud ar burev degemer. An den a zegemero ac’hanoc’h a c’hallo heñchañ
+          ac’hanoc’h goude-se ha respont d’ho koulennoù kentañ.
+      q13:
+        #original_hash: 5c8a3c6
+        q: Pegoulz e c'hallan mont kuit eus ar genstrivadeg?
+        #original_hash: e9d5c36
+        a: |
+          Ret eo deoc’h bezañ war al lec’h hepken pa vez ret deoc’h kemer perzh
+          pe barn / redek / meskañ (ur steuñvad hiniennel a vo roet deoc’h pa
+          erruit moarvat pe hemañ a vo kavet war [Competiton
+          Groups](https://www.competitiongroups.com/competitions/ID_COMP)). Pa
+          n’ho peus ket trevelloù ken e c’hallit mont kuit. Met soñjit da sellet
+          ouzh hag-eñ oc’h perzheget evit un dro all avat, piv oar!
+      q14:
+        #original_hash: 47086be
+        q: Pelec'h e c'hallan kavout an disoc'hoù?
+        a:
+          #original_hash: 7d08553
+          p1: |
+            E-pad ar genstrivadeg e vez lakaet an disoc'hoù war *[WCA
+            Live](https://live.worldcubeassociation.org/)* ha kavet e vint
+            enlinenn war-dro un hanter eurvezh goude fin pep tro.
+          #original_hash: 211ddc9
+          p2: |
+            E dibenn ar genstrivadeg e vo kavet an holl zisoc'hoù war ar
+            bajenn-mañ met ivez war bajenn aelad pep kenstriver·ez pa vo
+            embannet an disoc'hoù gant ar skipailh aozañ.
+      q15:
+        #original_hash: 2e010d6
+        q: Penaos krouiñ ma anaouder WCA (WCA ID)?
+        #original_hash: 0941394
+        a: |
+          Krouet e vez an anaouderioù ent emgefreek kerkent ha ma vez embannet
+          an disoc’hoù (dindan sizhun war-lerc’h fin ar genstrivadeg). Setu
+          stumm an anaouder: Bloavezh ar genstrivadeg kentañ – 4 lizherenn
+          gentañ an anv-familh – daou sifr da zisheñvelaat an dud o defe ar
+          memes titouroù.
+      q16:
+        #original_hash: 2fd5df1
+        q: |
+          Boas on da bleustriñ en ur selaou sonerezh. Gallout a ran implijout un
+          tokarn selaou e-pad ma zaolioù-esae ofisiel?
+        #original_hash: 00a8a37
+        a: |
+          Difennet-groñs eo an tokarnoù selaou pe ar selaouelloù e-pad an
+          taolioù-esae ofisiel, rak-se e vefe divarrekaet an taolioù-esae-mañ.
+          Ma implijit un tokarn selaou evit prederiañ pe distresañ, gallout a
+          rit neuze implijout un tokarn didrouzañ ma n'eo ket elektronek tamm
+          ebet.
+      q17:
+        #original_hash: ef09400
+        q: Ha gallout a ran filmañ ma ziluziaduroù?
+        #original_hash: b73a962
+        a: |
+          Ya, posupl eo, gant ur c'hamera gant un troad (GoPro pe all) pe gant
+          ur pellgomzer hezoug. Diwallit koulskoude: ma vez ur pellgomzer hezoug
+          pe ur benveg gant ur skramm, ne zle ket bezañ durc’haet warnoc’h. Ur
+          wech kroget an diluziadur, da lavaret eo kerkent ha ma'z eo kroget an
+          ensellerezh, eo difennet strizh touchañ ar c'hamera (ivez pa
+          gouezhfe), dindan boan divarrekaat an diluziadur (DNF).
+  reg:
+    #original_hash: 5fde093
+    title: Kondisionoù evit lakaat e anv
+    text:
+      #original_hash: ad469f5
+      p1: 'Degemeret e vo an enskrivadurioù en urzh o c''hlokadur, da lavaret eo:'
+      #original_hash: a8b59a4
+      p2: '[//]: # ''USED TO FORCE NEW LINE : DO NOT REMOVE OR TRANSLATE'''
+      #original_hash: 23ae906
+      p3: |
+        * Evit ar re n'o peus ket ezhomm da baeañ (izili an AFS ha kenstriverien
+        nevez) sellout a reomp ouzh eur an **enskrivadur**
+      #original_hash: 8b9bf74
+      p4: '* Evit ar re eo ret dezho paeañ, sellout a reomp ouzh an **eur paeañ**'
+      #original_hash: a8b59a4
+      p5: '[//]: # ''USED TO FORCE NEW LINE : DO NOT REMOVE OR TRANSLATE'''
+      #original_hash: 7dd7e01
+      p6: |
+        Notennit e vo gwelet hoc'h enskrivadur evel "o c'hortoz" keit ha ma n'eo
+        ket klok (da skouer ma n'ho peus paeet hag eo ret deoc'h hen ober). Ne
+        vo ket posupl deoc'h bezañ lakaet war roll ar genstriverien (pe ar roll
+        gortoz ma'z eo leun roll ar genstriverien c'hoazh) a-raok na vo klokaet
+        hoc'h enskrivadur.
+      #original_hash: 682f319
+      p7: |
+        Diwallit, meret eo an enskrivadurioù dre zorn ha neuze eo ret gortoz un
+        tammig evit bezañ kadarnaet a-wechoù, trugarez da vezañ pasiant.
+  wl:
+    #original_hash: a5fba54
+    title: Roll gortoz
+    text:
+      #original_hash: bca6501
+      p1: |
+        Ma'z emaout war ar roll gortoz e c'hallit kontrolliñ ho renk war [ar
+        bajenn "Lakaat e
+        anv"](https://www.worldcubeassociation.org/competitions/ID_COMP/register)
+        en ur glikañ war "4. Darbennadur ar skipailh aozañ ("Approbation de
+        l'équipe organisatrice" e galleg flour) (ivez ma n'ho peus ket paeet
+        peogwir eo digoust evidout)
+      #original_hash: a8b59a4
+      p2: '[//]: # ''USED TO FORCE NEW LINE : DO NOT REMOVE OR TRANSLATE'''
+      #original_hash: 3a3dcce
+      p3: |
+        Ar re hag a zo war ar roll gortoz a c'hall bezañ degemeret betek an
+        [deiziad termen merket er c'hondisionoù evit lakaat e
+        anv](https://www.worldcubeassociation.org/competitions/ID_COMP/register).
+      #original_hash: b185611
+      p4: |
+        Ne vo ket posupl bezañ restaolet ma vez kadarnaet hoc'h enskrivadur
+        **goude** deiziad termen ar prantad dastaladur ma ne c'hallit ket mont
+        d'ar genstrivadeg a-benn ar fin.
+  ots:
+    #original_hash: 6cb4c58
+    title: Lakaat e anv war al lec'h
+    text:
+      accepted:
+        #original_hash: e74b2ce
+        p1: |
+          Ne vo posupl lakaat e anv war al lec'h nemet en ur blegenn: ez eus ur
+          plas dieub da nebeutañ war roll ar genstriverien **da goulz fin an
+          enskrivadurioù** (**TODO compléter avec date & heure**). Neuze e vo
+          degemeret an enskrivadurioù war al lec'h ma'z eus plas a-walc'h hervez
+          urzh an degouezh dirak an hini gouestl d'ober war-dro an afer-mañ
+          (**TODO compléter avec nom référent**).
+        #original_hash: 8786093
+        p2: |
+          Anez ne vo ket posupl lakaat hoc'h war al lec'h memes ma ne zeu ket
+          kenstriverien all d'ar genstrivadeg.
+      #original_hash: ca6f491
+      not_accepted: '**Ne vo ket posupl** lakaat e anv war al lec''h.'
+  misc:
+    #original_hash: 80b46c8
+    title: Titouroù liesseurt
+    #original_hash: d485726
+    text: |
+      Marteze e vo kaset posteloù deoc'h gant ar skipailh aozañ a-raok ar
+      genstrivadeg. Respontit a-raok an deiziadoù termen, mar plij. Gallout a ra
+      bezañ dilamet hoc'h enskrivadur ma ne vez resevet respont ebet diganeoc'h
+      ha ma vez ur roll gortoz.

@@ -1,18 +1,17 @@
 <?php
 
-  require_once 'src/layout/_header.php';
-  require_once 'src/custom-functions.php';
+  require_once 'src/_header.php';
+  require_once 'src/_functions.php';
 
-  $competition_id = get_competition_id( $_POST );
+  $competition_id = $_POST['competition_select'];
 
-  if ( $competition_id )
+  if ( in_array( $competition_id, array_keys( $_SESSION['manageable_competitions'] ) ) )
   {
-    [ $noshow_list, $competition_data ] = get_noshow_list( $competition_id );
-  }
+    [ $noshow_list, $competition_data ] = get_noshow_list( $competition_id, $_SESSION['user_token'] );
   
 ?>
 
-<div class="container<?php if ( ! $_SESSION['logged_in'] ) echo "-fluid" ?>">
+<div class="container-fluid">
   <?php if ( $_SESSION['logged_in'] ): ?>  
     <div class="row mt-4 justify-content-center text-center">
       <div class='col-12 col-lg-9'>
@@ -27,7 +26,7 @@
                       <td><?php echo $person_name ?></td>
                       <td>(registrant id: <?php echo $person_info['registrant_id'] ?>)</td>
                     </tr>
-                  <? endforeach; ?>
+                  <? endforeach ?>
                 </tbody>
               </table>
             </div>
@@ -35,9 +34,18 @@
         </div>
       </div>
     </div>
-  <?php else: ?>
-    Please sign in to continue
   <?php endif ?>
 </div>
 
-<?php '../src/layout/_footer.php' ?>
+<?php
+
+  }
+  else
+  {
+    header("Location: https://{$_SERVER['SERVER_NAME']}/{$site_alias}" );
+    exit();
+  }
+  
+  require_once '../src/_footer.php';
+
+?>

@@ -1,13 +1,13 @@
 <?php
 
-  require_once 'src/layout/_header.php';
+  require_once 'src/_header.php';
 
   $competition_id = $_GET['id'];
 
-  if ( $_SESSION['logged_in'] AND ( in_array( $competition_id, $_SESSION['commande_utile']['my_imported_competitions'] ) OR $_SESSION['is_admin'] ) )
+  if ( in_array( $competition_id, $_SESSION['commande_utile']['my_imported_competitions'] ) OR $_SESSION['is_admin'] )
   {
-    require_once '../src/mysql/mysql-connect.php';
-    require_once 'src/functions/orders-functions.php';
+    require_once '../src/mysql_connect.php';
+    require_once 'src/_functions-orders.php';
 
     $competition_data = get_competition_data( $competition_id, $conn );
     $catalog = from_pretty_json( $competition_data['competition_catalog'] );
@@ -44,7 +44,7 @@
                 <a class="card-link" href="https://www.worldcubeassociation.org/contact?competitionId=<?php echo $competition_id ?>&contactRecipient=competition" target="_blank">Contacter l'équipe organisatrice</a>
               </div>
               <div class="col-12">
-                <a class="card-link" href="src/pdf/pdf-generate-catalog?id=<?php echo urlencode( $_GET['id'] ) ?>">Télécharger le catalogue</a>
+                <a class="card-link" href="src/pdf_generate-catalog?id=<?php echo urlencode( $_GET['id'] ) ?>">Télécharger le catalogue</a>
               </div>
             </div>
           </div>
@@ -81,13 +81,17 @@
               <?php foreach ( $user_order as $block_key => $block ): ?>
                 <?php unset( $block['given'] ) ?>
                 <div class="row mb-2">
-                  <h4 class="col-12"><?php echo $catalog[ $block_key ]['name'] ?></h4>
+                  <h4 class="col-12">
+                    <?php echo $catalog[ $block_key ]['name'] ?>
+                  </h4>
                 </div>
                 <div class="row mb-2">
                   <?php foreach ( $block['items'] as $item_key => $item ): ?>
                     <div class="col-12 col-sm-6 col-md-4 col-xl-3 mb-3">
                       <div class="ordered-item card">
-                        <h5 class="card-header text-center"><?php echo $catalog[ $block_key ]['items'][ $item_key ]['name'] ?></h5>
+                        <h5 class="card-header text-center">
+                          <?php echo $catalog[ $block_key ]['items'][ $item_key ]['name'] ?>
+                        </h5>
                         <div class="card-body pt-0 text-left">
                           <ul class="list-group list-group-flush">
                             <li class="list-group-item">
@@ -138,6 +142,6 @@
     exit();
   }
 
-  require_once '../src/layout/_footer.php'; 
+  require_once '../src/_footer.php'; 
 
 ?>

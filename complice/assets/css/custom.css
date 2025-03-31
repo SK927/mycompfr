@@ -1,0 +1,36 @@
+body{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #fff;
+  color: #000;
+}
+
+a, a:visited{
+  color: #117283;
+}
+
+a:hover{
+  color: #000;
+  text-decoration: none;
+}
+
+.navbar{
+  background-color: #117283;
+}
+
+.navbar-brand, .navbar-text{
+  color: #fff;
+}
+
+.navbar-brand:visited{
+  color: #fff;
+}
+
+.navbar-brand:hover{
+  color: #ddd;
+}
+
+.log-in-and-out{
+  color: #ffdb16 !important;
+}

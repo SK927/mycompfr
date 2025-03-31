@@ -1,0 +1,8 @@
+db_prefix:
+  sessions: ''
+  afs: ''
+  cu: ''
+  do: ''
+  rg: ''
+  rh: ''
+  viewer: ''

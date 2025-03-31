@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# 1) If NOT the current host
+RewriteCond %{HTTP_HOST}@@%{HTTP_REFERER} !^([^@]*)@@https?://\1/.*
+
+# 2) Deny access to these types
+RewriteRule \.(php)$ - [F]
+
+Header set Access-Control-Allow-Origin "https://internationalize.jonatanklosko.com"

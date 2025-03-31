@@ -1,19 +1,19 @@
 <?php
 
-  require_once 'src/layout/_header.php';
+  require_once 'src/_header.php';
 
   if ( $_SESSION['logged_in'] )
   {
-    require_once '../src/mysql/mysql-connect.php';
-    require_once 'src/functions/master-functions.php';
-    require_once 'src/layout/master-manage-templates.php';
+    require_once '../src/mysql_connect.php';
+    require_once 'src/_functions-master.php';
+    require_once 'src/templates_master-manage.php';
 
     $imported_competitions = get_all_competitions_formatted_data( $conn );
     $administrators = get_all_administrators( $conn );
 
 ?>
 
-<script src="assets/js/master-manage-actions.js"></script> <!-- Custom JS to handle current page actions -->
+<script src="assets/js/master-manage-actions.js"></script>
 <div class="container text-center">
   <div class="row">
     <?php if ( $_SESSION['can_manage'] AND $_SESSION['is_admin'] ): ?>
@@ -34,7 +34,7 @@
                   </div>
                 </div>
               </div>
-              <form id="form-competition" class="collapse col-12" action="src/master/ajax-create-new-competition" method="POST">
+              <form id="form-competition" class="collapse col-12" action="src/master_ajax-create-new-competition" method="POST">
                 <h5 class="card-title">Création d'une compétition</h5>
                 <div class="form-floating">
                   <input id="competition-id" class="form-control mb-1" type="text" name="competition_id">
@@ -51,7 +51,7 @@
               </div>  
             </div>
             <ul id="competitions" class="list-group list-group-flush">
-              <script>updateCompetitionsList( <?php echo json_encode( $imported_competitions ) ?> );</script>
+              <script>updateCompetitionsList( <?php echo json_encode( $imported_competitions ) ?> )</script>
             </ul>
           </div>
         </div>
@@ -73,7 +73,7 @@
                   </div>
                 </div>
               </div>
-              <form id="form-administrator" class="collapse col-12" action="src/master/ajax-create-new-administrator" method="POST">
+              <form id="form-administrator" class="collapse col-12" action="src/master_ajax-create-new-administrator" method="POST">
                 <h5 class="card-title">Création d'un administrateur</h5>
                 <div class="form-floating">
                   <input id="administrator-id" class="form-control mb-1" type="text" name="administrator_id">
@@ -103,7 +103,7 @@
           </div>
           <div class="card-body col-12 text-center">
             <div class="row justify-content-center pt-4 pb-3">
-              <form id="form-credentials" class="col-12 col-lg-6" action="src/master/ajax-check-credentials" method="POST" name="form_credentials">
+              <form id="form-credentials" class="col-12 col-lg-6" action="src/master_ajax-check-credentials" method="POST" name="form_credentials">
                 <div class="form-floating">
                   <input id="administrator-id" class="form-control mb-1 text-center" type="text" name="administrator_id" required>
                   <label for="administrator-id">Identifiant</label>
@@ -126,7 +126,7 @@
 
     $conn->close();
     
-    require_once '../src/layout/_status-bar.php';
+    require_once '../src/_status-bar.php';
   }
   else
   {
@@ -134,7 +134,7 @@
     exit();
   }
 
-  require_once '../src/layout/_footer.php'; 
+  require_once '../src/_footer.php'; 
 
 ?>
   

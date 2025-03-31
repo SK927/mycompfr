@@ -1,0 +1,9 @@
+reminder:
+  subject: "{competition_name} - Please Confirm Your Registration!"
+  text:
+    p1: "Hi,"
+    p2: "This is a friendly reminder to confirm your registration for {competition_name} as soon as possible."
+    p3: "To do so, please visit the <a href=\"{site}\">Registration Checker</a> website."
+    p4: "Not confirming your registration may result in it being deleted!"
+    p5: "Thank you in advance,"
+  sign: "The organizing team for {competition_name}"

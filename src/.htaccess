@@ -1,0 +1,7 @@
+RewriteEngine On
+
+# 1) If NOT the current host
+RewriteCond %{HTTP_HOST}@@%{HTTP_REFERER} !^([^@]*)@@https?://\1/.*
+
+# 2) Deny access to these types
+RewriteRule !oauth_sign-in\.php$ - [F]

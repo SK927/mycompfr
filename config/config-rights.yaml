@@ -1,0 +1,24 @@
+rights:
+  need_admin: [ 
+                'pimp-my-faq',
+                'pimp-my-faq_new',
+                'commande-utile',
+                'registration-checker',
+                'registration-handler' 
+              ]
+  need_email: [ 
+                'commande-utile',
+                'registration-checker',
+                'registration-handler' 
+              ]
+  need_dob: [ 
+              'registration-handler'
+            ]
+  force_admin:  [ 
+                  '67gen',
+                  'compare',
+                  'complice',
+                  'noshow',
+                  'pimp-my-faq_yaml',
+                  'viewer'
+                ]

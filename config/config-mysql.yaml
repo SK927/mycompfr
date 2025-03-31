@@ -1,0 +1,5 @@
+mysql:
+  host: ''
+  username: ''
+  password: ''
+  db_name: ''

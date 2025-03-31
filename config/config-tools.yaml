@@ -1,0 +1,54 @@
+tools:
+  en:
+    title: 'International tools'
+    link: 'click here'
+    description:
+      t1:
+        'name': 'Registration Checker'
+        'description': 'Request competitors to confirm their presence at your competition'
+        'folder': 'registration-checker'
+      t2:
+        'name': 'Registration Handler'
+        'description': 'Handle on the spot registrations easily by letting competitors register and by generating the required scorecards'
+        'folder': 'registration-handler'
+      t3:
+        'name': '67Gen'
+        'description': 'Generate dual scorecards for 6x6/7x7 or 4bld/5bld when both events share the same cumulative'
+        'folder': '67gen'
+      t4:
+        'name': '(no)Show'
+        'description': 'Generate the list of no-shows for a competition after the competition ended'
+        'folder': 'noshow'
+      t5:
+        'name': 'COMPare'
+        'description': 'Compare registrants list between two competitions'
+        'folder': 'compare'
+      t6:
+        'name': 'Viewer'
+        'description': 'A simple viewer to display current competition information on projectors'
+        'folder': 'viewer'
+      t7:
+        'name': 'Cumulo'
+        'description': 'Calculate remaining time compared to a cumulative'
+        'folder': 'cumulo'
+      t8:
+        'name': 'DO Stats'
+        'description': 'Get your Delegate/organizer stats'
+        'folder': 'do-stats'
+  fr:
+    title: 'Outils en français'
+    link: 'cliquez ici'
+    description:
+      t1:
+        'name': 'Commande Utile'
+        'description': 'Permet la gestion de commandes pour les buvettes ou stands de compétitions francophones'
+        'folder': 'commande-utile'
+      t2:
+        'name': 'Pimp My FAQ'
+        'description': "Génère la FAQ et les informations d'inscription pour les compétitions soutenues par l'AFS"
+        'folder': 'pimp-my-faq'
+        'link': 'cliquez ici'
+      t3:
+        'name': 'Complice'
+        'description': "Génère la liste des compétiteurs en n'affichant que les informations utiles"
+        'folder': 'complice'

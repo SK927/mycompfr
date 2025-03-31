@@ -1,4 +1,4 @@
-<?php require_once 'src/layout/_header.php' ?>
+<?php require_once 'src/_header.php' ?>
 
 <div class="container">
   <div class="row mt-2 text-center">
@@ -67,7 +67,7 @@
           <p>La collecte et le traitement de ces données répond à la (aux) finalité(s) suivante(s) :</p>
           <ul>
             <li>Identification des utilisateurs ;</li>     
-            <li>Envoi d'e-mail de confirmation ;</li>     
+            <li>Envoi d'e-mails de confirmation ;</li>     
             <li>Inscription à la liste de compétiteurs ;</li>     
             <li>Affichage des compétitions gérées ;</li>     
             <li>Affichage des compétitions de participation ;</li>     
@@ -78,9 +78,10 @@
           <p>Lorsque vous utilisez notre site, aucune donnée n'est collectées automatiquement. </p>
           <p>Les données personnelles sont collectées lorsque vous effectuez les opérations suivantes sur la plateforme :</p>
           <ul>
-            <li>Connexion au site.</li>            
+            <li>Connexion au site ;</li>            
+            <li>Utilisation volontaire d'un outil d’une manière qui nécessite clairement que des données soient stockées (ex : passer une commande).</li>            
           </ul>
-          <p>Elles sont conservées par le responsable du traitement dans des conditions raisonnables de sécurité, pour une durée maximale de deux heures après votre dernière activité sur le site.</p>
+          <p>Elles sont conservées par le responsable du traitement dans des conditions de sécurité raisonnables pendant une durée maximale de deux semaines après la fin de la compétition avec laquelle vous avez intéragi.</p>
           <p>Le site est susceptible de conserver certaines données à caractère personnel au-delà des délais annoncés ci-dessus afin de remplir ses obligations légales ou réglementaires.</p>
 
           <h5 class="mt-5">Article 3.3 : Hébergement des données</h5>
@@ -142,11 +143,11 @@
           <p>L’éditeur du site MyComp se réserve le droit de pouvoir modifier la présente Politique à tout moment afin d’assurer aux utilisateurs du site sa conformité avec le droit en vigueur.</p>
           <p>Les éventuelles modifications ne sauraient avoir d’incidence sur les achats antérieurement effectués sur le site, lesquels restent soumis à la Politique en vigueur au moment de l’achat et telle qu’acceptée par l’utilisateur lors de la validation de l’achat.</p>
           <p>L’utilisateur est invité à prendre connaissance de cette Politique à chaque fois qu’il utilise nos services, sans qu’il soit nécessaire de l’en prévenir formellement.</p>
-          <p>La présente politique, a été mise à jour le <?php echo date( 'd/m/Y à H:i:s', filemtime( pathinfo(__FILE__, PATHINFO_FILENAME) . '.php' ) )?>.
+          <p>La présente politique, a été mise à jour le <?php echo date( 'd/m/Y à H:i:s', filemtime( pathinfo( __FILE__, PATHINFO_FILENAME ) . '.php' ) )?>.
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<?php require_once 'src/layout/_footer.php' ?>
+<?php require_once 'src/_footer.php' ?>

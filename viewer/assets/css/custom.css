@@ -1,0 +1,47 @@
+body{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #fff;
+  color: #000;
+}
+
+a, a:visited{
+  color: #c84322;
+}
+
+a:hover{
+  color: #000;
+  text-decoration: none;
+}
+
+.navbar{
+  background-color: #c84322;
+}
+
+.navbar-brand, .navbar-text{
+  color: #fff;
+}
+
+.navbar-brand:visited{
+  color: #fff;
+}
+
+.navbar-brand:hover{
+  color: #ddd;
+}
+
+.log-in-and-out{
+  color: #ffdb16 !important;
+}
+
+table{
+	font-size:30px;
+}
+
+table td.fit, 
+table th.fit {
+   white-space: nowrap;
+   width: 1%;
+}
+

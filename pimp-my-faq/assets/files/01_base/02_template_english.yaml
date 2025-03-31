@@ -1,0 +1,275 @@
+en:
+  locale: ENGLISH
+  prepend: English version below
+  faq:
+    alias:
+      question: 'Q:'
+      answer: 'R:'
+    data:
+      q1:
+        q: How do I register?
+        a: |
+          First, you must create an account on the WCA website. You can do this
+          by clicking
+          *[Register](https://www.worldcubeassociation.org/users/sign_up)*. Once
+          you have created your account and confirmed your email address, go to
+          the
+          *[Register](https://www.worldcubeassociation.org/competitions/ID_COMP/register)*
+          tab of the competition you are interested in, read and follow the
+          instructions carefully.
+      q2:
+        q: |
+          I am a member of the AFS, or this is my first competition, and the
+          website still asks me to pay, what to do?
+        a:
+          p1: |
+            As indicated on the competition page, no need to pay! The WCA
+            website displays the payment page by default since it cannot know if
+            your registration is paid by the AFS or not. But rest assured: the
+            organizing team will know, control who needs to pay or not and will
+            therefore take this information into account when accepting
+            registrations.
+          p2: |
+            If you are not sure if you are an AFS member, check by logging into
+            the *[association website](https://www.speedcubingfrance.org/)* and
+            then going to your profile.
+      q3:
+        q: Why am I not on the competitors list?
+        a: |
+          Please ensure you have read and followed the instructions in the
+          *[Register](https://www.worldcubeassociation.org/competitions/ID_COMP/register)*
+          section of the competition. In particular, if you are not a member of
+          the AFS (see
+          [here](https://www.speedcubingfrance.org/association/adhesion)) or if
+          this is not your first competition, please check that you have paid
+          for the competition. You may also be on the waiting list. The maximum
+          number of participants can be found on the main competition page
+          (*[General
+          information](https://www.worldcubeassociation.org/competitions/ID_COMP#general-info)*
+          tab) and you can see the number of people already accepted on the page
+          *[Competitors](https://www.worldcubeassociation.org/competitions/ID_COMP/registrations)*.
+          If you have done everything correctly, paid if necessary, and the
+          competition is not filled, be patient. We have to manually accept
+          registrations and the organizing teams are not available all the time.
+          If you think you have done everything correctly but you are still not
+          accepted e after a couple days, then contact us by clicking the
+          *[contact](https://www.worldcubeassociation.org/contact?competitionId=ID_COMP&contactRecipient=competition)*
+          link on the main competition page, *[General
+          information](https://www.worldcubeassociation.org/competitions/ID_COMP#general-info)*
+          tab.
+      q4:
+        q: |
+          Can I change the events I registered for after my registration has
+          been accepted?
+        a: |
+          If authorized by the organizing team, you can change your events in
+          the
+          *[Register](https://www.worldcubeassociation.org/competitions/ID_COMP/register)*
+          section, on the *Register, Choose your events* panel, until the date
+          indicated in the registration requirements. If not, you can contact
+          the organizing team directly via the
+          *[contact](https://www.worldcubeassociation.org/contact?competitionId=ID_COMP&contactRecipient=competition)*
+          link on the main competition page, *[General
+          Info](https://www.worldcubeassociation.org/competitions/ID_COMP#general-info)*
+          tab.
+      q5:
+        q: I can’t come to the competition anymore? What should I do?
+        a:
+          p1: |
+            Please let us know as soon as you know you can no longer come, by
+            emailing via the
+            *[contact](https://www.worldcubeassociation.org/contact?competitionId=ID_COMP&contactRecipient=competition)*
+            link on the main competition page, *[General
+            information](https://www.worldcubeassociation.org/competitions/ID_COMP#general-info)*
+            tab.
+          p2: |
+            You can also unsubscribe on your own by going directly to the
+            *[Register](https://www.worldcubeassociation.org/competitions/ID_COMP/register)*
+            section and by scrolling down to the *Registration Details* panel.
+          p3: |
+            Competitions usually fill up pretty quickly and notifying us of your
+            unsubscription allows us to accept someone from the waiting list.
+            Your payment will be refunded if you unsubscribe before the date on
+            the *[General
+            Information](https://www.worldcubeassociation.org/competitions/ID_COMP#general-info)*
+            page.
+      q6:
+        q: Do I have to be very fast to participate?
+        a: |
+          We recommend that you look at the
+          *[Planning](https://www.worldcubeassociation.org/competitions/ID_COMP#competition-schedule)*
+          page of the competition. For each event, if you can solve the cube
+          faster than the time indicated as *Time Limit*, you are fast enough!
+          The events appreciated by beginners (3x3, 2x2, pyraminx, skewb)
+          usually have a *time limit* of 10 minutes, which leaves a large
+          majority of competitors the opportunity to participate. Many people
+          compete for the sole purpose of having fun and breaking their own
+          records, without expecting to win.
+      q7:
+        q: Are there different categories?
+        a: |
+          All competitors participate together in each event in a single
+          category. All ages, genders, nationalities are accepted in
+          competition.
+      q8:
+        q: Do I have to participate in all events?
+        a: |
+          No. There is a ranking for each event, so you can only participate in
+          the ones you like. You will need to select the right images (they will
+          then appear in green) when you register.
+      q9:
+        q: Do I have to bring my own equipment to participate?
+        a:
+          p1: |
+            Make sure you bring at least one cube for each event you have
+            registered for and pay attention to it during the competition.
+            Thefts are very rare but it is common to take a cube similar to his
+            without paying attention.
+          p2: |
+            Also make sure your cube is allowed. Connected cubes or cubes with
+            multiple logos are prohibited for official events. Note that any
+            cube with a logo (even if there is only one and you can’t feel it)
+            is forbidden for 4x4 and 5x5 blindfolded and 3x3 multi-blind.
+          p3: |
+            However, there is no need to bring a mat or timer, unless you want
+            to use them for your training. Those used for the competition are
+            provided by the organizers.
+      q10:
+        q: Can I only come as a spectator?
+        a: |
+          es. Unless otherwise stated in the *[General
+          Information](https://www.worldcubeassociation.org/competitions/ID_COMP#general-info)*
+          of the competition, the competitions are accessible free of charge for
+          spectators. You can look at the
+          *[Planning](https://www.worldcubeassociation.org/competitions/ID_COMP#competition-schedule)*
+          tab to check the times of the events that interest you.
+      q11:
+        q: What time should I arrive for the competition?
+        a: |
+          If this is your first competition, we advise you to look at the
+          *[Planning](https://www.worldcubeassociation.org/competitions/ID_COMP#competition-schedule)*
+          for the time of the tutorial or check the emails sent by the
+          organizing team. In any case, please arrive at the competition about
+          30 minutes before the start of your first event. Please note that if
+          you arrive after the end of one of your events, we will not be able to
+          have you catch up.
+      q12:
+        q: What should I do when I arrive at the competition?
+        a: |
+          The first thing to do is to find the welcome and introduce yourself.
+          If you are a new competitor, remember to take with you an identity
+          document (or any document mentioning your name, first name and date of
+          birth) because it may be requested at the welcome desk. The person who
+          will welcome you can then guide you and answer your first questions.
+      q13:
+        q: When can I leave the competition?
+        a: |
+          It is only necessary to be present when you have to participate or
+          judge/ runner/ scramble (an individual schedule will probably be given
+          to you at the entrance of the competition or will be available on
+          [Competiton
+          Groups](https://www.competitiongroups.com/competitions/ID_COMP)). Once
+          you have no more tasks, you are free to leave. Remember to check if
+          you qualified for subsequent rounds, you never know!
+      q14:
+        q: Where can I find the results?
+        a:
+          p1: |
+            During the competition, results are entered manually on *[WCA
+            Live](https://live.worldcubeassociation.org/)* and will be available
+            online approximately half an hour after the end of each round.
+          p2: |
+            At the end of the competition, all the results will be available on
+            this same page, but also on the profile of each participant once the
+            organizing team has posted the results.
+      q15:
+        q: How do I create my WCA ID?
+        a: |
+          The WCA IDs are created automatically as soon as the competition
+          results are published (less than a week after the end of the
+          competition). The format is: Year of first competition – first 4
+          letters of last name – two digits to differentiate between people who
+          would have the same information.
+      q16:
+        q: |
+          I usually practice listening to music. Can I use headphones during my
+          official solves?
+        a: |
+          Headphones or earphones are strictly prohibited during official
+          solves, so their use would result in disqualification of the solve. If
+          the headset is for you to be more focused or less stressed, then you
+          can use a noise-cancelling headset only if it has no electronic
+          components.
+      q17:
+        q: Can I film my solves?
+        a: |
+          It is possible, with a standing camera (GoPro or other) or a mobile
+          phone. Be careful though: in the case of a mobile phone or device with
+          a screen, it should not be directed at you. Once the solve begins,
+          that is, as soon as the inspection has begun, it is strictly forbidden
+          to touch its camera, even if it falls, under penalty of
+          disqualification of the resolution (DNF).
+  reg:
+    title: Registration conditions
+    text:
+      p1: |
+        Registrations are accepted in the order the registrations are completed,
+        which means that :
+      p2: '[//]: # ''USED TO FORCE NEW LINE : DO NOT REMOVE OR TRANSLATE'''
+      p3: |
+        * For the people who don't need to pay (new competitors & AFS members),
+        we take into account the time when the person **registered**;
+      p4: |
+        * For the people who need to pay, we take into account the time when the
+        person **paid**.
+      p5: '[//]: # ''USED TO FORCE NEW LINE : DO NOT REMOVE OR TRANSLATE'''
+      p6: |
+        Note that your registration will be considered "pending" until it is
+        complete (for example if you have not paid when you were due). You will
+        not be able to join the list of competitors (or the waiting list if the
+        list of competitors is already full), until you have completed your
+        registration.
+      p7: |
+        We would like to point out that registrations are processed manually and
+        may therefore take some time, thank you for your patience.
+  wl:
+    title: Waiting list
+    text:
+      p1: |
+        If you are on the waiting list, you can check your spot on the
+        [registration
+        page](https://www.worldcubeassociation.org/competitions/ID_COMP/register)
+        by clicking on "4. Approval by organization team" (even if you didn't
+        pay and you didn't have to).
+      p2: '[//]: # ''USED TO FORCE NEW LINE : DO NOT REMOVE OR TRANSLATE'''
+      p3: |
+        People on the waiting list can be accepted until the [deadline indicated
+        in the registration
+        conditions](https://www.worldcubeassociation.org/competitions/ID_COMP/register).
+      p4: |
+        Any competitor accepted on the main list from the waiting list **after**
+        the deadline for reimbursement will not be refunded if they can not go
+        to the competition. However, we will refund your registration if you did
+        not leave the waiting list after the competition.
+  ots:
+    title: On the spot registrations
+    text:
+      accepted:
+        p1: |
+          On the spot registrations will only be accepted if at least one spot
+          is available on the list of competitors **at the time registrations
+          close** (**TODO compléter avec date & heure**). In this case, on the
+          spot registrations will be accepted, within the competitors limit, in
+          the order of arrival and presentation to the referring person
+          (**TODO compléter avec nom référent**).
+        p2: |
+          Otherwise, on the spot registrations will simply not be allowed, even
+          if other competitors do not show up for the competition. We therefore
+          advise you to register online in order to make sure you have a slot.
+      not_accepted: On the spot registrations **will not be accepted**
+  misc:
+    title: Miscellaneous
+    text: |
+      Before the competition, the organisation team may send you one or multiple
+      emails. Please answer them in time. Not answering to these emails might
+      make us delete your registration, if there is a waiting list.

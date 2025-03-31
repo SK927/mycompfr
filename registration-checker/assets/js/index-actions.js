@@ -54,7 +54,6 @@ function displayCompetition( id, name, startDate, endDate, registration )
   {
     clone.querySelector( '.competition-not-answered' ).innerHTML += ' <span style="color:#dc3545"><b>You haven\'t answered yet!</b></span>';
   }
-  
   return clone;
 } 
 
@@ -64,7 +63,7 @@ function updateCompetitionsList()
 {
   $.ajax( {
     type: 'POST',
-    url: 'src/admin/ajax-get-updated-competition-list.php',
+    url: 'src/admin_ajax-get-updated-competition-list.php',
     data: { valid: true },
 
     success: function( response )
@@ -100,7 +99,7 @@ function toggleStatus( id, state )
   
   $.ajax( {
     type: 'POST',
-    url: 'src/admin/ajax-update-registration-status.php',
+    url: 'src/admin_ajax-update-registration-status.php',
     data: { competition_id: id, new_state: state },
     success: function( response )
     {      
@@ -128,7 +127,7 @@ $( document ).on( 'click', '.import-competition', function( e )
   
   $.ajax( {
     type: 'POST',
-    url: 'src/admin/ajax-import-competition.php',
+    url: 'src/admin_ajax-import-competition.php',
     data: { competition_id: target.val() },
     success: function( response )
     {      
@@ -176,7 +175,7 @@ $( document ).on( 'click', '.send-reminder', function( e )
     
     $.ajax( {
       type: 'POST',
-      url: 'src/admin/ajax-send-reminder.php',
+      url: 'src/admin_ajax-send-reminder.php',
       data: { competition_id: target.val() },
       success: function( response )
       {     
@@ -204,7 +203,7 @@ $( document ).on( 'click', '.update-competitors', function( e )
   
   $.ajax( {
     type: 'POST',
-    url: 'src/admin/ajax-update-competitors-list.php',
+    url: 'src/admin_ajax-update-competitors-list.php',
     data: { competition_id: target.val() },
     success: function( response )
     {

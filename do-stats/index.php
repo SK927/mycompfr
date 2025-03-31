@@ -1,8 +1,8 @@
 <?php 
 
-  require_once 'src/layout/_header.php'; 
-  require_once dirname( __DIR__, 1 ) . '/src/mysql/mysql-connect.php';
-  require_once 'src/custom-functions.php'; 
+  require_once 'src/_header.php'; 
+  require_once '../src/mysql_connect.php';
+  require_once 'src/_functions.php'; 
 
 ?>  
 
@@ -18,7 +18,7 @@
     <?php $delegated_competitions = get_competitions_managed_by_user_in_past( $view_as, 'delegate', $conn ) ?>
     <div class="col-12">
       <div class="card">
-        <div class="card-header"><?php echo $view_as ?> statistics as Delegate/Organizer</div>
+        <div class="card-header"><b><?php echo $view_as ?></b> statistics as Delegate/Organizer</div>
         <div id="stats" class="card-body px-md-5 py-3"> 
           <div class="row text-center justify-content-center">
             <?php if ( count( $delegated_competitions->competitions ) ): ?>
@@ -202,12 +202,12 @@
     </div>
   <?php else: ?>
     Please sign in to continue
-  <?php endif; ?>
+  <?php endif ?>
 </div>
 
 <?php $conn->close() ?>
       
-<?php require_once '../src/layout/_footer.php' ?>
+<?php require_once '../src/_footer.php' ?>
 
 
 
