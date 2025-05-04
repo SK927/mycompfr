@@ -24,7 +24,7 @@
     <h1 class="col-12 text-uppercase"><?php echo $competition_name ?></h1>
   </div>
   <?php foreach ( $registrations as $user_id => $registration ): ?>
-    <?php $formatted_data = format_registration_data( $competition_id, $user_id, $registration, $competitors_list ) ?>
+    <?php $formatted_data = format_registration_data( $competition_id, $user_id, $registration, $registrations ) ?>
     <?php if ( $formatted_data ): ?>
       <div class="card mb-2 p-4">
         <form id="<?php echo $_GET['id'] ?>" class="card-body competition-id" name="registration_form" method="POST" action="src/pdf_generate-scorecards.php">
