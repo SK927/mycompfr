@@ -24,7 +24,7 @@ $( document ).on( 'submit', 'form', function( e )
       competitionId.push( document.getElementById( 'competition-select-' + i ).value );
     }
   }
-  this.action = 'display-compared-lists?competition1=' + competitionId[0] + '&competition2=' + competitionId[1];
-  this.submit();
+
+  window.location.href = 'display-compared-lists?competition1=' + competitionId[0] + '&competition2=' + competitionId[1];
 } );
 
