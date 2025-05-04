@@ -13,7 +13,7 @@
   <script src="https://<?php echo "{$_SERVER['SERVER_NAME']}/{$site_alias}" ?>/assets/js/mapdata2.js"></script>
   <script>var mapOrganized = simplemaps_worldmap.create()</script>
   <?php if ( $_SESSION['logged_in'] ): ?>  
-    <?php $view_as = isset( $_GET['view_as'] ) ? $_GET['view_as'] : $_SESSION['user_name'] ?>
+    <?php $view_as = isset( $_GET['view_as'] ) ? $_GET['view_as'] : $_SESSION['user_wca_id'] ?>
     <?php $organized_competitions = get_competitions_managed_by_user_in_past( $view_as, 'organizer', $conn ) ?>
     <?php $delegated_competitions = get_competitions_managed_by_user_in_past( $view_as, 'delegate', $conn ) ?>
     <div class="col-12">
@@ -77,8 +77,10 @@
                     <tr>
                       <td>
                         <?php foreach ( $delegated_competitions->users as $co => $cnt ): ?>
-                          <?php $co_alt = str_replace( ' ', '&nbsp;', $co )?>
-                          <?php echo "&#8226;&nbsp;<a href=\"?view_as={$co}\">{$co_alt}</a>&nbsp;({$cnt})" ?>
+                          <?php $co = str_replace( ' ', '&nbsp;', $co )?>
+                          <?php $co = explode( '|', $co ) ?>
+                          <?php $co[1] = $co[1] ? $co[1] : $co[0] ?>
+                          <?php echo "&#8226;&nbsp;<a href=\"?view_as={$co[1]}\">{$co[0]}</a>&nbsp;({$cnt})" ?>
                         <?php endforeach ?>
                       </td>
                     </tr>
@@ -164,7 +166,10 @@
                     <tr>
                       <td>
                         <?php foreach ( $organized_competitions->users as $co => $cnt ): ?>
-                          <?php echo "&#8226;&nbsp;<a href=\"?view_as={$co}\">{$co}</a>&nbsp;({$cnt})" ?>
+                          <?php $co = str_replace( ' ', '&nbsp;', $co )?>
+                          <?php $co = explode( '|', $co ) ?>
+                          <?php $co[1] = $co[1] ? $co[1] : $co[0] ?>
+                          <?php echo "&#8226;&nbsp;<a href=\"?view_as={$co[1]}\">{$co[0]}</a>&nbsp;({$cnt})" ?>
                         <?php endforeach ?>
                       </td>
                     </tr>

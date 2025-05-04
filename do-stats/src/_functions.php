@@ -66,7 +66,7 @@
    * @return (array) organized competitions information
    */ 
 
-  function get_competitions_managed_by_user_in_past( $user_name, $type, $mysqli )
+  function get_competitions_managed_by_user_in_past( $user, $type, $mysqli )
   {
     require_once dirname( __DIR__, 2 ) . '/config/config_loader.php';
     $db = load_config_yaml( 'config-db' );
@@ -74,7 +74,7 @@
     $multisite = array( 'XA', 'XE', 'XM', 'XN', 'XO', 'XS', 'XW' );
 
     // Retrieve all competitions where current user is part of the organizing team
-    $sql = "SELECT * FROM {$db['do']}_Competitions WHERE {$type} LIKE '%{{$user_name}}%' AND cancelled = 0 ORDER by startDate";
+    $sql = "SELECT * FROM {$db['do']}_Competitions WHERE {$type} LIKE '%{$user}%' AND cancelled = 0 ORDER by startDate";
     $query_results = $mysqli->query( $sql );
     $user_competitions = new user_data();
 
@@ -94,7 +94,7 @@
       
       $year = explode( '-', $competition['startDate'] )[0];
       $user_competitions->set_years_counter( "e{$year}" );
-      $events = explode( ' ', $competition['events'] );
+      $events = from_pretty_json( $competition['events'] );
 
       foreach ( $events as $event )
       {
@@ -103,16 +103,13 @@
       
       if ( ! in_array( $competition['countryId'], $multisite ) )
       {
-        $people = explode( '[{', $competition[ $type ] );
-        array_shift( $people );
+        $people = from_pretty_json( $competition[ $type ] );
 
-        foreach ( $people as $i=>$person )
+        foreach ( $people as $user_id => $person )
         {
-          $person = explode( '}', $person)[0];
-
-          if ( $person != $user_name)
+          if ( ($person['name'] != $user) AND ($person['wca_id'] != $user) )
           {
-            $user_competitions->set_users_counter( $person );
+            $user_competitions->set_users_counter( "{$person['name']}|{$person['wca_id']}" );
           }
         }
       }
