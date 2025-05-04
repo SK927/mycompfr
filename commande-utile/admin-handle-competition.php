@@ -102,20 +102,22 @@
             PRODUITS
           </div>
           <div class="card-body col-12">
-            <?php foreach ( $items_amount as $block_name => $item ): ?>
+            <?php foreach ( $items_amount as $block_name => $items ): ?>
             <div class="row mt-1">
               <h4 class="col-12 text-start"><?php echo $block_name ?></h4>
             </div>
             <div class="row mb-1">
-              <?php foreach ( $item as $item_name => $item_qty ): ?>
-              <div class="col-6 col-sm-4 col-lg-3 col-xl-2 mb-3">
-                <div class="card item-qty">
-                  <h5 id="<?php echo "{$block_name}_{$item_name}" ?>" class="card-header"><?php echo $item_qty ?></h5>
-                  <div class="card-body pt-0 pb-2 text-muted">
-                    <?php echo $item_name ?>
-                  </div>
-                </div>
-              </div> 
+              <?php foreach ( $items as $item_name => $item_qty ): ?>
+                <?php if ( $item_qty ): ?>
+                  <div class="col-6 col-sm-4 col-lg-3 col-xl-2 mb-3">
+                    <div class="card item-qty">
+                      <h5 id="<?php echo "{$block_name}_{$item_name}" ?>" class="card-header"><?php echo $item_qty ?></h5>
+                      <div class="card-body pt-0 pb-2 text-muted">
+                        <?php echo $item_name ?>
+                      </div>
+                    </div>
+                  </div> 
+                <?php endif ?>  
               <?php endforeach ?>  
             </div>
             <?php endforeach ?>

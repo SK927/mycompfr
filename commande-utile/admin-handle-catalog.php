@@ -44,7 +44,7 @@
             <button id="load-file" class="btn btn-light" name="upload">Charger le fichier</button>
           </form>
           <sub>
-            <a href="assets/Example-Catalog.csv">(Télécharger le fichier d'exemple)</a>
+            <a href="assets/manuals/Example-Catalog.csv">(Télécharger le fichier d'exemple)</a>
           </sub>
         </div>
         <div class="card-body col-12">

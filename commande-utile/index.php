@@ -2,9 +2,8 @@
 
   require_once 'src/_header.php';
   require_once '../src/mysql_connect.php';
-  require_once '../src/_functions-encrypt.php';
   require_once 'src/_functions-index.php';
-    
+  
   [ $user_imported_competitions, $error ] = get_user_imported_competitions( $_SESSION['user_id'], $conn ); 
   $_SESSION['commande_utile']['my_imported_competitions'] = array_keys( $user_imported_competitions );
   $_SESSION['manageable_competitions'] = check_imported_competitions( $_SESSION['manageable_competitions'], $conn );
@@ -13,6 +12,7 @@
 
 ?>  
 
+<script src="assets/js/index-actions.js"></script>
 <div class="container text-center">
   <?php if ( $_SESSION['logged_in'] ): ?>
     <div class="row justify-content-center mt-3 mb-2">
@@ -47,7 +47,7 @@
                     </p>
                   </small>
                 </li>
-                <?php if ( $competition_data['orders_closing_date'] != '0000-00-00' ): ?>
+                <?php if ( $competition_data['orders_closing_date'] != '0000-00-00' AND from_pretty_json( $competition_data['competition_catalog'] ) ): ?>
                   <?php if ( date( 'Y-m-d' ) <= $competition_data['orders_closing_date'] ): ?>
                     <li class="list-group-item">
                       <a href="user-place-order?id=<?php echo urlencode( $competition_id ) ?>">
@@ -76,7 +76,8 @@
         </div>
       <?php endforeach ?>
     </div>  
-    <?php if ( $_SESSION['manageable_competitions'] ): ?>
+    <?php $announced = array_filter( $_SESSION['manageable_competitions'], 'remove_not_announced_competitions' ) ?>
+    <?php if ( $not_imported = array_filter( $announced, 'remove_imported_competitions' ) ): ?>
       <div class="row justify-content-center mt-5">
         <h1 class="col-12">COMPÉTITIONS IMPORTABLES</h1>
         <?php foreach ( $_SESSION['manageable_competitions'] as $competition_id => $competition_data ): ?>
@@ -96,7 +97,7 @@
                     </small>
                   </li>
                   <li class="list-group-item">
-                    <a href="admin-import-competition?id=<?php echo urlencode( $competition_id ) ?>">Importer</a>
+                    <a class="import-link" href="admin-import-competition?id=<?php echo urlencode( $competition_id ) ?>">Importer</a>
                   </li>
                 </ul>
               </div>

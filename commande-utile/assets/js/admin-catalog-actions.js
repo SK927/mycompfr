@@ -336,7 +336,7 @@ $( document ).on( 'submit', '#form-csv', function( e )
     success: function( response )
     {  
       let result = JSON.parse( response );
-     
+      
       if ( ! result.error )
       {
         document.getElementById( 'file-input' ).value = '';

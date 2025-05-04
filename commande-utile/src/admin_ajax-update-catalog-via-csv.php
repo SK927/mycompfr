@@ -29,13 +29,18 @@
       $handle = fopen( $file_temp, 'r' ); // Open file 
 
       while ( ! feof( $handle ) ) 
-      {
-        $filtered_array = array_filter( fgetcsv( $handle, 0, ';' ), function( $element ) {
-          return '' !== trim( $element );
-        });
+      { 
+        if ( is_array( $row = fgetcsv( $handle, 0, ';', "\"", "\\" ) ) )
+        {
+          $filtered_array = array_filter( $row, function( $element ) {
+            return '' !== trim( $element );
+          });
 
-        if ( count( $filtered_array ) )
-          array_push( $csv_array, $filtered_array ); // Read each line 
+          if ( count( $filtered_array ) )
+          {
+            array_push( $csv_array, $filtered_array ); // Read each line 
+          }
+        }
       }
 
       fclose( $handle ); // Close file  

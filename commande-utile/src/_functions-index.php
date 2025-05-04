@@ -75,4 +75,26 @@
     return $competitions;
   }
 
+  /**
+   * remove_imported_competitions(): remove all the competitions already imported from the input array
+   * @param (array) subarray: subarray representing a competition
+   * @return (array) modified input array without already imported competions
+   */
+
+    function remove_imported_competitions( $subarray )
+    {
+      return (!(isset( $subarray['imported_in_cu'] ) AND $subarray['imported_in_cu'] === true));
+    }
+  
+  /**
+   * remove_not_announced_competitions(): remove all the competitions already imported from the input array
+   * @param (array) subarray: subarray representing a competition
+   * @return (array) modified input array without anot announced competions
+   */
+
+    function remove_not_announced_competitions( $subarray )
+    {
+      return (!(isset( $subarray['announced'] ) AND $subarray['announced'] === false));
+    }
+
 ?>
