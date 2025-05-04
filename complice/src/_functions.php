@@ -169,9 +169,10 @@
 
     $txt .= "<tr>";
     $txt .= "<td style=\"border:1px solid #000;width:18px;background-color:{$color}\"></td>";
-    $txt .= "<td style=\"border:1px solid #000;width:216px;background-color:{$color}\">{$competitor['name']}</td>";
+    $txt .= "<td style=\"border:1px solid #000;width:198px;background-color:{$color}\">{$competitor['name']}</td>";
     $txt .= "<td style=\"border:1px solid #000;width:216px;background-color:{$color}\">{$competitor['email']}</td>";
     $txt .= "<td style=\"border:1px solid #000;width:60px;background-color:{$color}\">{$birthdate}</td>";
+    $txt .= "<td style=\"border:1px solid #000;width:18px;background-color:{$color}\">{$competitor['countryIso2']}</td>";
     $txt .= "<td style=\"border:1px solid #000;width:18px;background-color:{$color}\">{$competitor['gender']}</td>";
     $txt .= "</tr>";
 

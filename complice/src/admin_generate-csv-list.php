@@ -26,11 +26,11 @@
 
       fputcsv( $f, array( '' ), $delimiter ); 
       fputcsv( $f, array( 'NOUVEAUX COMPETITEURS' ), $delimiter ); 
-      fputcsv( $f, array( 'Nom', 'E-mail', 'Date de naissance', 'Genre' ), $delimiter ); 
+      fputcsv( $f, array( 'Nom', 'E-mail', 'Date de naissance', 'Pays', 'Genre' ), $delimiter ); 
 
       foreach ( $new_competitors as $competitor )
       {           
-        fputcsv( $f, array( utf8_decode( $competitor['name'] ), $competitor['email'], $competitor['birthdate'], $competitor['gender'] ), $delimiter ); 
+        fputcsv( $f, array( utf8_decode( $competitor['name'] ), $competitor['email'], $competitor['birthdate'], $competitor['countryIso2'], $competitor['gender'] ), $delimiter ); 
       }
 
       fseek( $f, 0 ); 
