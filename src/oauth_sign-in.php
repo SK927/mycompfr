@@ -30,6 +30,7 @@
       $_SESSION['user_gender'] = $user->gender;
       $_SESSION['user_country'] = $user->country->name;
       $_SESSION['user_token'] = encrypt_data( $wca->get_access_token() );
+      $_SESSION['manageable_competitions'] = array();
 
       // Get additional information according to the target tool
       if ( isset( $_SESSION['captive'] ) )
