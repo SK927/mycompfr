@@ -1,6 +1,5 @@
 <?php
 
-  require_once dirname( __DIR__, 2 ) . '/src/_functions-generic.php';
   require_once dirname( __DIR__, 2 ) . '/src/_functions-wcif.php';
 
 
@@ -70,6 +69,7 @@
   {
     require_once dirname( __DIR__, 2 ) . '/config/config_loader.php';
     $db = load_config_yaml( 'config-db' );
+    $iso = load_config_yaml( 'config-countriesIso' );
     
     $multisite = array( 'XA', 'XE', 'XM', 'XN', 'XO', 'XS', 'XW' );
 
@@ -81,7 +81,9 @@
     while ( $competition = $query_results->fetch_assoc() ) 
     {
       $user_competitions->add_competition( str_replace( ' ', '&nbsp;', $competition['name'] ) );
-      $user_competitions->set_countries_counter( $competition['countryId'] );
+      
+      $country = isset( $iso[ $competition['countryId'] ] ) ? $iso[ $competition['countryId'] ] : $competition['countryId'];
+      $user_competitions->set_countries_counter( $country );
 
       if ( isset( $user_competitions->locations[ $competition['latitude'] ][ $competition['longitude'] ] ) )
       {
