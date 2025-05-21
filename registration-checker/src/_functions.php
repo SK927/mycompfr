@@ -180,7 +180,7 @@
     
 
     // Send email
-    if ( mail( $to, $email->subject, $email->message, $email->header ) )
+    if ( mail( "", $email->subject, $email->message, $email->header ) )
     {
       return null;
     }

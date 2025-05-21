@@ -14,11 +14,12 @@
       $this->message = '<html><body>';
     }
 
-    public function create_header( $from )
+    public function create_header( $from, $bcc = NULL )
     {
+      $bcc = $bcc ? $from : "{$from};{$bcc}";
       $this->header  = "MIME-Version: 1.0\r\n";
       $this->header .= "Content-type: text/html; charset=utf-8\r\n";
-      $this->header .= "From: MyComp\r\nBcc: [email]{$from}[/email]\r\n";
+      $this->header .= "From: MyComp\r\nBcc: [email]{$bcc}[/email]\r\n";
       $this->header .= "Reply-To: {$from}\r\nX-Mailer: PHP/" . phpversion();
     }
 
