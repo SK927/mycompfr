@@ -162,7 +162,7 @@
     $content = spyc_load_file( dirname( __DIR__, 1 ) . "/assets/emails.yaml" )['reminder'];
 
     $email = new email();
-    $email->create_header( $from );
+    $email->create_header( $from, $to );
     $email->subject = $content['subject'];
 
     foreach ( $content['text'] as $paragraph )
