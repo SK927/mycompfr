@@ -49,7 +49,7 @@
                   </div>
                   <div class="col speech-bubble p-3">
                     <p>
-                      La compétition <b><?php echo $_SESSION['manageable_competitions'][ $competition_id ]['name'] ?></b> a bien été importée.
+                      La compétition <b><?php echo $_SESSION['manageable_competitions'][ $competition_id ]['name'] ?></b> a bien été importée et c'est maintenant à vous de jouer !<br/>Cliquez sur le bouton ci-dessous pour accéder à la page d'administration de la compétition.
                     </p>
                     <p>
                       Un e-mail de confirmation a &eacute;t&eacute; envoy&eacute; à l'adresse <b><?php echo decrypt_data( $_SESSION['user_email'] ) ?></b>.
@@ -62,7 +62,7 @@
               <?php endif ?> 
             </div>
           </div>
-          <a class="btn btn-light" href="index">Retour à l'accueil</a>
+          <a class="btn btn-light" href="admin-handle-competition?id=<?php echo $competition_id ?>">Administrer ma compétition</a>
         </div>
       </div>   
     </div>
