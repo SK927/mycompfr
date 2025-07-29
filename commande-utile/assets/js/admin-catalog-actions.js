@@ -198,6 +198,24 @@ $( document ).on( 'click', '.add-block', function()
 
 //-------------------------------------
 
+$( document ).on( 'click', '.move-block-down', function( e )
+{
+  e.preventDefault();
+  let nextSibling = $(this).closest( '.block' ).next();
+  nextSibling.after(this.closest( '.block' ));
+  updateBlocks( document.getElementById( 'block-list' ) );
+});
+
+$( document ).on( 'click', '.move-block-up', function( e )
+{
+  e.preventDefault();
+  let previousSibling = $(this).closest( '.block' ).prev();
+  previousSibling.before(this.closest( '.block' ));
+  updateBlocks( document.getElementById( 'block-list' ) );
+});
+
+//-------------------------------------
+
 $( document ).on( 'click', '.add-item', function( e )
 {
   e.preventDefault();

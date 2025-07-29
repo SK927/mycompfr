@@ -4,9 +4,11 @@
       <div class="row">
         <div class="col-lg-5"><input id="" type="text" class="form-control block-name mb-1 mb-xl-0 me-1" placeholder="Nom du bloc" name="" value=""></div>
         <div class="col-auto">
-          <button class="add-item btn btn-sm btn-success mb-1 mb-xl-0 me-1" name="">Ajouter produit</button>
-          <button class="delete-block btn btn-sm btn-sm btn-danger mb-1 mb-xl-0 me-1" name="">Suppr. bloc</button>
-          <button class="clone-block btn btn-sm btn-secondary mb-1 mb-xl-0 me-1" name="">Cloner</button>
+          <button class="add-item btn btn-success mb-1 mb-xl-0 me-1" name="">Ajouter produit</button>
+          <button class="delete-block btn btn-danger mb-1 mb-xl-0 me-1" name="">Suppr. bloc</button>
+          <button class="clone-block btn btn-secondary mb-1 mb-xl-0 me-1" name="">Cloner</button>
+          <button class="move-block-up btn btn-outline-secondary mb-1 mb-xl-0 me-1">&uarr;</button>
+          <button class="move-block-down btn btn-outline-secondary mb-1 mb-xl-0 me-1">&darr;</button>
         </div>
       </div>
     </div>
