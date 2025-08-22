@@ -20,40 +20,8 @@
     $pdf = create_new_pdf( $competition_data['competition_name'] ); 
     $pdf->AddPage();
 
-    $pdf->setFont( 'dejavusanscondensed', 'B', 24, '', true );
-    $pdf->Cell( 0, 0, 'Résumé des commandes', 0, 2, 'C', false );
     $pdf->setFont( 'dejavusanscondensed', '', 10, '', true );
     $pdf->SetY( $pdf->getY() + 5 );
-
-    foreach ( $items_amount as $block_name => $items )
-    {
-      $html = "<table cellpadding=\"10\">";
-      $html .= "<tr><td colspan=\"5\" style=\"border:1px solid #808080;background-color:#e4e4e4\"><b>{$block_name}</b></td></tr>";
-      $i = 0;
-
-      foreach ( $items as $item_name => $item_qty )
-      {
-        if ( $i % 5 == 0 )
-        {
-          $html .= "<tr>";
-        }
-
-        $html .= "<td style=\"text-align:center;border:1px solid #808080\">{$item_name}<br/><br/><b>{$item_qty}</b></td>";
-
-        if ( $i % 5 == 4 OR $i == (count( $items ) - 1) )
-        {
-          $html .= "</tr>";
-        }
-
-        $i++;        
-      }
-
-      $html .= "</table>";
-      $pdf->WriteLine( $html );
-      $pdf->SetY( $pdf->getY() + 5 );
-    }
-
-    $pdf->AddPage();
 
     foreach ( $competition_orders as $order ) /* For each order placed */
     {

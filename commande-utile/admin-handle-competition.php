@@ -84,8 +84,18 @@
               </a>
             </div>
             <div class="col-12">
-              <a href="src/pdf_generate-orders-list?id=<?php echo urlencode( $_GET['id'] ) ?>">
-                <button class="btn btn btn-light mb-2">Générer le PDF des commandes</button>
+              <a href="src/pdf_generate-orders-list-by-competitor?id=<?php echo urlencode( $_GET['id'] ) ?>">
+                <button class="btn btn btn-light mb-2">Générer le PDF des commandes (par compétiteurs)</button>
+              </a>
+            </div>
+            <div class="col-12">
+              <a href="src/pdf_generate-orders-list-by-day?id=<?php echo urlencode( $_GET['id'] ) ?>">
+                <button class="btn btn btn-light mb-2">Générer le PDF des commandes (par jours)</button>
+              </a>
+            </div>
+            <div class="col-12">
+              <a href="src/pdf_generate-orders-list-by-item?id=<?php echo urlencode( $_GET['id'] ) ?>">
+                <button class="btn btn btn-light mb-2">Générer le PDF des commandes (par produits)</button>
               </a>
             </div>
             <div class="col-12">
