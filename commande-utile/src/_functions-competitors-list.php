@@ -1,6 +1,9 @@
 <?php
 
+  require_once dirname( __DIR__, 2 ) . '/src/_functions-encrypt.php';
   require_once dirname( __DIR__, 2 ) . '/src/_functions-wcif.php';
+  require_once dirname( __DIR__, 2 ) . '/config/config_loader.php';
+  $db = load_config_yaml( 'config-db' );
 
 
   /**
@@ -23,7 +26,7 @@
 
 
   /**
-   * get_competitors_list_via_wcif(): retrieve competitors list from WCA adn updates it in database
+   * get_competitors_list_via_wcif(): retrieve competitors list from WCA and updates it in database
    * @param (string) competition_id: ID of the competition to update the data for
    * @param (mysqli) mysqli: database connection object
    * @return (array) the list of all competitor and the WCIF access error
@@ -39,6 +42,32 @@
     }
 
     return [ $formatted_list, $error ];
+  }
+
+
+  /**
+   * get_competitors_emails(): retrieve competitors emails from database
+   * @param (string) competition_id: ID of the competition to update the data for
+   * @param (mysqli) mysqli: database connection object
+   * @return (string) a list of all competitors emails
+   */
+
+  function get_competitors_emails( $competition_id, $mysqli )
+  {
+    global $db;
+
+    $emails = '';
+    $sql = "SELECT user_email FROM {$db['cu']}_{$competition_id} WHERE 1";
+    $query_results = $mysqli->query( $sql );
+
+    while( $row = $query_results->fetch_assoc() )
+    {
+      $emails .= decrypt_data( $row['user_email'] ) . ' ; ';
+    }
+
+    $error = mysqli_error( $mysqli ) ? mysqli_error( $mysqli ) : null;
+  
+    return [ $emails, $error ];
   }
 
 ?>

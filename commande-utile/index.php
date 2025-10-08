@@ -47,8 +47,8 @@
                     </p>
                   </small>
                 </li>
-                <?php if ( $competition_data['orders_closing_date'] != '0000-00-00' AND from_pretty_json( $competition_data['competition_catalog'] ) ): ?>
-                  <?php if ( date( 'Y-m-d' ) <= $competition_data['orders_closing_date'] ): ?>
+                <?php if ( from_pretty_json( $competition_data['competition_catalog'] ) ): ?>
+                  <?php if ( $competition_data['orders_closing_date'] != '0000-00-00' and date( 'Y-m-d' ) <= $competition_data['orders_closing_date'] ): ?>
                     <li class="list-group-item">
                       <a href="user-place-order?id=<?php echo urlencode( $competition_id ) ?>">
                         <?php if ( ! $competition_data['has_ordered'] ): ?>
@@ -58,12 +58,20 @@
                         <?php endif ?>
                       </a>
                     </li>
+                  <?php else: ?>
+                    <?php if ( in_array( $competition_data['competition_id'] , array_keys( $_SESSION['manageable_competitions'] ) ) or $_SESSION['is_admin'] ): ?>
+                      <li class="list-group-item">
+                        <a href="user-place-order?id=<?php echo urlencode( $competition_id ) ?>">
+                          Précommander
+                        </a>
+                      </li>
+                    <?php endif ?>
                   <?php endif ?>
-                  <?php if ( $competition_data['has_ordered'] ): ?>
-                    <li class="list-group-item">
-                      <a href="user-view-order?id=<?php echo urlencode( $competition_id ) ?>">Voir ma commande</a>
-                    </li>
-                  <?php endif ?>
+                <?php endif ?>
+                <?php if ( $competition_data['has_ordered'] ): ?>
+                  <li class="list-group-item">
+                    <a href="user-view-order?id=<?php echo urlencode( $competition_id ) ?>">Voir ma commande</a>
+                  </li>
                 <?php endif ?>
                 <?php if ( in_array( $competition_data['competition_id'] , array_keys( $_SESSION['manageable_competitions'] ) ) or $_SESSION['is_admin'] ): ?>
                   <li class="list-group-item">

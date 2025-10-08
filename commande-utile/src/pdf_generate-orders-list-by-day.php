@@ -81,7 +81,7 @@
       }    
     }
     $conn->close();
-    $pdf->Output( "{$competition_data['competition_id']}_Commandes(Jours)_" . date( 'Y-m-d' ) . ".pdf", 'I' );
+    $pdf->Output( "{$competition_data['competition_id']}_Commandes(par jours)_" . date( 'Y-m-d' ) . ".pdf", 'I' );
   }
   else
   {

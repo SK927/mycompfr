@@ -64,41 +64,28 @@
           <div class="row pt-1">
             <a class="mb-4" href="assets/manuals/admin-manual.pdf">Télécharger le manuel administrateur</a>
             <div class="col-12">
-              <a href="admin-handle-catalog?id=<?php echo urlencode( $_GET['id'] ) ?>">
+              <a class="no-decoration" href="admin-handle-catalog?id=<?php echo urlencode( $_GET['id'] ) ?>">
                 <button class="btn btn btn-light mb-2">Gérer le catalogue</button>
               </a>
-            </div>
-            <div class="col-12">
-              <a href="src/admin_extract-catalog-csv?id=<?php echo urlencode( $_GET['id'] ) ?>">
-                <button class="btn btn btn-light mb-2">Extraire le catalogue en CSV</button>
+              <a class="no-decoration" href="src/admin_extract-catalog-csv?id=<?php echo urlencode( $_GET['id'] ) ?>" target="_blank">
+                <button class="btn btn btn-light mb-2">Catalogue au format CSV</button>
               </a>
-            </div>
-            <div class="col-12">
-              <a href="src/pdf_generate-catalog?id=<?php echo urlencode( $_GET['id'] ) ?>">
-                <button class="btn btn btn-light mb-2">Télécharger le catalogue en PDF</button>
+              <a class="no-decoration" href="src/pdf_generate-catalog?id=<?php echo urlencode( $_GET['id'] ) ?>" target="_blank">
+                <button class="btn btn btn-light mb-2">Catalogue au format PDF</button>
               </a>
-            </div>
-            <div class="col-12">
-              <a href="src/admin_extract-data-csv?id=<?php echo urlencode( $_GET['id'] ) ?>">
-                <button class="btn btn btn-light mb-2">Extraire les données en CSV</button>
+              <a class="no-decoration" href="src/admin_extract-data-csv?id=<?php echo urlencode( $_GET['id'] ) ?>" target="_blank">
+                <button class="btn btn btn-light mb-2">Commandes au format CSV</button>
               </a>
-            </div>
-            <div class="col-12">
-              <a href="src/pdf_generate-orders-list-by-competitor?id=<?php echo urlencode( $_GET['id'] ) ?>">
-                <button class="btn btn btn-light mb-2">Générer le PDF des commandes (par compétiteurs)</button>
+              <a class="no-decoration" href="src/pdf_generate-orders-list-by-competitor?id=<?php echo urlencode( $_GET['id'] ) ?>" target="_blank">
+                <button class="btn btn btn-light mb-2">PDF des commandes (par compétiteurs)</button>
               </a>
-            </div>
-            <div class="col-12">
-              <a href="src/pdf_generate-orders-list-by-day?id=<?php echo urlencode( $_GET['id'] ) ?>">
-                <button class="btn btn btn-light mb-2">Générer le PDF des commandes (par jours)</button>
+              <a class="no-decoration" href="src/pdf_generate-orders-list-by-day?id=<?php echo urlencode( $_GET['id'] ) ?>" target="_blank">
+                <button class="btn btn btn-light mb-2">PDF des commandes (par jours)</button>
               </a>
-            </div>
-            <div class="col-12">
-              <a href="src/pdf_generate-orders-list-by-item?id=<?php echo urlencode( $_GET['id'] ) ?>">
-                <button class="btn btn btn-light mb-2">Générer le PDF des commandes (par produits)</button>
+              <a class="no-decoration" href="src/pdf_generate-orders-list-by-item?id=<?php echo urlencode( $_GET['id'] ) ?>" target="_blank">
+                <button class="btn btn btn-light mb-2">PDF des commandes (par produits)</button>
               </a>
-            </div>
-            <div class="col-12">
+              <button class="get-emails-list btn btn btn-light mb-2">Copier les e-mails vers le presse-papier</button>
               <button class="update-list btn btn btn-light mb-2">MAJ depuis le WCIF</button>
             </div>
           </div>

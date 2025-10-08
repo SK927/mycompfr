@@ -16,6 +16,10 @@ a:hover{
   text-decoration: none;
 }
 
+a.no-decoration{
+  text-decoration: none;
+}
+
 .navbar{
   background-color: #006A3A;
   border-bottom: 1px solid #000000;

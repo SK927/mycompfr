@@ -52,7 +52,7 @@
                 <a class="card-link" href="https://www.worldcubeassociation.org/contact?competitionId=<?php echo $competition_id ?>&contactRecipient=competition" target="_blank">Contacter l'équipe organisatrice</a>
               </div>
               <div class="col-12">
-                <a class="card-link" href="src/pdf_generate-catalog?id=<?php echo urlencode( $_GET['id'] ) ?>">Télécharger le catalogue</a>
+                <a class="card-link" href="src/pdf_generate-catalog?id=<?php echo urlencode( $_GET['id'] ) ?>" targer="_blank">Télécharger le catalogue</a>
               </div>
             </div>
           </div>
@@ -210,7 +210,7 @@
       
       $conn->close();
 
-      header( "Location: https://{$_SERVER['SERVER_NAME']}/user-view-order?id={$encoded_competition_id}" );
+      header( "Location: https://{$_SERVER['SERVER_NAME']}/{$site_alias}/user-view-order?id={$encoded_competition_id}" );
       exit();
     }
   }

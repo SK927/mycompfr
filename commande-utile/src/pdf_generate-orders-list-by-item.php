@@ -53,7 +53,7 @@
     }
 
     $conn->close();
-    $pdf->Output( "{$competition_data['competition_id']}_Commandes_" . date( 'Y-m-d' ) . ".pdf", 'I' );
+    $pdf->Output( "{$competition_data['competition_id']}_Commandes(par produits)_" . date( 'Y-m-d' ) . ".pdf", 'I' );
   }
   else
   {

@@ -320,6 +320,30 @@ $( document ).on( 'click', '.add-comment', function( e )
   this.remove();
 } ); 
 
+//-------------------------------------    
+
+$( document ).on( 'click', '.get-emails-list', function( e )
+{
+  setStatusBar();
+  let competition_id = $( '.competition-name' ).attr( 'id' );
+
+  $.ajax( {
+    type: 'POST',
+    url: 'src/admin_ajax-copy-emails.php',
+    data: { competition_id: encodeURI( competition_id ) },
+    success: function( response )
+    {
+      let result = JSON.parse( response );
+      navigator.clipboard.writeText( result.data );
+      setStatusBar( result.text_to_display, result.error );
+    },
+    error: function( xhr, status, error ) 
+    {
+      setStatusBar( xhr, error );
+    }
+  } );
+} );
+
 //-------------------------------------
 
 function resetTextareaHeight()
