@@ -6,12 +6,9 @@
 
   if ( in_array( $competition_id, array_keys( $_SESSION['manageable_competitions'] ) ) )
   { 
-    // $competition_id = "CharenteOpen2025";
     require_once dirname( __FILE__ ) . '/_functions.php';
 
     [ $returning_competitors, $new_competitors, $error ] = retrieve_competitors( $competition_id, $_SESSION['user_token'] );
-
-    // $new_competitors= array_merge( $new_competitors, $new_competitors, $new_competitors, $new_competitors);
 
     if ( ! $error )
     {

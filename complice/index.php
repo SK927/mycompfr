@@ -28,8 +28,8 @@
                   <?php endif ?>
                 </div>
                 <div class="col-12 mt-3">Générer : 
-                  <button class="generate-pdf btn btn-light">PDF</button>
-                  <button class="generate-csv btn btn-light">CSV</button>
+                  <button class="generate-pdf btn btn-light" target="_blank">PDF</button>
+                  <button class="generate-csv btn btn-light" target="_blank">CSV</button>
                 </div>
               </div>
             </form>

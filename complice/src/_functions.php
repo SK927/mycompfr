@@ -53,6 +53,7 @@
     $pdf->SetMargins( 0, 0, 0, true );
     $pdf->setAutoPageBreak( TRUE, 0 );
     $pdf->setFontSubsetting( true );
+    $pdf->setFont( 'dejavusanscondensed', '', 10, '', true );
 
     return $pdf;
   }
@@ -104,6 +105,8 @@
 
   function print_returning_competitors( $pdf, $competitors )
   {
+    $pdf->SetFont( 'dejavusanscondensed', '', 10, '', true );
+
     $column = 0;
 
     if ( count( $competitors ) <= 82 ) // 41 competitors leave enough space to add a few newcomers on the first page if needed
@@ -136,7 +139,7 @@
       {
         $color = $key % 2 ? '#fff' : '#eeeeee';
         $name = 29 <= strlen( $competitor['name'] ) ? substr( $competitor['name'], 0, 28 ) . '...' : $competitor['name']; // Max size of the name that fits entirely in a cell
-
+        $name = htmlspecialchars( $name );
         $html .= "<tr>";
         $html .= "<td style=\"border:1px solid #000;width:18px;background-color:{$color}\"></td>";
         $html .= "<td style=\"border:1px solid #000;width:164px;background-color:{$color}\">{$name}</td>";
@@ -166,10 +169,11 @@
     $txt = '';
     $color = $key % 2 ? '#fff' : '#eeeeee';
     $birthdate = implode( '-', array_reverse( explode( '-', $competitor['birthdate'] ) ) );
+    $name = htmlspecialchars( $competitor['name'] );
 
     $txt .= "<tr>";
     $txt .= "<td style=\"border:1px solid #000;width:18px;background-color:{$color}\"></td>";
-    $txt .= "<td style=\"border:1px solid #000;width:198px;background-color:{$color}\">{$competitor['name']}</td>";
+    $txt .= "<td style=\"border:1px solid #000;width:198px;background-color:{$color}\">{$name}</td>";
     $txt .= "<td style=\"border:1px solid #000;width:216px;background-color:{$color}\">{$competitor['email']}</td>";
     $txt .= "<td style=\"border:1px solid #000;width:60px;background-color:{$color}\">{$birthdate}</td>";
     $txt .= "<td style=\"border:1px solid #000;width:18px;background-color:{$color}\">{$competitor['countryIso2']}</td>";
@@ -189,6 +193,8 @@
 
   function print_new_competitors_table( $pdf, $competitors, $y )
   {
+    $pdf->SetFont( 'dejavusanscondensed', '', 10, '', true );
+
     $html = "<table cellpadding=\"2\">";
 
     foreach( $competitors as $key => $competitor )
