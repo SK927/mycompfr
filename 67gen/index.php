@@ -16,7 +16,7 @@
       <h3>PARAMETERS</h3>
       <div class="card py-3">
         <div class="card-body text-center">
-          <form action="src/pdf_generate-scorecards.php" method="POST" name="select-competition">
+          <form action="src/pdf_generate-scorecards.php" method="POST" name="select-competition" target="_blank">
             <div class="row justify-content-center">
               <div class="col-md-8 mb-2 px-3">
                 <?php if ( $is_admin ): ?>
