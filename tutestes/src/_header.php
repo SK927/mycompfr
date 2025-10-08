@@ -12,7 +12,7 @@
   <head>
     <title><?php echo $site_name ?></title>
     <meta name="author" content="ML" />
-    <meta name="Description" content="Convert FAQ placeholders to real ID" />
+    <meta name="Description" content="Session d'entraînement pour les inscriptions aux compétitions WCA via l'AFS" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="icon" type="image/png" href="assets/img/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />

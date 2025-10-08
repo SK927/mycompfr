@@ -1,7 +1,5 @@
 rights:
   need_admin: [ 
-                'pimp-my-faq',
-                'pimp-my-faq_new',
                 'commande-utile',
                 'registration-checker',
                 'registration-handler' 
@@ -16,9 +14,10 @@ rights:
             ]
   force_admin:  [ 
                   '67gen',
+                  '67gen',
                   'compare',
                   'complice',
                   'noshow',
-                  'pimp-my-faq_yaml',
+                  'pimp-my-faq',
                   'viewer'
                 ]

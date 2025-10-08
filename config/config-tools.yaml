@@ -47,8 +47,11 @@ tools:
         'name': 'Pimp My FAQ'
         'description': "Génère la FAQ et les informations d'inscription pour les compétitions soutenues par l'AFS"
         'folder': 'pimp-my-faq'
-        'link': 'cliquez ici'
       t3:
         'name': 'Complice'
         'description': "Génère la liste des compétiteurs en n'affichant que les informations utiles"
         'folder': 'complice'
+      t4:
+        'name': 'TUTestes'
+        'description': "Session d'entraînement à la gestion des inscriptions"
+        'folder': 'tutestes'
