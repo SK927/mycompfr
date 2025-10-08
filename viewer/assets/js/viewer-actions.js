@@ -15,6 +15,11 @@ function checkDisplay()
   let live = document.getElementById( 'live' );
   let id = findGetParameter( 'id' );
 
+  const now = new Date();
+  const hours = now.getHours().toString().padStart(2, '0');
+  const minutes = now.getMinutes().toString().padStart(2, '0');
+  document.getElementById('td-time').textContent = `${hours}:${minutes}`;
+
   $.ajax( {
     type: 'POST',
     url: 'src/viewer_ajax-get-current.php',

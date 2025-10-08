@@ -4,9 +4,11 @@
   require_once dirname( __DIR__, 2 ) . '/src/mysql_connect.php';
 
   $competition_id = $_POST['id'];
+ 	$_SESSION['alive'] = false;
 
   if ( $_SESSION['logged_in'] AND in_array( $competition_id, array_keys( $_SESSION['manageable_competitions'] ) ) ) 
   {
+  	$_SESSION['alive'] = true;
 	  $current = $_POST['current'];
 	  $next = $_POST['next'];
 	  $live = $_POST['live'];

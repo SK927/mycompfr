@@ -16,9 +16,10 @@
           <table class="table text-left align-middle">
             <tbody>
               <tr>
-                <td scope="row" class="fit text-center">currently :</th>
+                <td id="td-time" class="fw-bold">00:00</td>
+                <td scope="row" class="fit text-center">&#9654;</td>
                 <td id="td-current" class="fw-bold"><?php echo $stored_info['current'] ?></td>
-                <td scope="row" class="fit text-center">next :</th>
+                <td scope="row" class="fit text-center">&#128343;</td>
                 <td id="td-next" class="fw-bold"><?php echo $stored_info['next'] ?></td>
               </tr>
             </tbody>
