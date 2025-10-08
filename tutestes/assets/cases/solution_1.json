@@ -1,0 +1,105 @@
+{
+	"solution": "ABCDGFHIJ",
+	"rationale": [
+    {
+      "class": "table-success",
+      "name": "A",
+      "text": [
+        "Il s'agit de la première personne inscrite et cette personne est adhérente. L'inscription peut être validée d'office."
+      ]
+    },
+    {
+      "class": "table-success",
+      "name": "B",
+      "text": [
+        "Cette personne doit payer et a réglé les frais d'inscription. Aucune autre personne n'a payé avant elle et aucun adhérent ne s'est inscrit avant que la personne B ne règle ses frais d'inscription. L'inscription peut être validée"
+      ]
+    },
+    {
+      "class": "table-success",
+      "name": "C",
+      "text": [
+        "Cette personne est adhérente. L'inscription peut être validée d'office."
+      ]
+    },
+    {
+      "class": "table-success",
+      "name": "D",
+      "text": [
+        "Après vérification, cette personne effectue bien sa première compétition. L'inscription peut être validée d'office."
+      ]
+    },
+    {
+      "class": "table-danger",
+      "name": "E",
+      "text": [
+        "Cette personne doit payer et n'a <b>pas</b> réglé les frais d'inscription. L'inscription ne doit pas être validée !" 
+      ]
+    },
+    {
+      "class": "table-success",
+      "name": "F et G",
+      "text": [
+        "F doit payer et a réglé les frais d'inscription. Cependant, G a un statut d'adhérent et a validé son inscription avant que F ait effectué son paiement. L'inscription de G doit donc être acceptée avant celle de F.",
+        "<u>Note :</u> Il se peut que plusieurs personnes passent avant F, notamment si d'autres adhérents se sont inscrits entretemps ou si d'autres paiements ont été effectués plus rapidement.",
+        "<u>Note : </u> Le fait que G ait payé les frais d'inscription n'a pas d'importance. C'est bien son heure d'inscription qui est prise en compte."
+      ]
+    },
+    {
+      "class": "table-success",
+      "name": "H",
+      "text": [
+        "Cette personne doit payer et a réglé les frais d'inscription. Aucune autre personne n'a payé avant elle et aucun adhérent ne s'est inscrit avant que la personne H ne règle ses frais d'inscription."
+      ]
+    },
+    {
+      "class": "table-success",
+      "name": "I",
+      "text": [
+        "Cette personne est adhérente. L'inscription peut être validée d'office."
+      ]
+    },
+    {
+      "class": "table-success",
+      "name": "J",
+      "text": [
+        "Malgré le message d'alerte indiquant un potentiel compétiteurs ayant déjà participé, il s'avère que cette personne effectue bien sa première compétition. L'inscription peut être validée d'office."
+      ]
+    },
+    {
+      "class": "table-danger",
+      "name": "K",
+      "text": [
+        "Après vérification, cette personne effectue bien sa première compétition. Cependant la liste principale est maintenant pleine ! Cette personne sera donc la première personne en liste d'attente."
+      ]
+    },
+    {
+      "class": "table-danger",
+      "name": "L",
+      "text": [
+        "Cette personne est adhérente. Cependant la liste principale est maintenant pleine ! Cette personne doit donc être ajoutée sur la liste d'attente."
+      ]
+    },
+    {
+      "class": "table-danger",
+      "name": "M",
+      "text": [
+        "Cette personne doit payer et a réglé les frais d'inscription. Aucune autre personne n'a payé avant elle et aucun adhérent ne s'est inscrit avant que la personne B ne règle ses frais d'inscription. Cependant la liste principale est maintenant pleine ! Cette personne doit donc être ajoutée sur la liste d'attente."
+      ]
+    },
+    {
+      "class": "table-danger",
+      "name": "N",
+      "text": [
+        "Après vérification, cette personne effectue bien sa première compétition.Cependant la liste principale est maintenant pleine ! Cette personne doit donc être ajoutée sur la liste d'attente."
+      ]
+    },
+    {
+      "class": "table-danger",
+      "name": "O",
+      "text": [
+        "Cette personne est adhérente. Cependant la liste principale est maintenant pleine ! Cette personne doit donc être ajoutée sur la liste d'attente."
+      ]
+    }
+  ]
+}

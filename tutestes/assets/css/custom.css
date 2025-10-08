@@ -1,0 +1,66 @@
+body{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #fff;
+  color: #000;
+}
+
+a.paid, a.paid:hover, a.paid:visited{
+  color: #000;
+  text-decoration: none
+}
+
+a.edit, a.edit:hover, a.edit:visited{
+  color: #e64503;
+  text-decoration: none
+}
+
+a.pending, a.pending:hover, a.pending:visited{
+  color: #000;
+  text-decoration: none
+}
+
+.navbar{
+  background: #000;
+}
+
+.navbar-brand, .navbar-text{
+  color: #fff;
+}
+
+.navbar-brand:visited{
+  color: #fff;
+}
+
+.navbar-brand:hover{
+  color: #ddd;
+}
+
+.log-in-and-out{
+  color: #ffdb16 !important;
+}
+
+.console{
+  font-size: 1.5em;
+  font-family: "Noto Sans Mono", monospace;
+}
+
+
+.blank{
+  color:#fff;
+}
+
+.error{
+  color:red;
+}
+
+table td.fit, 
+table th.fit {
+   white-space: nowrap;
+   width: 1%;
+}
+
+.tooltip{
+   font-size: 1rem;
+}

@@ -15,7 +15,7 @@
       <ul class="mt-2">
         <li>reservation_bg_light.png by <a href="https://dribbble.com/Victoruler">Victoruler</a> reworked by Maxime Lefebvre (commande-utile)</li>
         <li>reservation_bg_dark.png by <a href="https://dribbble.com/Victoruler">Victoruler</a> reworked by Maxime Lefebvre (commande-utile)</li>
-        <li>favicon.ico by <a href="https://www.freepik.com">Freepik</a> (commande-utile, complice, noshow, registration-checker, registration-handler, viewer)</li>
+        <li>favicon.ico by <a href="https://www.freepik.com">Freepik</a> (commande-utile, complice, noshow, registration-checker, registration-handler, tutestes, viewer)</li>
         <li>favicon.ico by <a href="https://www.flaticon.com/fr/auteurs/cap-cool">Cap Cool</a> (do-stats)</li>
         <li>favicon.ico by <a href="https://www.freepik.com">Freepik</a> reworked by Maxime Lefebvre (compare)</li>
         <li>CU-tee.png by <a href="https://www.freepik.com">Freepik</a> (commande-utile)</li>
