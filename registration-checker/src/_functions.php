@@ -115,8 +115,8 @@
       if ( ! empty( $result_row['competition_registrations'] ) )
       {
         $competition_registrations = from_pretty_json( $result_row['competition_registrations'] );
-        array_multisort( array_column( $competition_registrations, 'name' ), SORT_ASC, $competition_registrations );
-        array_multisort( array_column( $competition_registrations, 'confirmed' ), SORT_ASC, $competition_registrations );
+        uasort($competition_registrations, function ( $a, $b ) { return $b['name'] < $a['name']; });
+        uasort($competition_registrations, function ( $a, $b ) { return $b['confirmed'] < $a['confirmed']; });
       }
     }
     return $competition_registrations;

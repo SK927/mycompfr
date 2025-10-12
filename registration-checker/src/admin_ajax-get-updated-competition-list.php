@@ -17,6 +17,7 @@
     {            
       $result_row['competition_id'] = encrypt_data( $result_row['competition_id'] );
       $result_row['competition_name'] = addslashes( $result_row['competition_name'] );
+      $result_row['competitor_id'] = encrypt_data( $user_id );
       $result_row['competitor_registration'] = json_decode( $result_row['competition_registrations'], true )[ $user_id ];
       $result_row['competition_start_date'] = date( 'd-m-Y', strtotime( $result_row['competition_start_date'] ) );
       $result_row['competition_end_date'] = date( 'd-m-Y', strtotime($result_row['competition_end_date'] ) );

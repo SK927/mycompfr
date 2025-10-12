@@ -30,8 +30,8 @@
       <div class="card-body">
         <div class="row">
           <div class="col-12 col-sm-auto text-left">
-            <button class="going btn btn-outline-secondary py-0" value="" name="competition_id">&#10004;</button> 
-            <button class="not-going btn btn-outline-secondary py-0" value="" name="competition_id">&#10007;</button>
+            <button class="going btn btn-outline-secondary py-0" value="" name="competition_id">&check;</button> 
+            <button class="not-going btn btn-outline-secondary py-0" value="" name="competition_id">&cross;</button>
           </div>
           <div class="col align-items-center mt-2 mt-sm-0 text-wrap text-start">
             <p class="m-0 p-0">

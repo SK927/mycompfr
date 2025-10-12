@@ -28,17 +28,15 @@ function displayImported( id )
 
 //-------------------------------------
 
-function displayCompetition( id, name, startDate, endDate, registration )
+function displayCompetition( id, name, startDate, endDate, competitorId, registration )
 {
   let template = document.getElementById( 'displayed' );
   let clone = template.content.cloneNode( true );  
   
   clone.querySelector( '.competition-name' ).innerHTML = name.replace(/\\/g, '');   
   clone.querySelector( '.competition-info' ).innerHTML = "From " + startDate + " to " + endDate; 
-  clone.querySelector( '.going' ).value = id;   
-  clone.querySelector( '.not-going' ).value = id;  
-  clone.querySelector( '.going' ).innerHTML = '&#10003;';
-  clone.querySelector( '.not-going' ).innerHTML = '&#10007;';
+  clone.querySelector( '.going' ).value = id + '_' + competitorId;   
+  clone.querySelector( '.not-going' ).value = id + '_' + competitorId;  
   
   if ( registration.confirmed === 'YES' )
   {
@@ -77,7 +75,7 @@ function updateCompetitionsList()
         target.innerHTML = '';
 
         competitionList.forEach( function( elem, i ){
-          let competition = displayCompetition( elem.competition_id, elem.competition_name, elem.competition_start_date, elem.competition_end_date, elem.competitor_registration );
+          let competition = displayCompetition( elem.competition_id, elem.competition_name, elem.competition_start_date, elem.competition_end_date, elem.competitor_id, elem.competitor_registration );
           target.append( competition );
         } );
       }
@@ -91,16 +89,18 @@ function updateCompetitionsList()
 
 //-------------------------------------
 
-function toggleStatus( id, state )
+function toggleStatus( info, state )
 {
   let bar = $( "#status-bar" );
 
   setStatusBar();
-  
+
+  info = info.split( '_' );
+
   $.ajax( {
     type: 'POST',
     url: 'src/admin_ajax-update-registration-status.php',
-    data: { competition_id: id, new_state: state },
+    data: { competition_id: info[0], user_id: info[1], new_state: state },
     success: function( response )
     {      
       let result = JSON.parse( response );
@@ -131,6 +131,7 @@ $( document ).on( 'click', '.import-competition', function( e )
     data: { competition_id: target.val() },
     success: function( response )
     {      
+      console.log(response);
       let result = JSON.parse( response );
       
       updateCompetitionsList();
