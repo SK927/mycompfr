@@ -22,6 +22,7 @@ function displayImported( id )
   let clone = template.content.cloneNode( true );  
   clone.querySelector( '.extract-data' ).href = 'admin-display-registrations?id=' + encodeURIComponent( id );   
   clone.querySelector( '.send-reminder' ).value = id;   
+  clone.querySelector( '.copy-emails' ).value = id;   
   clone.querySelector( '.update-competitors' ).value = id;   
   document.getElementById( id + '_admin' ).append( clone );
 }
@@ -210,6 +211,32 @@ $( document ).on( 'click', '.update-competitors', function( e )
     {
       let result = JSON.parse( response );
       
+      setStatusBar( result.text_to_display, result.error );
+    },
+    error: function( xhr, status, error ) 
+    {
+      setStatusBar( xhr, error );
+    }
+  } );
+} );
+
+//-------------------------------------    
+
+$( document ).on( 'click', '.copy-emails', function( e )
+{
+  setStatusBar();
+
+  let target = $( this );
+
+
+  $.ajax( {
+    type: 'POST',
+    url: 'src/admin_ajax-copy-emails.php',
+    data: { competition_id: target.val() },
+    success: function( response )
+    {
+      let result = JSON.parse( response );
+      navigator.clipboard.writeText( result.data );
       setStatusBar( result.text_to_display, result.error );
     },
     error: function( xhr, status, error ) 

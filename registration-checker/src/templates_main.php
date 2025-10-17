@@ -8,18 +8,23 @@
 
 <template id="imported">
   <div class="col-auto">
-    <a class="extract-data btn btn-link px-0" href="">
-      <img src="assets/img/ul.png" width="32" />
+    <a class="extract-data btn btn-link px-0" href="" title="Show registrations">
+      <img src="assets/img/ul.png" alt="show registrations" width="32" />
     </a>
   </div>
   <div class="col-auto pl-2">
-    <button class="send-reminder btn btn-link px-0" value="" name="competition_id">
-      <img src="assets/img/email.png" width="32" />
+    <button class="send-reminder btn btn-link px-0" value="" name="competition_id" title="Send reminder">
+      <img src="assets/img/email.png" alt="send reminder" width="32" />
     </button>
   </div>
   <div class="col-auto pl-2">
-    <button class="update-competitors btn btn-link px-0" value="" name="competition_id">
-      <img src="assets/img/update.png" width="32" />
+    <button class="copy-emails btn btn-link px-0" value="" name="competition_id" title="Copy not answered emails">
+      <img src="assets/img/copy-emails.png" alt="copy not answered emails" width="32" />
+    </button>
+  </div>
+  <div class="col-auto pl-2">
+    <button class="update-competitors btn btn-link px-0" value="" name="competition_id" title="Update competitors list">
+      <img src="assets/img/update.png" alt="update competitors list" width="32" />
     </button>
   </div>
 </template>

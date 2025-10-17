@@ -13,7 +13,7 @@
     require_once '../src/mysql_connect.php';
     require_once 'src/_functions.php';
     
-    $registrations = get_competition_registrations_from_db( $competition_id, $conn ); 
+    [ $error, $registrations ] = get_competition_registrations_from_db( $competition_id, $conn ); 
 
     $conn->close();
 
@@ -35,7 +35,7 @@
                 <?php $email = str_replace( '.', '.<wbr>', str_replace( '@', '@<wbr>', decrypt_data( $registration['email'] ) ) ) ?>
                 <tr>
                   <th scope="row"><?php echo $registration['name'] ?></th>
-                  <td><?php echo $id;  echo $email ?></td>
+                  <td><?php echo $email ?></td>
                   <td class="<?php echo $registration['confirmed'] ?>">
                     <div class="row">
                       <div class="col">

@@ -94,6 +94,34 @@
     return $error;
   }
 
+  /**
+   * get_competitors_emails(): retrieve competitors emails from database
+   * @param (string) competition_id: ID of the competition to update the data for
+   * @param (mysqli) mysqli: database connection object
+   * @return (string) a list of all competitors emails
+   */
+
+  function get_competitors_emails( $competition_id, $mysqli )
+  {
+    global $db;
+
+    $emails = '';
+    [ $error, $competitors_registrations ] = get_competition_registrations_from_db( $competition_id, $mysqli );
+
+    if ( ! $error )
+    {
+      foreach ( $competitors_registrations as $competitor )
+      {
+        if ( $competitor['confirmed'] == 'NA' )
+        {
+          $emails .= decrypt_data( $competitor['email'] ) . ' ; ';
+        }
+      }
+    }
+  
+    return [ $error, $emails ];
+  }
+
 
   /**
    * get_competition_registrations_from_db(): retrieve competitors info and answers from DB
@@ -119,7 +147,10 @@
         uasort($competition_registrations, function ( $a, $b ) { return $b['confirmed'] < $a['confirmed']; });
       }
     }
-    return $competition_registrations;
+
+    $error = mysqli_error( $mysqli ) ? mysqli_error( $mysqli ) : null;
+
+    return [ $error, $competition_registrations ];
   }
 
 
