@@ -50,9 +50,9 @@ function searchOrders()
 
 //-------------------------------------
 
-function showComment( parent, comment = null )
+function showComment( parent, type = "user", comment = null )
 {
-  let template = document.getElementById( 'comment-textarea' );
+  let template = document.getElementById( type );
   let clone = template.content.cloneNode( true );  
 
   if ( comment )
@@ -320,6 +320,52 @@ $( document ).on( 'click', '.add-comment', function( e )
   this.remove();
 } ); 
 
+//-------------------------------------
+
+$( document ).on( 'click', '.add-admin-comment', function( e )
+{
+  e.preventDefault();
+  let parent = $( this ).parent();
+  showComment( parent, 'admin' );
+  this.remove();
+} );
+
+//-------------------------------------
+
+$( document ).on( 'keyup keypress', '.admin-comment', function( e )
+{
+  this.classList.add( 'changed-comment' );
+} ); 
+
+//-------------------------------------
+
+$( document ).on( 'click', '.submit-admin-comment', function( e )
+{
+  setStatusBar();
+
+  let button = $( this );
+  let containerId = button.closest( '.placed-order' ).attr( 'id' );
+  let orderInfo = containerId.split( '_' );
+  let commentArea = document.getElementById( containerId ).querySelector('#comment-admin-area' + orderInfo[1] + ' > .admin-comment');
+  let comment = commentArea.value;
+  
+  $.ajax( {
+    type: 'POST',
+    url: 'src/admin_ajax-admin-comment-on-order.php',
+    data: { competition_id: encodeURI( orderInfo[ 0 ] ), order_id: orderInfo[ 1 ], comment: comment },
+    success: function( response )
+    { 
+      let result = JSON.parse( response );
+      commentArea.classList.remove( 'changed-comment' );
+      setStatusBar( result.text_to_display, result.error );
+    },
+    error: function( xhr, status, error ) 
+    {
+      setStatusBar( xhr, error );
+    }
+  } );
+} ); 
+
 //-------------------------------------    
 
 $( document ).on( 'click', '.get-emails-list', function( e )
@@ -343,24 +389,3 @@ $( document ).on( 'click', '.get-emails-list', function( e )
     }
   } );
 } );
-
-//-------------------------------------
-
-function resetTextareaHeight()
-{
-  $( 'textarea' ).on( 'keyup keypress', function() {
-    this.height( 0 );
-    this.height( this.scrollHeight );
-  }); 
-  
-  $( 'textarea' ).each( function( textarea ) {
-    $( this ).height( 0 );
-    $( this ).height( this.scrollHeight );
-  });
-}
-
-//-------------------------------------
-
-$( document ).ready( function() {  
-  resetTextareaHeight();  
-});

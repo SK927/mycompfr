@@ -16,7 +16,7 @@
     if ( date( 'Y-m-d' ) <= $competition_data['orders_closing_date'] OR $competition_data['orders_closing_date'] == '0000-00-00' )
     {
       $catalog = from_pretty_json( $competition_data['competition_catalog'] );
-      [ $error, $user_order, $user_comment, $order_total, $has_been_modified ] = get_user_order( $competition_id, $_SESSION['user_id'], $conn );
+      [ $error, $user_order, $admin_comment, $user_comment, $order_total, $has_been_modified ] = get_user_order( $competition_id, $_SESSION['user_id'], $conn );
 
 ?> 
    

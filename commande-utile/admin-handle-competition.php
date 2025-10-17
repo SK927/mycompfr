@@ -45,7 +45,7 @@
               <?php if ( empty( $competition_data['competition_information'] ) ): ?>
                 <a href="#" class="add-comment card-link">(+) Ajouter une note</a>
               <?php else: ?>
-                <script>showComment( $('#comment-area'), `<?php echo htmlspecialchars( addslashes( $competition_data['competition_information'] ) ) ?>` );</script>
+                <script>showComment( $('#comment-area'), `user`, `<?php echo htmlspecialchars( addslashes( $competition_data['competition_information'] ) ) ?>` );</script>
               <?php endif ?>
             </div>
           </div> 
@@ -126,7 +126,7 @@
       <div class="col-12 mt-3">
         <div class="card section">
           <div class="card-header section-title fw-bold">
-            <?php echo count( $competition_orders) ?> COMMANDES ENREGISTREES <sub id="total-amount"></sub>
+            <?php echo count( $competition_orders) ?> COMMANDES ENREGISTRÉES <sub id="total-amount"></sub>
           </div>
           <div class="card-body col-12">
             <div class="row justify-content-end mb-2">
@@ -164,7 +164,7 @@
                     </div>
                     <div class="card-body p-3 text-start">
                       <?php foreach ( from_pretty_json( $order['order_data'] ) as $block_key => $block ): ?>        
-                        <div id="<?php echo $block_key ?>" class="block row mb-3<?php if ( $block['given'] ) echo ' strike' ?>">
+                        <div id="<?php echo $block_key ?>" class="block row <?php if ( $block['given'] ) echo ' strike' ?>">
                           <div class="col-auto">
                             <button class="given btn btn-sm btn-outline-<?php echo $block['given'] ? 'success' : 'danger' ?>"  type="button"></button>
                           </div>
@@ -172,34 +172,40 @@
                             <b class="fw-bold text-uppercase text-muted"><?php echo $catalog[ $block_key ]['name'] ?>&nbsp;: </b>
                             <ul>
                               <?php foreach ( $block['items'] as $item_key => $item ): ?> 
-                                <li class="list-item m-0"><?php echo "{$item['qty']} x {$catalog[ $block_key ]['items'][ $item_key ]['name']}" ?></li>
-                                <ul>
+                                <li class="list-item m-0"><?php echo "{$item['qty']} x {$catalog[ $block_key ]['items'][ $item_key ]['name']}" ?>
                                   <?php if ( isset( $item['options'] ) ): ?>
                                     <?php foreach ( $item['options'] as $option ): ?>
-                                        <li>
-                                        <?php
-                                          foreach ( $option as $selection_key => $selection )
-                                          {
-                                            echo "{$catalog[ $block_key ]['items'][ $item_key ]['options'][ $selection_key ]['selections'][ $selection ]['name']}&nbsp;; ";
-                                          }
-                                        ?>
-                                      </li>
+                                      <?php
+                                        foreach ( $option as $selection_key => $selection )
+                                        {
+                                          echo "[{$catalog[ $block_key ]['items'][ $item_key ]['options'][ $selection_key ]['selections'][ $selection ]['name']}]";
+                                        }
+                                      ?>
                                     <?php endforeach ?>
                                   <?php endif ?>
-                                </ul>
+                                </li>
                               <?php endforeach ?>
                             </ul>
                           </div>
                         </div>
                       <?php endforeach ?>
                       <?php if ( ! empty( $order['user_comment'] ) ): ?>
-                        <div class="row py-4">
-                          <div class="card-text col text-end">
-                            <b class="text-uppercase text-muted fw-bold">Commentaire&nbsp;: </b>
-                            <?php echo $order['user_comment'] ?>
+                        <div class="row">
+                          <div class="user-comment card-text col">
+                            <b class="text-uppercase text-muted fw-bold">Commentaire utilisateur&nbsp;: </b>
+                            <p><?php echo $order['user_comment'] ?></p>
                           </div>
                         </div>
                       <?php endif; ?>
+                      <div class="row mb-4">
+                        <div id="comment-admin-area<?php echo $order['id'] ?>" class="card-text col">
+                          <?php if ( empty( $order['admin_comment'] ) ): ?>
+                            <a href="#" class="add-admin-comment card-link">(+) Ajouter une note administrateur</a>
+                          <?php else: ?>
+                            <script>showComment( $('#comment-admin-area<?php echo $order['id'] ?>'), 'admin', `<?php echo htmlspecialchars( addslashes( $order['admin_comment'] ) ) ?>` );</script>
+                          <?php endif ?>
+                        </div>
+                      </div>
                       <div class="row justify-content-end">
                         <div class="col-auto mt-2">
                           <button class="order-is-paid btn btn-sm btn-outline-<?php echo $order['has_been_paid'] ? 'success' : 'danger' ?>" type="button"></button>

@@ -11,7 +11,7 @@
 
     $competition_data = get_competition_data( $competition_id, $conn );
     $catalog = from_pretty_json( $competition_data['competition_catalog'] );
-    [ $error, $user_order, $user_comment, $order_total, $has_been_modified ] = get_user_order( $competition_id, $_SESSION['user_id'], $conn );
+    [ $error, $user_order, $admin_comment, $user_comment, $order_total, $has_been_modified ] = get_user_order( $competition_id, $_SESSION['user_id'], $conn );
 
 ?>    
 
@@ -64,7 +64,7 @@
               </div>              
               <div id="comment" class="col-12 mt-2">
                 <?php if ( $user_comment ): ?>
-                  Mon commentaire : <span class="text-muted"><?php echo $user_comment ?></span>
+                  Mon commentaire : <span class="user-comment"><?php echo $user_comment ?></span>
                 <?php endif; ?>              
               </div>
             </div>             

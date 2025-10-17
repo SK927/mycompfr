@@ -11,7 +11,7 @@
     
     $competition_data = get_competition_data( $competition_id, $conn );
     $competition_catalog_blocks = from_pretty_json( $competition_data['competition_catalog'] );
-    [ $error, $user_order, $user_comment ] = get_user_order( $competition_id, $_SESSION['user_id'], $conn );
+    [ $error, $user_order, $admin_comment, $user_comment ] = get_user_order( $competition_id, $_SESSION['user_id'], $conn );
 
     $conn->close();
 

@@ -1,5 +1,9 @@
 <?php
 
+  ini_set( 'display_errors', 1 );
+  ini_set( 'display_startup_errors', 1 );
+  error_reporting( E_ERROR );
+
   require_once 'src/_header.php';
  
   $competition_id = $_GET['id'];
@@ -11,7 +15,6 @@
 
     $competition_data = get_competition_data( $competition_id, $conn );
     $user_order_id = hash_data( $_SESSION['user_id'], $competition_id );
-    [ $error, $is_edit ] = get_user_order( $competition_id, $_SESSION['user_id'], $conn );
 
     if ( ! $error )
     {
@@ -23,7 +26,7 @@
       }
       else
       {
-        $error = save_user_order( $competition_id, $user_order_id, $_SESSION, $_POST, $is_edit, $conn );
+        [ $error, $is_edit ] = save_user_order( $competition_id, $user_order_id, $_SESSION, $_POST, $conn );
       }
     }
     

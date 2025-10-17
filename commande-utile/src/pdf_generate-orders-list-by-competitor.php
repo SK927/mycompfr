@@ -69,11 +69,18 @@
 
       $total = $order['has_been_paid'] ? 'Payé' : number_format( $order['order_total'], 2 ) . ' €';
       $info = "<b>{$order['user_name']}</b><p>{$total}</p>";
-      $rows = ! empty( $order['user_comment'] ) + ceil( count( $blocks ) / 2 );
+      $rows = ! empty( $order['user_comment'] ) + ! empty( $order['admin_comment'] ) + ceil( count( $blocks ) / 2 );
 
       $html = "<table cellpadding=\"10\">
               <tr>
                 <td rowspan=\"{$rows}\" bgcolor=\"#e4e4e4\" style=\"border: 1px solid #808080;width:20%\">{$info}</td>";
+
+      if ( $order['admin_comment'] )
+      {
+        $html .= "<td colspan=\"2\" bgcolor=\"#FFC9C9\" style=\"border: 1px solid #808080;width:80%\">{$order['admin_comment']}</td>
+                </tr>
+                <tr>";
+      }  
 
       if ( $order['user_comment'] )
       {

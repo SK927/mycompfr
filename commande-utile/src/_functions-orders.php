@@ -53,7 +53,7 @@
       $error = 'Erreur fatale lors de la récupération de la commande';
     }  
 
-    return array( $error, from_pretty_json( $result_row['order_data'] ), $result_row['user_comment'], $result_row['order_total'], $result_row['has_been_modified'] );
+    return array( $error, from_pretty_json( $result_row['order_data'] ), $result_row['admin_comment'], $result_row['user_comment'], $result_row['order_total'], $result_row['has_been_modified'] );
   }
 
 
@@ -93,14 +93,16 @@
    * @param (string) user_order_id: ID of the user order to save
    * @param (array) user_data: generic user data such as name, e-mail address...
    * @param (array) order_data: data representing the items selected by the user
-   * @param (bool) is_edit: value used to indicate that the order is being edited not created (optional)
    * @param (mysqli) mysqli: database connection object
    * @return (string) the error of the mysqli query
    */
 
-  function save_user_order( $competition_id, $user_order_id, $user_data, $order_data, $is_edit = false, $mysqli )
+  function save_user_order( $competition_id, $user_order_id, $user_data, $order_data, $mysqli )
   { 
     global $db;
+
+    [ $error, $placed_order, $admin_comment ] = get_user_order( $competition_id, $user_data['user_id'], $mysqli );
+    $is_edit = ! empty( $placed_order );
 
     if ( $order_data )
     {
@@ -156,7 +158,7 @@
 
       $order_json = to_pretty_json( $user_order );
 
-      $sql = "REPLACE INTO {$db['cu']}_{$competition_id} VALUE ('{$user_order_id}', '{$user_name_escaped}', '{$user_data['user_wca_id']}', '{$user_data['user_email']}', '{$order_json}', {$amount}, '{$user_comment_escaped}', 0, 0)";
+      $sql = "REPLACE INTO {$db['cu']}_{$competition_id} VALUE ('{$user_order_id}', '{$user_name_escaped}', '{$user_data['user_wca_id']}', '{$user_data['user_email']}', '{$order_json}', {$amount}, '{$user_comment_escaped}', '{$admin_comment}', 0, 0)";
 
       $mysqli->query( $sql );
 
@@ -174,7 +176,7 @@
       $error =  'Commande vide';
     }    
 
-    return $error;
+    return [ $error, $is_edit ];
   }
 
 

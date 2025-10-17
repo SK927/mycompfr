@@ -216,3 +216,11 @@ a.no-decoration{
 #status-bar-container span{
   background-color: none;
 }
+
+.user-comment{
+  color: #dc3545;
+}
+
+.changed-comment{
+  border-color: #dc3545 !important;
+}

@@ -115,6 +115,7 @@
               `order_data` longtext COLLATE utf8mb4_unicode_520_ci NOT NULL,
               `order_total` float NOT NULL,
               `user_comment` longtext COLLATE utf8mb4_unicode_520_ci NOT NULL,
+              `admin_comment` longtext COLLATE utf8mb4_unicode_520_ci NOT NULL,
               `has_been_paid` tinyint(1) NOT NULL,
               `has_been_modified` tinyint(1) NOT NULL
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci";

@@ -33,6 +33,8 @@
       foreach ( $competition_orders as $order )
       { 
         $sum = 0;
+      $rows = ! empty( $order['user_comment'] ) + ! empty( $order['admin_comment'] ) + 1;
+
 
         $order_data = from_pretty_json( $order['order_data'] );
 
@@ -41,18 +43,22 @@
           $total = number_format( $order['order_total'], 2 );
     		  $html = "<table cellpadding=\"10\"><tr>";
 
+          $html .= "<td rowspan=\"{$rows}\" style=\"width:20%;border:1px solid #808080\">{$order['user_name']} ({$total}&nbsp;€)</td>";
+
+          if ( $order['admin_comment'] )
+          {
+            $html .= "<td colspan=\"2\" bgcolor=\"#FFC9C9\" style=\"border: 1px solid #808080;width:80%\">{$order['admin_comment']}</td>
+                    </tr>
+                    <tr>";
+          }    
 
           if ( $order['user_comment'] )
           {
-            $html .= "<td rowspan=\"2\" style=\"width:20%;border:1px solid #808080\">{$order['user_name']} ({$total}&nbsp;€)</td>";
             $html .= "<td colspan=\"2\" bgcolor=\"#fdffc9\" style=\"border: 1px solid #808080;width:80%\">{$order['user_comment']}</td>
                     </tr>
                     <tr>";
           }      
-          else
-          {
-            $html .= "<td style=\"width:20%;border:1px solid #808080\">{$order['user_name']} ({$total}&nbsp;€)</td>";
-          }
+        
 
     		  $html .= "<td style=\"width:70%;border:1px solid #808080\"><ul>";
 
