@@ -57,7 +57,7 @@
     {
       foreach ( $venue['rooms'] as $room )
       { 
-        $pattern = "/{$events_id[0]}|{$events_id[1]}/"; 
+        $pattern = "/{$events_id[0]}, Round 1|{$events_id[1]}, Round 1/"; 
         $activities = array_filter( $room['activities'], function( $a ) use( $pattern ){ return preg_grep( $pattern, $a ); } ); // Keep only information for $events_id[0] and $events_id[1] 
 
         foreach ( $activities as $round )
@@ -72,6 +72,7 @@
         }
       }
     }  
+
     return $assignments_id;
   }
 
@@ -87,7 +88,6 @@
   function retrieve_competitors_groups( $competition_data, $events_id, $assignments_id )
   {
     $competition_groups = array();
-    
     foreach ( $assignments_id as $event => $group ) // Search assignments as competitors for $events_id[0] and $events_id[1]
     {
       foreach ( $competition_data['persons'] as $person )

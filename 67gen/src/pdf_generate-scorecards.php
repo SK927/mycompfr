@@ -8,8 +8,8 @@
   $is_bld = ( $_POST['event_select'] == 'bld' );
   
   $events_id = array( 
-                $is_bld ? '4x4x4 Blindfolded' : '6x6x6', 
-                $is_bld ? '5x5x5 Blindfolded' : '7x7x7',
+                $is_bld ? '4x4x4 Blindfolded' : '6x6x6 Cube', 
+                $is_bld ? '5x5x5 Blindfolded' : '7x7x7 Cube',
               );
   
   $events_alias = array(
@@ -34,7 +34,7 @@
 
       // Sort final array by events and then by competitor's name
       array_multisort( array_column( $competition_groups, $events_id[0] ), SORT_ASC, array_column( $competition_groups, $events_id[1] ), SORT_ASC, array_column( $competition_groups, 'competitor_name'), SORT_ASC, $competition_groups);
-        
+
       $pdf = create_new_pdf();
       $pdf->SetFillColor( 255, 255, 255 );
   
