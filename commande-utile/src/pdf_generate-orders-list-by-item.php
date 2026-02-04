@@ -1,45 +1,45 @@
 <?php
 
+  error_reporting( E_ERROR );
+  ini_set( "display_errors", 1 );
+  
   require_once dirname( __DIR__, 2 ) . '/src/sessions_handler.php';
-
+  
   $competition_id = $_GET['id'];
+  $is_manageable = isset( $_SESSION['manageable_competitions'][ $competition_id ] );
 
-  if ( in_array( $competition_id, array_keys( $_SESSION['manageable_competitions'] ) ) OR $_SESSION['is_admin'] )
-  {    
-    require_once dirname( __DIR__, 2 ) . '/src/mysql_connect.php';
-    require_once dirname( __DIR__, 2 ) . '/src/_functions-generic.php';
-    require_once dirname( __FILE__ ) . '/_functions-competition-data.php';
-    require_once dirname( __FILE__ ) . '/_functions-orders.php';
-    require_once dirname( __FILE__ ) . '/_functions-pdf.php';    
+  if( $is_manageable or $_SESSION['is_admin'] )
+  {
+    require_once dirname( __FILE__ ) . '/_functions.php';
 
-    $competition_data = get_competition_data( $competition_id, $conn ); 
-    $catalog = from_pretty_json( $competition_data['competition_catalog'] );
-    $competition_orders = get_competition_orders( $competition_id, $conn );
-    $items_amount = get_items_amount( $competition_id, $conn );
-
-    $pdf = create_new_pdf( $competition_data['competition_name'] ); 
+    mysqli_open( $mysqli );
+    $competition = get_competition_data( $competition_id, $mysqli );
+    $items_amounts = get_items_amount( $competition_id, $mysqli );
+    $mysqli->close();
+  
+    $pdf = create_new_pdf( $competition['name'] );
     
     $pdf->setFont( 'dejavusanscondensed', '', 10, '', true );
     $pdf->SetY( $pdf->getY() + 5 );
 
-    foreach ( $items_amount as $block_name => $items )
-    {
-      $pdf->AddPage();
+    $pdf->AddPage();
 
+    foreach( $items_amounts as $block )
+    {
       $html = "<table cellpadding=\"10\">";
-      $html .= "<tr><td colspan=\"5\" style=\"border:1px solid #808080;background-color:#e4e4e4\"><b>{$block_name}</b></td></tr>";
+      $html .= "<tr><td colspan=\"5\" style=\"border:1px solid #808080;background-color:#e4e4e4\"><b>{$block['name']}</b></td></tr>";
       $i = 0;
 
-      foreach ( $items as $item_name => $item_qty )
+      foreach( $block['items'] as $item )
       {
-        if ( $i % 5 == 0 )
+        if( $i % 5 == 0 )
         {
           $html .= "<tr>";
         }
 
-        $html .= "<td style=\"text-align:center;border:1px solid #808080\">{$item_name}<br/><br/><b>{$item_qty}</b></td>";
+        $html .= "<td style=\"text-align:center;border:1px solid #808080\">{$item['name']}<br/><br/><b>{$item['qty']}</b></td>";
 
-        if ( $i % 5 == 4 OR $i == (count( $items ) - 1) )
+        if( $i % 5 == 4 or $i == (count( $block['items'] ) - 1) )
         {
           $html .= "</tr>";
         }
@@ -52,12 +52,12 @@
       $pdf->SetY( $pdf->getY() + 5 );
     }
 
-    $conn->close();
-    $pdf->Output( "{$competition_data['competition_id']}_Commandes(par produits)_" . date( 'Y-m-d' ) . ".pdf", 'I' );
+    ob_end_clean();
+    $pdf->Output( "{$competition['name']}_Commandes(par produits)_" . date( 'Y-m-d' ) . ".pdf", 'I' );
   }
   else
   {
-    echo "Vous n'avez pas accès à cette compétition !";
+    echo "ERREUR : Vous n'êtes pas connecté ou vous n'êtes pas organisateur de cette compétition !";
   }
 
 ?>

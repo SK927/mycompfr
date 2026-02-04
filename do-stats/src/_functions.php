@@ -76,7 +76,7 @@
     $sql = "SELECT updated_at FROM {$db['do']}_Competitors WHERE wca_id = '{$wca_id}'";
     $query_results = $mysqli->query( $sql );
     
-    if ( $query_results->num_rows ) 
+    if( $query_results->num_rows ) 
     {
       $last_updated = $query_results->fetch_assoc()['updated_at'];
     }
@@ -118,7 +118,7 @@
 
     $end_date = date( 'Y-m-d', strtotime( date( 'Y-m-d' ) . '-1 week' ) ) . "T00:00:00.000Z"; // Look for competitions from last month onwards
 
-    if (  $last_updated )
+    if(  $last_updated )
     {
       $start_date = date( 'Y-m-d', strtotime( $last_updated . '-1 month' ) ) . "T00:00:00.000Z"; // Look for competitions from last month onwards
       $start_arg = "&start={$start_date}";
@@ -163,7 +163,7 @@
       $country = isset( $iso[ $competition['countryId'] ] ) ? $iso[ $competition['countryId'] ] : $competition['countryId'];
       $user_competitions->set_countries_counter( $country );
 
-      if ( isset( $user_competitions->locations[ $competition['latitude'] ][ $competition['longitude'] ] ) )
+      if( isset( $user_competitions->locations[ $competition['latitude'] ][ $competition['longitude'] ] ) )
       {
         $user_competitions->locations[ $competition['latitude'] ][ $competition['longitude'] ] = "{$user_competitions->locations[ $competition['latitude'] ][ $competition['longitude'] ]}&nbsp;; {$competition['name']}";
       }
@@ -176,18 +176,18 @@
       $user_competitions->set_years_counter( "e{$year}" );
       $events = from_pretty_json( $competition['events'] );
 
-      foreach ( $events as $event )
+      foreach( $events as $event )
       {
         $user_competitions->set_events_counter( $event );
       }
       
-      if ( ! in_array( $competition['countryId'], $multisite ) )
+      if( ! in_array( $competition['countryId'], $multisite ) )
       {
         $people = from_pretty_json( $competition[ $type ] );
 
-        foreach ( $people as $user_id => $person )
+        foreach( $people as $user_id => $person )
         {
-          if ( ($person['name'] != $user) AND ($person['wca_id'] != $user) )
+          if( ($person['name'] != $user) AND ($person['wca_id'] != $user) )
           {
             $user_competitions->set_users_counter( "{$person['name']}|{$person['wca_id']}" );
           }
@@ -220,12 +220,12 @@
     $imported_competitions = array();
     $error = false;
 
-    foreach ( $competitions as $c )
+    foreach( $competitions as $c )
     { 
       $delegates = array();
       $organizers = array();
 
-      foreach ( $c['delegates'] as $person )
+      foreach( $c['delegates'] as $person )
       {
         $delegates[ $person['id'] ] = array(
                                         'wca_id' => $person['wca_id'],
@@ -233,7 +233,7 @@
                                       );
       }
 
-      foreach ( $c['organizers'] as $person )
+      foreach( $c['organizers'] as $person )
       {
         $organizers[ $person['id'] ] = array(
                                         'wca_id' => $person['wca_id'],
@@ -256,7 +256,7 @@
 
       $sql = "REPLACE INTO {$db['do']}_Competitions VALUES ('{$competition['id']}', '{$competition['name']}', '{$competition['countryId']}', {$competition['latitude']}, {$competition['longitude']}, '{$competition['delegate']}', '{$competition['organizer']}', '{$competition['startDate']}', '{$competition['events']}', {$competition['cancelled']});";
 
-      if ( ! $mysqli->query( $sql ) )
+      if( ! $mysqli->query( $sql ) )
       {
         $error = true;
       }

@@ -235,7 +235,7 @@
 
       $pdf->setXY(10, $y );
       $pdf->SetFont( 'dejavusanscondensed', '', 20, '', true );
-      $pdf->Cell( 190, 10, 'NOUVEAUX COMPÉTITEURS', 0, 2, 'L', false );
+      $pdf->Cell( 190, 10, 'NEWCOMERS', 0, 2, 'L', false );
       $pdf->SetFont( 'dejavusanscondensed', '', 10, '', true );
 
       if ( $cutting_limit ) // If only a bunch of new competitors can be printed at the bottom of current page, print a few competitors first

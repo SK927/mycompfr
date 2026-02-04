@@ -1,19 +1,14 @@
 <?php 
 
-  ini_set('display_errors', 1);
-  ini_set('display_startup_errors', 1);
-  error_reporting(E_ERROR);
-
   $case = $_GET['case'];
 
+  require_once '../src/_functions-generic.php';
   require_once 'src/_header.php';
   require_once 'src/_functions.php';
-  require_once '../src/_functions-generic.php';
 
   $solution_json = file_get_contents( "assets/cases/solution_{$case}.json" );
   $data = from_pretty_json( $solution_json );
   $response = str_pad( $_POST['response'], strlen( $data['solution'] ), '-' );
-
 
 ?>  
 

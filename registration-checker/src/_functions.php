@@ -1,8 +1,8 @@
 <?php
 
-  require_once dirname( __DIR__, 2 ) . '/src/_functions-generic.php';
   require_once dirname( __DIR__, 2 ) . '/src/_functions-wcif.php';
-  require_once dirname( __DIR__, 2 ) . '/src/yaml_spyc-reader.php';
+  require_once dirname( __DIR__, 2 ) . '/src/_functions-generic.php';
+  require_once dirname( __DIR__, 2 ) . '/src/_functions-encrypt.php';
   require_once dirname( __DIR__, 2 ) . '/src/_class-email.php';
 
   require_once dirname( __DIR__, 2 ) . '/config/config_loader.php';
@@ -17,27 +17,31 @@
    * @return (string) the error generated
    */
 
-  function import_competition_into_db( $competition_id, $user_token, $mysqli )
+  function import_competition_into_db( $competition_id, $user_email, $user_token, $mysqli )
   {
     global $db;
 
     [ $competition, $error ] = read_competition_data_from_private_wcif( $competition_id, $user_token );
 
-    if ( ! $error )
+    if( ! $error )
     {
       $competition_name = addslashes( $competition['name'] );
       $competition_start_date = $competition['schedule']['startDate'];
       $competition_end_date = date( 'Y-m-d', strtotime( $competition_start_date . ' + ' . ( (int) $competition['schedule']['numberOfDays'] - 1 ) . ' days' ) );
       $competition_country = strtolower( $competition['schedule']['venues'][0]['countryIso2'] );
-      $competition_registrations = to_pretty_json( format_wcif_persons_data( $competition['persons'] ), JSON_ATTR | JSON_HEX_APOS );
 
-      $sql = "REPLACE INTO {$db['rg']}_Main (competition_id, competition_name, competition_start_date, competition_end_date, competition_country_iso, competition_registrations) VALUES ('{$competition_id}', '{$competition_name}', '{$competition_start_date}', '{$competition_end_date}', '{$competition_country}', '{$competition_registrations}');";
+      $sql = "REPLACE INTO {$db['rg']}_Competitions (id, name, contact, country_iso, start_date, end_date) VALUES ('{$competition_id}', '{$competition_name}', '{$user_email}', '{$competition_country}', '{$competition_start_date}', '{$competition_end_date}');";
       
-      if ( ! $mysqli->query( $sql ) )
+      if( $mysqli->query( $sql ) )
       {
-        $error = mysqli_error( $mysqli );
+        $error = insert_users_data( $competition, $mysqli );
+      }
+      else
+      {
+        $error = $mysqli->error;
       }
     }
+
     return $error;
   }
 
@@ -49,23 +53,29 @@
    * @return (array) of modified version of the competition array
    */
 
-  function check_imported_competitions( $competitions, $mysqli )
+  function check_imported_competitions( $competitions, $user, $mysqli )
   {
     global $db;
 
-    if ( $competitions )
-    {
-      $sql = "SELECT competition_id FROM {$db['rg']}_Main WHERE 1";
-      $query_results = $mysqli->query( $sql );
+    $sql = "SELECT * FROM {$db['rg']}_Competitions WHERE 1 ORDER BY start_date, name";
+    $results = $mysqli->query( $sql );
 
-      while( $row = $query_results->fetch_assoc() )
+    while( $row = $results->fetch_assoc() )
+    {
+      if( isset( $competitions[ $row['id'] ] ) )
       {
-        if ( in_array( $row['competition_id'], array_keys( $competitions ) ) )
-        {
-          $competitions[ $row['competition_id'] ]['imported_in_checker'] = true;
-        }
+        $competitions[ $row['id'] ]['imported_in_checker'] = true;
+      }
+      else if( $user['is_admin'] )
+      {
+        $competitions[ $row['id'] ]['name'] = $row['name'];
+        $competitions[ $row['id'] ]['start'] = $row['start_date'];
+        $competitions[ $row['id'] ]['end'] = $row['end_date'];
+        $competitions[ $row['id'] ]['announced'] = true;
+        $competitions[ $row['id'] ]['imported_in_checker'] = true;
       }
     }
+
     return $competitions;
   }
 
@@ -78,15 +88,13 @@
    * @return (string) the error generated
    */
 
-  function update_competition_registrations( $competition_id, $new_registrations_list, $mysqli )
+  function update_competition_registration( $competition_id, $user_id, $new_state, $mysqli )
   {
     global $db;
 
-    $new_registrations_list = to_pretty_json( $new_registrations_list );
-
-    $sql = "UPDATE {$db['rg']}_Main SET competition_registrations = '$new_registrations_list' WHERE competition_id = '$competition_id'";
+    $sql = "UPDATE {$db['rg']}_Users SET response = '{$new_state}' WHERE user_id = '{$user_id}' AND competition_id = '{$competition_id}'";
         
-    if ( ! $mysqli->query( $sql ) )
+    if( ! $mysqli->query( $sql ) )
     {
       $error = mysqli_error( $mysqli );
     }
@@ -95,26 +103,26 @@
   }
 
   /**
-   * get_competitors_emails(): retrieve competitors emails from database
+   * get_users_emails(): retrieve users emails from database
    * @param (string) competition_id: ID of the competition to update the data for
    * @param (mysqli) mysqli: database connection object
-   * @return (string) a list of all competitors emails
+   * @return (string) a list of all users emails
    */
 
-  function get_competitors_emails( $competition_id, $mysqli )
+  function get_users_emails( $competition_id, $mysqli )
   {
     global $db;
 
     $emails = '';
-    [ $error, $competitors_registrations ] = get_competition_registrations_from_db( $competition_id, $mysqli );
+    [ $error, $registrations ] = get_competition_registrations_from_db( $competition_id, $mysqli );
 
-    if ( ! $error )
+    if( ! $error )
     {
-      foreach ( $competitors_registrations as $competitor )
+      foreach( $registrations as $registration )
       {
-        if ( $competitor['confirmed'] == 'NA' )
+        if( in_array( $registration['response'], array( 'NA', 'ND' ) ) )
         {
-          $emails .= decrypt_data( $competitor['email'] ) . ' ; ';
+          $emails .= decrypt_data( $registration['user_email'] ) . ' ; ';
         }
       }
     }
@@ -124,7 +132,7 @@
 
 
   /**
-   * get_competition_registrations_from_db(): retrieve competitors info and answers from DB
+   * get_competition_registrations_from_db(): retrieve users info from database
    * @param (string) competition_id: competition ID of the selected competition
    * @param (mysqli) mysqli: reference to connection to DB
    * @return (array) a list of all competition registrations
@@ -133,50 +141,65 @@
   function get_competition_registrations_from_db( $competition_id, $mysqli )
   {
     global $db;
+
+    $sql = "SELECT * FROM {$db['rg']}_Users WHERE competition_id = '{$competition_id}'";
     
-    $query_results = $mysqli->query( "SELECT competition_registrations FROM {$db['rg']}_Main WHERE competition_id = '{$competition_id}'" );
-
-    if ( $query_results->num_rows )
+    if( $results = $mysqli->query( $sql ) )
     {
-      $result_row = $query_results->fetch_assoc();
-
-      if ( ! empty( $result_row['competition_registrations'] ) )
+      if( $results->num_rows )
       {
-        $competition_registrations = from_pretty_json( $result_row['competition_registrations'] );
-        uasort($competition_registrations, function ( $a, $b ) { return $b['name'] < $a['name']; });
-        uasort($competition_registrations, function ( $a, $b ) { return $b['confirmed'] < $a['confirmed']; });
+        $registrations = array();
+
+        while( $row = $results->fetch_assoc() )
+        {
+          $registrations[] = $row;
+        }
+      
+        uasort($registrations, function ( $a, $b ) { return $b['user_name'] < $a['user_name']; });
+        uasort($registrations, function ( $a, $b ) { return $b['response'] < $a['response']; });
       }
     }
+    else
+    {
+      $error = $mysqli->error;
+    }
 
-    $error = mysqli_error( $mysqli ) ? mysqli_error( $mysqli ) : null;
-
-    return [ $error, $competition_registrations ];
+    return [ $error, $registrations ];
   }
 
 
   /**
-   * format_wcif_persons_data(): format competitors data to needed output
-   * @param (array) persons: associative array of persons extracted from competition private WCIF
-   * @return (array) a formatted list of registrations
+   * insert_users_data(): insert data into database
+   * @param (array) competition: associative array from competition private WCIF
+   * @return (string) error
    */
 
-  function format_wcif_persons_data( $persons )
+  function insert_users_data( $competition, $mysqli )
   {
-    foreach ( $persons as $person )
-    {       
-      if ( $person['registration']['status'] == "accepted" ) 
+    global $db;
+
+    foreach( $competition['persons'] as $person )
+    {
+      if( $person['registration']['status'] == "accepted" ) 
       {
-        $competition_registrations[ $person['wcaUserId'] ] = array( 
-                                                              'name' => $person['name'], 
-                                                              'email' => encrypt_data( $person['email'] ), 
-                                                              'confirmed' => 'NA',
-                                                            );
+        $user_id = $person['wcaUserId'];
+        $user_name = $person['name'];
+        $user_wca_id = $person['wcaId'];
+        $user_email = encrypt_data( $person['email'] );
+
+        $sql = "REPLACE INTO {$db['rg']}_Users (competition_id, user_id, user_name, user_wca_id, user_email) VALUES ('{$competition['id']}', '{$user_id}', '{$user_name}', '{$user_wca_id}', '{$user_email}');";
+
+        if( ! $mysqli->query( $sql ) )
+        {
+          $error = mysqli_error( $mysqli );
+        }
       }
     }
-    return $competition_registrations;
+
+    return $error;
   }
 
-
+  
   /**  
    * send_checker_reminder(): send an email to remind competitors with an indefinite status to answer
    * @param (string) competitors_email: email of the competitors with an indefinite status
@@ -185,7 +208,7 @@
    * @return (string) the error generated
    */
 
-  function send_checker_reminder( $competitors_email, $competition_name, $admin_email )
+  function send_checker_reminder( $competition_name, $competitors_email, $admin_email )
   {  
     $to = $competitors_email;
     $from = decrypt_data( $admin_email );
@@ -196,7 +219,7 @@
     $email->create_header( $from, $to );
     $email->subject = $content['subject'];
 
-    foreach ( $content['text'] as $paragraph )
+    foreach( $content['text'] as $paragraph )
     {
       $email->concatenate_to_message( "<p>{$paragraph}</p>" );
     }
@@ -211,13 +234,97 @@
     
 
     // Send email
-    if ( mail( "", $email->subject, $email->message, $email->header ) )
+    if( mail( "", $email->subject, $email->message, $email->header ) )
     {
       return null;
     }
     else
     {
-      return 'At least one competitor has not been reminded';
+      return 'Au moins un compétiteur n\'a pas reçu le rappel !';
+    }
+  }
+
+
+  /**
+   * send_creation_competition_rc() : send an email to confirm the competition has been properly created in database
+   * @param (string) competition_id: ID of the competition being removed from the database
+   * @param (string) orga_email: email of the organizers of the competition
+   * @param (string) all_administrators_email: email of all the website administrators
+   * @return (string) error if sending the email failed
+   */
+  
+  function send_creation_competition_rc( $competition_id, $orga_email, $all_administrators_email )
+  {
+    $to = $orga_email;
+    $from = $all_administrators_email;
+    $content = spyc_load_file( dirname( __DIR__, 1 ) . "/assets/emails.yaml" )['email_create_competition'];
+
+    $email = new email();
+    $email->create_header( $from );
+    $email->subject = $content['subject'];
+
+    foreach( $content['text'] as $paragraph )
+    {
+      $email->concatenate_to_message( "<p>{$paragraph}</p>" );
+    }
+
+    $email->concatenate_to_message( "<p>----</p>" );
+    $email->concatenate_to_message( "<p>{$content['sign']}</p>" );
+    $email->concatenate_to_message( '</body></html>' );
+     
+    $email->replace_subject_text( "{competition_id}", $competition_id );
+    $email->replace_message_text( "{competition_id}", $competition_id );    
+
+    // Send email
+    if( mail( $to, $email->subject, $email->message, $email->header ) )
+    {
+      return null;
+    }
+    else
+    {
+      return "Échec de l'envoi de l'e-mail de confirmation";
+    }
+  }
+
+
+  /**
+   * send_deletion_competition_rc() : send an email to confirm the competition has been properly removed from the database
+   * @param (string) competition_id: ID of the competition being removed from the database
+   * @param (string) orga_email: email of the organizers of the competition
+   * @param (string) all_administrators_email: email of all the website administrators
+   * @return (string) error if sending the email failed
+   */
+
+  function send_deletion_competition_rc( $competition_id, $orga_email, $all_administrators_email )
+  {
+    $to = $orga_email;
+    $from = $all_administrators_email;
+    $content = spyc_load_file( dirname( __DIR__, 1 ) . "/assets/emails.yaml" )['email_delete_competition'];
+
+    $email = new email();
+    $email->create_header( $from );
+    $email->subject = $content['subject'];
+
+    foreach( $content['text'] as $paragraph )
+    {
+      $email->concatenate_to_message( "<p>{$paragraph}</p>" );
+    }
+
+    $email->concatenate_to_message( "<p>----</p>" );
+    $email->concatenate_to_message( "<p>{$content['sign']}</p>" );
+    $email->concatenate_to_message( '</body></html>' );
+     
+    $email->replace_subject_text( "{competition_id}", $competition_id );
+    $email->replace_message_text( "{competition_id}", $competition_id );    
+
+    // Send email
+    if( mail( $to, $email->subject, $email->message, $email->header ) )
+    {
+      return null;
+    }
+    else
+    {
+      return "Échec de l'envoi de l'e-mail de confirmation";
     }
   }
 

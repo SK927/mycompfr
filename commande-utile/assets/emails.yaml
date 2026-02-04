@@ -4,13 +4,13 @@ email_confirm_order:
     edit: "{competition_name} - Modification commande n° {order_nr}"
   text:
     p1: "Bonjour {username},"
-    p2: "<h3>VOTRE COMMANDE A BIEN ÉTÉ PRISE EN COMPTE !</h3>"
-    p3: "Vous trouverez ci-après le récapitulatif de votre commande n° {order_nr} :"
+    p2: "<h3>TA COMMANDE A BIEN ÉTÉ PRISE EN COMPTE !</h3>"
+    p3: "Tu trouveras ci-après le récapitulatif de ta commande n° {order_nr} :"
     p4: "{order}"
-    p5: "<b>Commentaire : </b>{user_comment}"
-    p6: "<b>Total : </b>{order_total} &euro;</b>"
-    p7: "Merci de vous référer aux e-mails des organisateur·rice·s pour le paiement."
-    p8: "Pour modifier votre commande avant le {closing_date}, <a href=\"{site}\" target=\"_blank\">cliquez ici</a>."
+    p5: "<b>Total : </b>{order_total} &euro;</b>"
+    p6: "<b>Commentaire : </b>{user_comment}"
+    p7: "Merci de bien lire les e-mails des organisateur·rice·s pour le paiement !"
+    p8: "Pour modifier ta commande avant le {closing_date}, <a href=\"{site}\" target=\"_blank\" style=\"color:#006A3A\">clique ici</a>."
     p9: "Bonne journée et à bientôt."
   sign: "L'équipe organisatrice de {competition_name}"
   note: "Note de l'&eacute;quipe organisatrice : {admin_note}"
@@ -19,7 +19,7 @@ email_delete_order:
   subject: "{competition_name} - Suppression commande n° {order_nr}"
   text:
     p1: "Bonjour {username},"
-    p2: "Votre commande n° <b>{order_nr}</b> a bien été annulée."
+    p2: "Ta commande n° <b>{order_nr}</b> a bien été annulée."
     p3: "Bonne journée et à bientôt."
   sign: "L'équipe organisatrice de {competition_name}"
 
@@ -28,7 +28,7 @@ email_create_competition:
   text:
     p1: "Bonjour,"
     p2: "La compétition ID <b>{competition_id}</b> a bien été créée sur le site Commande Utile."
-    p3: "Vous pouvez désormais vous connecter en tant qu'organisateur·rice."
+    p3: "Tu peux désormais te connecter en tant qu'organisateur·rice."
     p4: "Bonne journée et à bientôt."
   sign: "L'équipe d'administration de MyComp"
 

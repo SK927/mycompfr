@@ -1,14 +1,10 @@
 <?php 
 
-  ini_set( 'display_errors', 1 );
-  ini_set( 'display_startup_errors', 1 );
-  error_reporting( E_ERROR );
-
   $case = $_GET['case'];
 
+  require_once '../src/_functions-generic.php';
   require_once 'src/_header.php';
   require_once 'src/_functions.php';
-  require_once '../src/_functions-generic.php';
 
   $case_json = file_get_contents( "assets/cases/study_{$case}.json" );
   $case_by_regs = from_pretty_json( $case_json )['competitors'];
@@ -19,6 +15,7 @@
 
 ?>  
 
+<script src="assets/js/index.js"></script>
 <div class="container">
   <div class="row">
     <div class="col-12">

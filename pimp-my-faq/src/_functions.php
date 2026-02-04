@@ -22,15 +22,18 @@
   
   function add_paragraphs( $text, $paragraphs )
   {
-    if ( ! is_array( $paragraphs ) )
+    if( ! is_array( $paragraphs ) )
+    {
       $paragraphs = array( $paragraphs );
+    }
 
-    foreach ( $paragraphs as $paragraph ) 
+    foreach( $paragraphs as $paragraph )
+    {
       $text .= "{$paragraph}\n";
+    }
 
     return $text;
   }
-  
 
 
 ?>

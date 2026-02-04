@@ -1,9 +1,27 @@
 reminder:
-  subject: "{competition_name} - Please Confirm Your Registration!"
+  subject: "{competition_name} - Confirme ton inscription !"
   text:
-    p1: "Hi,"
-    p2: "This is a friendly reminder to confirm your registration for {competition_name} as soon as possible."
-    p3: "To do so, please visit the <a href=\"{site}\">Registration Checker</a> website."
-    p4: "Not confirming your registration may result in it being deleted!"
-    p5: "Thank you in advance,"
-  sign: "The organizing team for {competition_name}"
+    p1: "Bonjour,"
+    p2: "Ceci est un rappel amical : à ce jour tu n'as pas répondu, ou alors tu as répondu que tu n'étais pas sûr de venir..."
+    p3: "Merci de confirmer ton inscription pour la compétition {competition_name} dès que possible."
+    p4: "Pour cela, rends-toi sur le site <a href=\"{site}\">Registration Checker</a>."
+    p5: "Oublier de confirmer ton inscription pourrait entraîner l'annulation de ta participation !"
+    p6: "Merci par avance,"
+  sign: "L'équipe organisatrice"
+
+email_create_competition:
+  subject: "{competition_id} - Création de la compétition"
+  text:
+    p1: "Bonjour,"
+    p2: "La compétition ID <b>{competition_id}</b> a bien été créée sur le site Registration Checker."
+    p3: "Tu peux désormais te connecter en tant qu'organisateur·rice."
+    p4: "Bonne journée et à bientôt."
+  sign: "L'équipe d'administration de MyComp"
+
+email_delete_competition:
+  subject: "{competition_id} - Suppression de la compétition"
+  text:
+    p1: "Bonjour,"
+    p2: "La compétition ID <b>{competition_id}</b> a bien été supprimée du site Registration Checker."
+    p3: "Bonne journée et à bientôt."
+  sign: "L'équipe d'administration de MyComp"

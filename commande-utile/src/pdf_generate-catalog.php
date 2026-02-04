@@ -1,19 +1,22 @@
 <?php
 
-  require_once dirname( __DIR__, 2 ) . '/src/sessions_handler.php';
-  require_once dirname( __DIR__, 2 ) . '/src/mysql_connect.php';
-  require_once dirname( __DIR__, 2 ) . '/src/_functions-generic.php';
-  require_once dirname( __DIR__, 2 ) . '/src/_functions-encrypt.php';
-  require_once dirname( __FILE__ ) . '/_functions-competition-data.php';
-  require_once dirname( __FILE__ ) . '/_functions-pdf.php';
-  
+  error_reporting( E_ERROR );
+  ini_set( "display_errors", 1 );
+
+  require_once dirname( __FILE__ ) . '/_functions.php';
+
   $competition_id = $_GET['id'];
-  $competition_data = get_competition_data( $competition_id, $conn ); 
-  $pdf = create_new_pdf( $competition_data['competition_name'] );
+  mysqli_open( $mysqli );
+  $competition = get_competition_data( $competition_id, $mysqli );
+  $catalog = get_catalog( $competition_id, $mysqli ); 
+  $mysqli->close();
+
+  $pdf = create_new_pdf( $competition['name'] );
+  $pdf->setHtmlVSpace( array( 'ul' => array( array( 'h' => 0, 'n' => 0 ), array( 'h' => 0, 'n' => 0 ) ) ) );
   $pdf->setFillColor( 0, 106, 58 );
   $pdf->setDrawColor( 0, 106, 58 );
 
-  foreach ( from_pretty_json( $competition_data['competition_catalog'] ) as $block )
+  foreach( $catalog as $block )
   {
     $pdf->AddPage();
     $pdf->setCellPaddings( 2, 2, 2, 2 );
@@ -26,40 +29,35 @@
 
     foreach( $block['items'] as $item )
     { 
-      if ( $item['options'] ) /* If item has options display info about options */
+      if( $item['options'] ) /* If item has options display info about options */
       { 
-        $item['description'] .= "<br/><br/>Options :
-                                        <ul>";
+        $item['description'] .= "<br/><br/>";
 
-        foreach ( $item['options'] as $option)
+        foreach( $item['options'] as $option)
         {
           $selections = '';
 
-          foreach ( $option['selections'] as $selection )
+          foreach( $option['selections'] as $selection )
           {
-            $selections .= $selection['name'];
+            $selections .= "<li>{$selection['name']}";
             
-            if ( $selection['price'] != '0.00' ) 
+            if( $selection['price'] != '0.00' ) 
             {
-              $selections .= " (+{$selection['price']}€)";
+              $selections .= " (+&nbsp;{$selection['price']}&nbsp;€)";
             }
             
-            $selections .= ' ; '; 
+            $selections .= '</li>'; 
           }
           $selections = rtrim( $selections, ' ; ' );
-          $item['description'] .= "<li>{$option['name']} ({$selections})</li>"; 
+          $item['description'] .= "{$option['name']}<ul style=\"margin:0px;padding:0px\">{$selections}</ul>"; 
         }
-
-        $item['description'] .=   "</ul>";
       }
 
       $html = "<table cellpadding=\"10\">
                   <tr>
-                    <td style=\"border-bottom:1px solid #006a3a;border-left: 1px solid #006a3a;width:20%\">{$item['name']}</td>
-                    <td style=\"border-bottom:1px solid #006a3a;width:45%\">{$item['description']}</td>
-                    <td style=\"border-bottom:1px solid #006a3a;width:20%\">";
+                    <td style=\"border-left: 1px solid #006a3a;border-bottom:1px solid #006a3a;width:20%\">";
 
-      if ( $item['image'] != '.' )
+      if( $item['image'] != '.' )
       {
         $site_alias = explode( '/', $_SERVER['REQUEST_URI'] )[1];
         $image_location = "https://{$_SERVER['SERVER_NAME']}/{$site_alias}/assets/img/icons/{$item['image']}";
@@ -67,6 +65,8 @@
       }
 
       $html .= "</td>
+                <td style=\"border-bottom:1px solid #006a3a;width:20%\">{$item['name']}</td>
+                <td style=\"border-bottom:1px solid #006a3a;width:45%\">{$item['description']}</td>
                 <td style=\"border-bottom:1px solid #006a3a;border-right: 1px solid #006a3a;width:15%;text-align:right\">" . number_format( $item['price'], 2 ) . " €</td>
               </tr>
             </table>";
@@ -74,8 +74,8 @@
       $pdf->WriteLine( $html );
     }
   }
-  $conn->close();
-
-  $pdf->Output( "{$competition_data['competition_id']}_Catalogue.pdf", 'I');
+  
+  ob_end_clean();
+  $pdf->Output( "{$competition['name']}_Catalogue.pdf", 'I');
 
 ?>

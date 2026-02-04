@@ -1,0 +1,71 @@
+events:
+  e333: 
+    alias: '333'
+    long_name: '3x3x3 Cube'
+    display: '3x3'
+    solve_count: 5
+  e222: 
+    alias: '222'
+    long_name: '2x2x2 Cube'
+    display: '2x2'
+    solve_count: 5
+  e444: 
+    alias: '444'
+    long_name: '4x4x4 Cube'
+    display: '4x4'
+    solve_count: 5
+  e555: 
+    alias: '555'
+    long_name: '5x5x5 Cube'
+    display: '5x5'
+    solve_count: 5
+  e666: 
+    alias: '666'
+    long_name: '6x6x6 Cube'
+    display: '6x6'
+    solve_count: 3
+  e777: 
+    alias: '777'
+    long_name: '7x7x7 Cube'
+    display: '7x7'
+    solve_count: 3
+  e333bf: 
+    alias: '333bf'
+    long_name: '3x3x3 Blindfolded'
+    display: '3BLD'
+    solve_count: 5
+  e333oh: 
+    alias: '333oh'
+    long_name: '3x3x3 One-Handed'
+    display: '3x3 OH'
+    solve_count: 5
+  eminx: 
+    alias: 'minx'
+    long_name: 'Megaminx'
+    display: 'Megaminx'
+    solve_count: 5
+  epyra: 
+    alias: 'pyram'
+    long_name: 'Pyraminx'
+    display: 'Pyraminx'
+    solve_count: 5
+  eskewb: 
+    alias: 'skewb'
+    long_name: 'Skewb'
+    display: 'Skewb'
+    solve_count: 5
+  esq1: 
+    alias: 'sq1'
+    long_name: 'Square-1'
+    display: 'SQ-1'
+    solve_count: 5
+  e444bf: 
+    alias: '444bf'
+    long_name: '4x4x4 Blindfolded'
+    display: '4BLD'
+    solve_count: 3
+  e555bf: 
+    alias: '555bf'
+    long_name: '5x5x5 Blindfolded'
+    display: '5BLD'
+    solve_count: 3

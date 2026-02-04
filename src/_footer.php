@@ -11,8 +11,13 @@
             <a href="https://github.com/SK927/mycompfr" class="nav-link px-2 text-muted">Github</a>
           </li>
           <li class="nav-item">
-            <a href="https://<?php echo $_SERVER['SERVER_NAME'] ?>/credits" class="nav-link px-2 text-muted">Credits</a>
+            <a href="/credits" class="nav-link px-2 text-muted">Credits</a>
           </li>
+          <?php if( $_SESSION['can_manage'] ): ?>
+            <li class="nav-item">
+              <a href="/admin" class="nav-link px-2 text-muted">Admin</a>
+            </li>
+          <?php endif ?>
         </ul>
       </footer>
     </div>  

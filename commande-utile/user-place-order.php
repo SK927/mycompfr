@@ -1,225 +1,135 @@
 <?php
 
-  require_once 'src/_header.php';
-  require_once '../src/_functions-encrypt.php';
+  require_once '../src/sessions_handler.php';
 
   $competition_id = $_GET['id'];
+  $is_open = (($_SESSION['cu']['imported'][ $competition_id ]['orders_status_class'] == 'open') OR isset( $_SESSION['manageable_competitions'][ $competition_id ] ));
+  $is_imported = ($competition_id == $_SESSION['cu']['imported'][ $competition_id ][ 'competition_id' ]);
 
-  if ( in_array( $competition_id, $_SESSION['commande_utile']['my_imported_competitions'] ) OR $_SESSION['is_admin'] )
+  if( $_SESSION['logged_in'] and (($is_open and $is_imported) or $_SESSION['is_admin']) )
   {
-    require_once '../src/mysql_connect.php';
-    require_once 'src/_functions-orders.php';
-    require_once 'src/templates_place-order.php';
+    require_once 'src/_header.php';
+    require_once 'src/_functions.php';
     
-    $competition_data = get_competition_data( $competition_id, $conn );
-
-    if ( date( 'Y-m-d' ) <= $competition_data['orders_closing_date'] OR $competition_data['orders_closing_date'] == '0000-00-00' )
-    {
-      $catalog = from_pretty_json( $competition_data['competition_catalog'] );
-      [ $error, $user_order, $admin_comment, $user_comment, $order_total, $has_been_modified ] = get_user_order( $competition_id, $_SESSION['user_id'], $conn );
+    mysqli_open( $mysqli );
+    $competition = get_competition_data( $competition_id, $mysqli );
+    $catalog = get_catalog( $competition_id, $mysqli ); 
+    $order = get_order( hash_data( $competition_id, $_SESSION['user_id'] ), $mysqli );
+    $mysqli->close();
 
 ?> 
-   
-<?php if ( ! $error ) : ?>
-  <script src="assets/js/user-order-actions.js"></script>
-  <div class="container text-center">
-    <div class="row">
-      <h1 class="col-12 text-uppercase">
-        <?php echo $competition_data['competition_name'] ?>
-      </h1>
-    </div>
-    <form id="order-form" class="row" action="user-set-options?id=<?php echo urlencode( $_GET['id'] ) ?>" method="POST" name="order_form">
-      <div class="col-12 col-md-6 mt-3">
-        <div class="card section">
-          <div class="card-header section-title fw-bold">
-            INFORMATIONS GENERALES
+
+<script>sessionStorage.setItem('catalog', `<?php echo json_encode( $catalog ) ?>` )</script>
+<script src="assets/js/orders.js"></script>   
+<div class="container"> 
+  <form id="order-form" class="row" action="user-confirm-order.php?id=<?php echo urlencode( $competition_id ) ?>" method="POST">
+    <div class="col-12 col-xl-7">
+      <?php foreach( $catalog as $b_key => $b ): ?>
+        <?php $items_cnt = count( $b['items'] ) ?>
+        <?php $cnt = 1 ?>
+        <div class="card mb-3">
+          <div class="card-body pt-2">
+            <div class="row sticky-top">
+              <h2 class="mb-0 py-2 text-uppercase block-title"><?php echo $b['name'] ?></h2>
+            </div>
+            <div class="row">
+              <?php foreach( $b['items'] as $i_key => $i ): ?>
+                <?php $qty = $order['content'][ $b_key ]['items'][ $i_key ]['qty'] ? $order['content'][ $b_key ]['items'][ $i_key ]['qty'] : 0 ?>
+                <div class="catalog-item col-12 mt-2 pt-3 pb-2 px-4<?php if( $cnt < $items_cnt ) echo " border-bottom"?>">
+                  <div class="row">
+                    <div class="col-auto d-none d-md-inline ps-0">
+                      <img alt="<?php echo $i['image'] ?>" src="assets/img/icons/<?php echo $i['image'] ?>" />
+                    </div>
+                    <div class="col">
+                      <b class="text-uppercase"><?php echo $i['name'] ?></b>
+                      <span id="<?php echo "{$b_key}-{$i_key}" ?>-item-cost" class="text-muted">
+                        (<?php echo $i['price'] ?> €)
+                      </span> 
+                      <p class="mb-0 text-muted">
+                        <?php echo $i['description'] ?>
+                      </p>
+                      <?php if( $options = $catalog[ $b_key ]['items'][ $i_key ]['options'] ): ?>
+                        <p class='mt-0 text-muted'>À sélectionner : 
+                          <?php foreach( $options as $option ): ?>
+                            <?php echo $option['name'] ?>&nbsp;;
+                          <?php endforeach ?>
+                        </p>
+                      <?php endif ?>
+                    </div>
+                    <div class="col-auto text-end pe-0">
+                      <div class="col-12">
+                        <input class="form-control item-quantity p-1 float-end" type="number" min="0" value="<?php echo $qty ?>" name="<?php echo "{$b_key}-{$i_key}" ?>" />
+                      </div>
+                      <div id="<?php echo "{$b_key}-{$i_key}" ?>-item-total-cost" class="item-total-cost col-12 text-muted d-block">
+                        (<?php echo number_format( $qty * $i['price'], 2 ) ?> €)
+                      </div>
+                    </div>
+                    <div id="<?php echo "{$b_key}-{$i_key}" ?>-options" class="options col-12 mt-3 mb-4">  
+                      <?php if( $options = format_options( $order['content'][ $b_key ]['items'][ $i_key ]['options'] ) ): ?>
+                        <script>addUserSelections( `<?php echo json_encode( $options ) ?>`, `<?php echo $b_key ?>`, `<?php echo $i_key ?>` )</script>
+                      <?php endif ?>
+                    </div> 
+                  </div> 
+                </div>  
+                <?php $cnt++ ?>
+              <?php endforeach ?>
+            </div>
           </div>
-          <div class="card-body col-12 text-start">
-            <div class="row text-left">
-              <?php if ( $competition_data['competition_information'] ): ?>
-                <div class="col-12 mb-4">
-                  <div class="row pe-3">
-                    <div class="col-auto">
-                      <img src="assets/img/CU-tee.png" alt="CU-tee"/>
-                    </div>
-                    <div class="col speech-bubble p-3">
-                      L'équipe organisatrice m'a demandé de transmettre ce message : <i><?php echo $competition_data['competition_information'] ?></i>
-                    </div>
-                  </div>
+        </div>
+      <?php endforeach ?>
+    </div>
+    <div class="col-12 col-xl-5">
+      <div id="information-competition" class="card">
+        <div class="card-body">
+          <div class="row mb-3">
+            <h2 class="mb-0 pb-0">INFORMATIONS</h2>
+          </div>
+          <div class="row pt-3 border-top">
+            <h5 class="mb-0"><?php echo $competition['name'] ?></h5>
+            <?php if( $competition['information'] ): ?>
+              <div class="col-12">
+                <div class="alert alert-danger my-2" role="alert">
+                  <?php echo $competition['information'] ?>
                 </div>
+              </div>
+            <?php endif ?>
+            <div class="col-12 mb-3 pb-3 border-bottom">
+              <a class="card-link" href="https://www.worldcubeassociation.org/contact?competitionId=<?php echo urlencode( $competition_id ) ?>&contactRecipient=competition&message=Bonjour,%20j%E2%80%99ai%20une%20question%20sur%20Commande%20Utile." target="_blank">Contacter l'équipe organisatrice</a>
+            </div>
+            <h5 class="card-title"><?php echo $_SESSION['user_name'] ?></h5>
+            <h6 class="card-subtitle mb-2 text-muted"><?php echo decrypt_data( $_SESSION['user_email'] ) ?></h6>
+            <h6 class="card-subtitle mb-2 text-muted"><?php echo $_SESSION['user_wca_id'] ?></h6>
+            <div id="comment" class="col-12 mb-3 pb-3 border-bottom">
+              <a href="#" id="add-comment" class="card-link">(+) Ajouter un commentaire</a>
+              <?php if( $order['user_comment'] ): ?>
+                <script>$('#add-comment').trigger( 'click', `<?php echo $order['user_comment'] ?>` )</script>
               <?php endif ?>
-              <div class="col-12">
-                <a class="card-link" href="https://www.worldcubeassociation.org/contact?competitionId=<?php echo $competition_id ?>&contactRecipient=competition" target="_blank">Contacter l'équipe organisatrice</a>
-              </div>
-              <div class="col-12">
-                <a class="card-link" href="src/pdf_generate-catalog?id=<?php echo urlencode( $_GET['id'] ) ?>" targer="_blank">Télécharger le catalogue</a>
-              </div>
+            </div>
+            <div class="col-12 mb-3 pb-3 border-bottom text-end">
+              <h5 class="card-title">Total : <span id="order-total">0.00</span> €</h5>
+            </div>
+            <div class="col-12">
+              <?php if( $order ): ?>
+                <button id="delete-button" class="btn btn-danger my-1" name="delete">Supprimer la commande</button>
+              <?php endif ?>
+              <button id="confirm-button" class="btn btn-success my-1" disabled="disabled">Confirmer la commande</button>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-12 col-md-6 mt-3">
-        <div class="card section">
-          <div class="card-header section-title fw-bold">
-            UTILISATEUR
-          </div>
-          <div class="card-body col-12 text-start">
-            <div class="row">
-              <div class="col-12">
-                <h5 class="card-title"><?php echo $_SESSION['user_name'] ?></h5>
-                <h6 class="card-subtitle mb-2 text-muted"><?php echo decrypt_data( $_SESSION['user_email'] ) ?></h6>
-                <h6 class="card-subtitle mb-2 text-muted"><?php echo $_SESSION['user_wca_id'] ?></h6>
-              </div>              
-              <div id="comment" class="col-12">
-                <a href="#" id="add-comment" class="card-link">(+) Ajouter un commentaire</a>
-                <script>
-                  if ( sessionStorage.getItem( 'comment' )  )
-                  {
-                    addComment();
-                  }
-                  else if ( ! <?php echo var_export( empty( $user_comment ) ) ?> )
-                  {
-                    sessionStorage.setItem( 'comment', '<?php echo htmlspecialchars( addslashes( $user_comment ) ) ?>' );
-                    addComment();
-                  }
-                </script>
-              </div>
-            </div>             
-          </div>
-        </div>
-      </div> 
-      <div class="col-12 mt-3">
-        <div class="card section">
-          <div class="card-header section-title fw-bold">
-            MA COMMANDE
-          </div>
-          <div class="card-body col-12 text-start">
-            <?php if ( $catalog ) :?>
-              <?php if ( $has_been_modified ): ?>  
-                <div class="row">
-                  <div class="col-12">
-                    <div class="alert alert-warning">
-                      <b>ATTENTION :</b> le catalogue a changé et votre commande a pu être impactée (seul le prix peut avoir changé). Veuillez-vous assurer que votre commande est toujours correcte. 
-                    </div>
-                  </div>
-                </div>
-              <?php endif ?>
-              <div class="row mb-4">
-                <div class="col">
-                  <div class="row pe-3">
-                    <div class="col-auto">
-                      <img src="assets/img/CU-tee.png" alt="CU-tee"/>
-                    </div>
-                    <div class="col speech-bubble p-3">
-                      Vous pouvez sélectionner les produits à ajouter à votre commande ci-dessous. Si un ou plusieurs de vos produits possèdent des options, celles-ci seront à renseigner directement dans la suite de la commande. 
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <?php foreach ( $catalog as $block_key => $block ): ?>
-                <div class="row mb-2">
-                  <h4 class="col-12"><?php echo $block['name'] ?></h4>
-                </div>
-                <div class="row mb-2">
-                  <?php foreach ( $block['items'] as $item_key => $item ): ?>
-                    <?php $item_id = "{$block_key}-{$item_key}" ?>
-                    <?php if( $user_order[ $block_key ]['items'][ $item_key ]['qty'] ): ?>
-                      <script>
-                        if ( ! (sessionStorage.getItem( '<?php echo $item_id; ?>' ) || sessionStorage.getItem( 'isBack' )) )
-                        {
-                          sessionStorage.setItem( '<?php echo $item_id ?>', <?php echo $user_order[ $block_key ]['items'][ $item_key ]['qty'] ?> ); 
-                        }
-                      </script>
-                    <?php endif ?>
-                    <div class="col-12 col-sm-6 col-md-4 col-xl-3 mb-3">
-                      <div id="<?php echo $item_id ?>" class="catalog-item card">
-                        <h5 class="card-header text-center"><?php echo $item['name'] ?></h5>
-                        <div class="card-body pt-0 text-left">
-                          <?php if ( $item['image'] != '.' ): ?>
-                            <div class="col-12 my-3 text-center">
-                              <img src="assets/img/icons/<?php echo $item['image'] ?>" alt="<?php echo $item['name'] ?>" />
-                            </div>
-                          <?php endif ?>
-                          <?php if ( $item['description'] ): ?>
-                            <div class="item-description col-12 mt-3 p-0">
-                              <?php echo $item['description'] ?>
-                            </div>
-                          <?php endif ?>
-                          <?php if ( $item['options'] ): ?>
-                            <div class="item-includes col-12 mt-3 p-0">
-                              <b>Options à sélectionner :</b>
-                              <?php foreach ( $item['options'] as $option_key => $option ): ?>
-                                <?php echo "{$option['name']} ; " ?>
-                              <?php endforeach ?>
-                            </div>
-                          <?php endif ?>
-                          <div class="item-price col-12 mt-3 mb-3 p-0 text-muted">
-                            (<?php echo number_format( (float) $item['price'], 2, '.', '' ) ?> €)
-                          </div>
-                        </div>
-                        <script>showAdd( '<?php echo $item_id ?>' )</script>
-                      </div>
-                    </div>
-                  <?php endforeach ?>  
-                </div>
-              <?php endforeach ?>
-            <?php else: ?>
-              <div class="row mb-2">
-                <div class="col-12">Catalogue non configuré. Merci de revenir plus tard.</div>
-              </div>
-            <?php endif ?>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="order-total row fixed-bottom px-4 py-3">
-          <div class="col-12 col-md-auto">
-            <h5>
-              Total de la commande : 
-              <span id="amount" class="fw-bold"></span>&nbsp;€
-            </h5>
-          </div>
-          <div class="col-12 col-md text-md-end">
-            <?php if ( $user_order ): ?>
-              <button id="delete-button" class="btn btn-danger my-1" name="delete">Supprimer la commande</button>
-            <?php endif ?>
-            <button id="confirm-button" class="btn btn-success my-1"></button>
-          </div>
-        </div>
-      </div>
-    </form>
-  </div>
-  <script>updateItemsQuantity()</script>
-<?php else: ?>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col">
-        Erreur lors du chargement de la commande.
-      </div>
     </div>
-  </div>
-<?php endif ?>
+  </form>
+</div>
 
 <?php 
-      
-      $conn->close();
-    }
-    else
-    { 
-      $encoded_competition_id = urlencode( $_GET['id'] );
-      
-      $conn->close();
-
-      header( "Location: https://{$_SERVER['SERVER_NAME']}/{$site_alias}/user-view-order?id={$encoded_competition_id}" );
-      exit();
-    }
+    
   }
   else
   {
-    header( "Location: https://{$_SERVER['SERVER_NAME']}/{$site_alias}" );
+    header( 'Location: index.php' );
     exit();
   }
-  
-  require_once '../src/_footer.php'; 
+
+  require_once '../src/_footer.php' 
 
 ?>

@@ -1,147 +1,95 @@
 <?php
 
-  require_once 'src/_header.php';
+  require_once '../src/sessions_handler.php';
 
   $competition_id = $_GET['id'];
 
-  if ( in_array( $competition_id, $_SESSION['commande_utile']['my_imported_competitions'] ) OR $_SESSION['is_admin'] )
+  if( $_SESSION['logged_in'] )
   {
-    require_once '../src/mysql_connect.php';
-    require_once 'src/_functions-orders.php';
 
-    $competition_data = get_competition_data( $competition_id, $conn );
-    $catalog = from_pretty_json( $competition_data['competition_catalog'] );
-    [ $error, $user_order, $admin_comment, $user_comment, $order_total, $has_been_modified ] = get_user_order( $competition_id, $_SESSION['user_id'], $conn );
+    require_once 'src/_header.php';
+    require_once 'src/_functions.php';
 
-?>    
+    mysqli_open( $mysqli );
+    $competition = get_competition_data( $competition_id, $mysqli );
+    $order = get_order( hash_data( $competition_id, $_SESSION['user_id'] ), $mysqli );
+    $mysqli->close();
 
-<?php if ( ! $error ): ?>
-  <div class="container text-center">
-    <div class="row">
-      <h1 class="col-12 text-uppercase"><?php echo $competition_data['competition_name'] ?></h1>
+?> 
+
+<div class="container"> 
+  <div class="row">
+    <div class="col-12 col-xl-7">
+      <div class="mb-3 card">
+        <div class="card-body"> 
+          <h2 class="card-title mb-3">MA COMMANDE</h2>
+          <table class='table'>
+            <?php foreach( $order['content'] as $b ): ?>
+              <tr>
+                <td colspan="3" class="table-dark text-uppercase fw-bold"><?php echo $b['name'] ?></td>
+              </tr>
+              <?php foreach( $b['items'] as $i ): ?>
+                <tr>
+                  <td><?php echo $i['name'] ?></td>
+                  <td class="fit text-end">x<?php echo $i['qty'] ?></td>
+                  <td class="fit text-end"><?php echo number_format( $i['total_cost'], 2 ) ?> €</td>
+                </tr>
+                <?php foreach( $i['options'] as $o ): ?>
+                  <?php foreach( $o as $s ): ?>
+                    <tr>
+                      <td class="ps-5 text-muted">&#8627; <?php echo $s['name'] ?></td>
+                      <td class="fit text-end text-muted">x<?php echo $s['qty'] ?></td>
+                      <td class="fit text-end text-muted"><?php echo $s['total_cost'] ? number_format( $s['total_cost'], 2 ) : '--' ?> €</td>
+                    </tr>
+                  <?php endforeach ?>
+                <?php endforeach ?>
+              <?php endforeach ?>
+            <?php endforeach ?>
+          </table>
+        </div>
+      </div>
     </div>
-    <div class="row">
-      <div class="col-12 col-md-6 mt-3">
-        <div class="card section">
-          <div class="card-header section-title fw-bold">
-            INFORMATIONS GENERALES
+    <div class="col-12 col-xl-5">
+      <div id="information-competition" class="mb-3 card mx-auto">
+        <div class="card-body">
+          <h2 class="card-title mb-3 text-uppercase">INFORMATIONS</h2>
+          <h5 class="mb-0"><?php echo $competition['name'] ?></h5>
+          <?php if( $competition['information'] ): ?>
+            <div class="alert alert-danger my-2" role="alert">
+              <?php echo $competition['information'] ?>
+            </div>
+          <?php endif ?>
+          <div class="col-12 mb-3 pb-3 border-bottom">
+            <a class="card-link" href="https://www.worldcubeassociation.org/contact?competitionId=<?php echo $competition_id ?>&contactRecipient=competition&message=Bonjour,%20j%E2%80%99ai%20une%20question%20sur%20Commande%20Utile." target="_blank">Contacter l'équipe organisatrice</a>
           </div>
-          <div class="card-body col-12 text-start">
-            <div class="row text-left">
-              <?php if ( $competition_data['competition_information'] ): ?>
-                <div class="col-12 mb-4">
-                  <div class="row pe-3">
-                    <div class="col-auto">
-                      <img src="assets/img/CU-tee.png" alt="CU-tee"/>
-                    </div>
-                    <div class="col speech-bubble p-3">
-                      L'équipe organisatrice m'a demandé de transmettre ce message : <i><?php echo $competition_data['competition_information'] ?></i>
-                    </div>
-                  </div>
-                </div>
-              <?php endif ?>
-              <div class="col-12">
-                <a class="card-link" href="https://www.worldcubeassociation.org/contact?competitionId=<?php echo $competition_id ?>&contactRecipient=competition" target="_blank">Contacter l'équipe organisatrice</a>
-              </div>
-              <div class="col-12">
-                <a class="card-link" href="src/pdf_generate-catalog?id=<?php echo urlencode( $_GET['id'] ) ?>" targer="_blank">Télécharger le catalogue</a>
+          <h5 class="card-title"><?php echo $_SESSION['user_name'] ?></h5>
+          <h6 class="card-subtitle mb-2 text-muted"><?php echo decrypt_data( $_SESSION['user_email'] ) ?></h6>
+          <h6 class="card-subtitle mb-3 text-muted"><?php echo $_SESSION['user_wca_id'] ?></h6>
+          <?php if( $order['user_comment'] ): ?>
+            <div class="col-12 mb-3">
+              <div class="alert alert-light" role="alert">
+                <?php echo $order['user_comment'] ?>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-6 mt-3">
-        <div class="card section">
-          <div class="card-header section-title fw-bold">
-            UTILISATEUR
-          </div>
-          <div class="card-body col-12 text-start">
-            <div class="row">
-              <div class="col-12">
-                <h5 class="card-title"><?php echo $_SESSION['user_name'] ?></h5>
-                <h6 class="card-subtitle mb-2 text-muted"><?php echo decrypt_data( $_SESSION['user_email'] ) ?></h6>
-                <h6 class="card-subtitle mb-2 text-muted"><?php echo $_SESSION['user_wca_id'] ?></h6>
-              </div>              
-              <div id="comment" class="col-12 mt-2">
-                <?php if ( $user_comment ): ?>
-                  Mon commentaire : <span class="user-comment"><?php echo $user_comment ?></span>
-                <?php endif; ?>              
-              </div>
-            </div>             
-          </div>
-        </div>
-      </div>
-      <div class="col-12 mt-3">
-        <div class="card section">
-          <div class="card-header section-title fw-bold">
-            MA COMMANDE <sub>(<?php echo number_format( $order_total, 2 ) ?> €)</sub>
-          </div>
-          <div class="card-body col-12 text-start">
-            <?php if ( $user_order ): ?>
-              <?php foreach ( $user_order as $block_key => $block ): ?>
-                <?php unset( $block['given'] ) ?>
-                <div class="row mb-2">
-                  <h4 class="col-12">
-                    <?php echo $catalog[ $block_key ]['name'] ?>
-                  </h4>
-                </div>
-                <div class="row mb-2">
-                  <?php foreach ( $block['items'] as $item_key => $item ): ?>
-                    <div class="col-12 col-sm-6 col-md-4 col-xl-3 mb-3">
-                      <div class="ordered-item card">
-                        <h5 class="card-header text-center">
-                          <?php echo $catalog[ $block_key ]['items'][ $item_key ]['name'] ?>
-                        </h5>
-                        <div class="card-body pt-0 text-left">
-                          <ul class="list-group list-group-flush">
-                            <li class="list-group-item">
-                              <?php echo "Quantité&nbsp;: {$item['qty']}" ?>
-                            </li>
-                            <?php if ( $item['options'] ): ?>
-                              <li class="list-group-item">
-                                <?php foreach ( $item['options'] as $option_key => $option ): ?>
-                                  Sélection #<?php echo str_replace( '_', '', $option_key ) ?>&nbsp;:
-                                  <ul>
-                                    <?php foreach ( $option as $selection_key => $selection ): ?>
-                                      <li>
-                                        <?php echo "{$catalog[ $block_key ]['items'][ $item_key ]['options'][ $selection_key ]['name']}&nbsp;: {$catalog[ $block_key ]['items'][ $item_key ]['options'][ $selection_key ]['selections'][ $selection ]['name']}" ?>
-                                      </li>
-                                    <?php endforeach ?>
-                                  </ul>
-                                <?php endforeach ?>
-                              </li>
-                            <?php endif ?>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  <?php endforeach ?>  
-                </div>  
-              <?php endforeach ?>
-            <?php else: ?>
-              Aucune commande effectuée.
-            <?php endif ?>
+          <?php endif ?>
+          <div class="col-12 pt-3 border-top text-end">
+            <h5 class="card-title">Total : <?php echo number_format( $order['order_total'], 2) ?> €</h5>
           </div>
         </div>
       </div>
     </div>
   </div>
-<?php else: ?>
-  <div class="row">
-    Erreur lors du chargement de la commande.
-  </div>
-<?php endif ?>
+</div>
 
-<?php 
+<?php   
 
-    $conn->close();
   }
   else
   {
-    header( "Location: https://{$_SERVER['SERVER_NAME']}/{$site_alias}" );
+    header( 'Location: index.php' );
     exit();
   }
 
-  require_once '../src/_footer.php'; 
+  require_once '../src/_footer.php' 
 
 ?>

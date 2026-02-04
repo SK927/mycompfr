@@ -35,7 +35,12 @@ a:hover{
   border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.btn-success, .btn-success:hover, .YES{
+.btn-warning, .btn-warning:hover, .ND{
+  background-color: #FFFFDE !important;
+  color: #ffc107;
+}
+
+.btn-success, .btn-success:hover, .OK{
   background-color: #baf9cc !important;
   color: #28a745;
 }
@@ -48,8 +53,4 @@ a:hover{
 .btn-link, .btn-link:hover{
   text-decoration: none; 
   color: grey;
-}
-
-#status-bar-container{
-  display: none;
 }

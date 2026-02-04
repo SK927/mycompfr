@@ -29,14 +29,14 @@
 
     $competitions_name = [ $competition1_data['name'], $competition2_data['name'] ];
 
-    if ( ! $error1 and ! $error2 )
+    if( ! $error1 and ! $error2 )
     {   
       $comparison_list = array();
       $competition2_competitors = array_column( $competition2_data['persons'], 'name'); // Get all competitors name from competition 2 */
 
-      foreach ( $competition1_data['persons'] as $person ) // Get competitors name from competition 1 and save only competitors who appear in competition 2 array
+      foreach( $competition1_data['persons'] as $person ) // Get competitors name from competition 1 and save only competitors who appear in competition 2 array
       {
-        if ( in_array( $person['name'], $competition2_competitors ) )
+        if( in_array( $person['name'], $competition2_competitors ) )
         {
           $person['wcaId'] = $person['wcaId'] ? $person['wcaId'] : "<b>newcomer</b>";
           $comparison_list[ $person['name'] ] = array(

@@ -27,16 +27,16 @@
 
     $events = to_pretty_json( $competition_data['events'] );
 
-    if ( ! $error )
+    if( ! $error )
     {
-      foreach ( $competition_data['persons' ] as $person )
+      foreach( $competition_data['persons' ] as $person )
       {
-        if ( $person['registration']['status'] == 'accepted' )
+        if( $person['registration']['status'] == 'accepted' )
         {
           $pattern = "/\"personId\": {$person['registrantId']},/"; /* Retrieve every result for current registrant id */
           $has_results = preg_match( $pattern, $events ); 
 
-          if ( ! $has_results ) /* If results list is empty, display competitor's name */
+          if( ! $has_results ) /* If results list is empty, display competitor's name */
           {
             $person['wcaId'] = $person['wcaId'] ? $person['wcaId'] : "<b>newcomer</b>";
             $noshow_list[ $person['name'] ] = array(

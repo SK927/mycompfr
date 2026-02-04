@@ -4,7 +4,7 @@
 
   $competition_id = $_GET['id'];
 
-  if ( in_array( $competition_id, array_keys( $_SESSION['manageable_competitions'] ) ) )
+  if( isset( $_SESSION['manageable_competitions'][ $competition_id ] ) )
   { 
     require_once dirname( __FILE__ ) . '/_functions.php';
 

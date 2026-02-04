@@ -1,10 +1,12 @@
 rights:
   need_admin: [ 
+                'admin',
                 'commande-utile',
                 'registration-checker',
                 'registration-handler' 
               ]
   need_email: [ 
+                'admin',
                 'commande-utile',
                 'registration-checker',
                 'registration-handler' 
@@ -14,7 +16,7 @@ rights:
             ]
   force_admin:  [ 
                   '67gen',
-                  '67gen',
+                  'admin',
                   'compare',
                   'complice',
                   'noshow',

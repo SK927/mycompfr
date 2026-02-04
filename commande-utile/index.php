@@ -1,125 +1,117 @@
 <?php 
 
+  require_once '../src/sessions_handler.php';
   require_once 'src/_header.php';
-  require_once '../src/mysql_connect.php';
-  require_once 'src/_functions-index.php';
-  
-  [ $user_imported_competitions, $error ] = get_user_imported_competitions( $_SESSION['user_id'], $conn ); 
-  $_SESSION['commande_utile']['my_imported_competitions'] = array_keys( $user_imported_competitions );
-  $_SESSION['manageable_competitions'] = check_imported_competitions( $_SESSION['manageable_competitions'], $conn );
+  require_once 'src/_functions.php';
 
-  $conn->close();
+  mysqli_open( $mysqli );
 
 ?>  
 
-<script src="assets/js/index-actions.js"></script>
-<div class="container text-center">
-  <?php if ( $_SESSION['logged_in'] ): ?>
-    <div class="row justify-content-center mt-3 mb-2">
-      <div class="col-md-6">
-        <div class="row pe-3">
-          <div class="col-auto">
-            <img src="assets/img/CU-tee.png" alt="CU-tee"/>
-          </div>
-          <div class="col speech-bubble p-3 shadow-sm">
-            Bonjour, je m'appelle <b>CU-tee</b> et je suis là pour vous aider !<br/>Commencez par sélectionner une action ci-dessous. 
-          </div>
+<script src="assets/js/index.js"></script>
+<div class="container">
+  <?php if( $_SESSION['logged_in'] ): ?>
+    <?php [ $_SESSION['cu']['imported'], $_SESSION['cu']['importable'] ] = get_user_competitions( $_SESSION, $mysqli ) ?>
+    <div class="card mb-3">
+      <div class="card-body">
+        <div class="row">
+          <h2 class="mb-3 pb-3 border-bottom">MES COMPÉTITIONS</h2>
+          <?php foreach( $_SESSION['cu']['imported'] as $id => $competition ): ?>
+            <div class="col-12 col-md-6 col-lg-4 col-xxl-3 mt-3">
+              <div class="timeline-item timeline-element">
+                <div>
+                  <span class="timeline-element-icon bounce-in">
+                    <i class="badge badge-dot badge-dot-xl <?php echo $competition['orders_status_class'] ?> mt-1"> </i>
+                  </span>
+                  <div class="timeline-element-content bounce-in">
+                    <div class="row">
+                      <div class="col-auto">
+                        <h5 class="m-0 text-uppercase"><?php echo $competition['competition_name'] ?></h5>
+                        <p class="mb-2 text-muted"><?php echo $competition['orders_status_text'] ?></span></p>
+                      </div>
+                    </div>
+                    <div class="row mb-3">
+                      <?php if( $competition['orders_status_class'] == 'pending' and $competition['can_manage'] and $competition['has_catalog'] ): ?>
+                        <div class="col-12">
+                          <a href="user-place-order?id=<?php echo urlencode( $competition['competition_id'] ) ?>">
+                            Pré-commander
+                          </a>
+                        </div>
+                      <?php endif ?>
+                      <?php if( $competition['orders_status_class'] == 'open' ): ?>
+                        <div class="col-12">
+                          <a href="user-place-order?id=<?php echo urlencode( $competition['competition_id'] ) ?>">
+                            <?php if( ! $competition['has_ordered'] ): ?>
+                              Passer une commande
+                            <?php else: ?>
+                              Modifier ma commande
+                            <?php endif ?>
+                          </a>
+                        </div>
+                      <?php endif ?>
+                      <?php if( $competition['has_ordered'] ): ?>
+                        <div class="col-12">
+                          <a href="user-view-order?id=<?php echo urlencode( $competition['competition_id'] ) ?>">
+                            Voir ma commande
+                          </a>
+                        </div>
+                      <?php endif ?>
+                      <?php if( $competition['can_manage'] ): ?>
+                        <div class="col-12">
+                          <a href="admin-handle-competition?id=<?php echo urlencode( $competition['competition_id'] ) ?>">
+                            Administrer la compétition
+                          </a>
+                        </div>
+                      <?php endif ?>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <?php endforeach ?>
         </div>
       </div>
     </div>
-    <div class="row justify-content-center mt-5">
-      <h1 class="col-12">MES COMMANDES EN COURS</h1>
-      <?php foreach ( $user_imported_competitions as $competition_id => $competition_data ): ?>
-        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mt-3">
-          <div class="card section">
-            <div class="card-header section-title text-uppercase fw-bold">
-              <?php echo $competition_data['competition_name'] ?>
-            </div>
-            <div class="card-body py-0">
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item text-muted">
-                  <small>
-                    <p class="m-0">                        
-                      Dates : du <?php echo date( 'd/m/y', strtotime( $competition_data['competition_start_date'] ) ) ?> au <?php echo date( 'd/m/y', strtotime( $competition_data['competition_end_date'] ) ) ?>
-                    </p>
-                    <p class="m-0">
-                      Limite de commande : <?php echo $competition_data['orders_closing_date'] == '0000-00-00' ? '---' : date( 'd/m/y', strtotime( $competition_data['orders_closing_date'] ) ) ?>
-                    </p>
-                  </small>
-                </li>
-                <?php if ( from_pretty_json( $competition_data['competition_catalog'] ) ): ?>
-                  <?php if ( $competition_data['orders_closing_date'] != '0000-00-00' and date( 'Y-m-d' ) <= $competition_data['orders_closing_date'] ): ?>
-                    <li class="list-group-item">
-                      <a href="user-place-order?id=<?php echo urlencode( $competition_id ) ?>">
-                        <?php if ( ! $competition_data['has_ordered'] ): ?>
-                          Passer une commande
-                        <?php else: ?>
-                          Modifier ma commande
-                        <?php endif ?>
-                      </a>
-                    </li>
-                  <?php else: ?>
-                    <?php if ( in_array( $competition_data['competition_id'] , array_keys( $_SESSION['manageable_competitions'] ) ) or $_SESSION['is_admin'] ): ?>
-                      <li class="list-group-item">
-                        <a href="user-place-order?id=<?php echo urlencode( $competition_id ) ?>">
-                          Précommander
-                        </a>
-                      </li>
-                    <?php endif ?>
-                  <?php endif ?>
-                <?php endif ?>
-                <?php if ( $competition_data['has_ordered'] ): ?>
-                  <li class="list-group-item">
-                    <a href="user-view-order?id=<?php echo urlencode( $competition_id ) ?>">Voir ma commande</a>
-                  </li>
-                <?php endif ?>
-                <?php if ( in_array( $competition_data['competition_id'] , array_keys( $_SESSION['manageable_competitions'] ) ) or $_SESSION['is_admin'] ): ?>
-                  <li class="list-group-item">
-                    <a href="admin-handle-competition?id=<?php echo urlencode( $competition_id ) ?>">Administrer</a>
-                  </li>
-                <?php endif ?>
-              </ul>
-            </div>
+    <?php if( $_SESSION['cu']['importable'] ): ?>
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <h2 class="mb-3 pb-3 border-bottom">COMPÉTITIONS IMPORTABLES</h2>
+            <?php foreach( $_SESSION['cu']['importable'] as $id => $competition ): ?>
+              <div class="col-12 col-md-6 col-lg-4 col-xxl-3 mt-3">
+                  <div class="timeline-item timeline-element">
+                    <div>
+                      <span class="timeline-element-icon bounce-in">
+                        <i class="badge badge-dot badge-dot-xl bg-secondary"> </i>
+                      </span>
+                      <div class="timeline-element-content bounce-in">
+                        <div class="row">
+                          <div class="col-auto">
+                            <h5 class="m-0 text-uppercase"><?php echo $competition['name'] ?></h5>
+                            <p class="mb-2 text-muted">du <?php echo $competition['start'] ?> au <?php echo $competition['end'] ?></span></p>
+                          </div>
+                        </div>
+                        <div class="row mb-3">                
+                          <div class="col-12">
+                            <a class="import-link" href="admin-import-competition?id=<?php echo $id ?>">
+                              Importer la compétition
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            <?php endforeach ?>
           </div>
         </div>
-      <?php endforeach ?>
-    </div>  
-    <?php $announced = array_filter( $_SESSION['manageable_competitions'], 'remove_not_announced_competitions' ) ?>
-    <?php if ( $not_imported = array_filter( $announced, 'remove_imported_competitions' ) ): ?>
-      <div class="row justify-content-center mt-5">
-        <h1 class="col-12">COMPÉTITIONS IMPORTABLES</h1>
-        <?php foreach ( $_SESSION['manageable_competitions'] as $competition_id => $competition_data ): ?>
-          <?php if ( ! $competition_data['imported_in_cu'] && $competition_data['announced'] ): ?>
-            <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mt-3">
-            <div class="card section">
-              <div class="card-header section-title text-uppercase fw-bold">
-                <?php echo $competition_data['name'] ?>
-              </div>
-              <div class="card-body py-0">
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item text-muted">
-                    <small>
-                      <p class="m-0">                        
-                        Dates : du <?php echo date( 'd/m/y', strtotime( $competition_data['start'] ) ) ?> au <?php echo date( 'd/m/y', strtotime( $competition_data['end'] ) ) ?>
-                      </p>
-                    </small>
-                  </li>
-                  <li class="list-group-item">
-                    <a class="import-link" href="admin-import-competition?id=<?php echo urlencode( $competition_id ) ?>">Importer</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <?php  endif ?>
-        <?php endforeach ?>
       </div>
     <?php endif ?>
   <?php else: ?>
     <div class="row justify-content-center">
       <div class="col-md-6">
-        <div class="card text-bg-custom">
-          <div class="card-body">
+        <div class="card">
+          <div class="card-body text-center">
             Veuillez vous connecter pour continuer<br/><br/>
             <a href="assets/manuals/user-manual.pdf" target="_blank">Télécharger le manuel utilisateur</a><br/>
             <a href="assets/manuals/admin-manual.pdf" target="_blank">Télécharger le manuel administrateur</a>
@@ -130,6 +122,12 @@
   <?php endif ?>
 </div>
 
-<?php require_once '../src/_footer.php' ?>
+<?php 
+
+  $mysqli->close();
+  
+  require_once '../src/_footer.php'
+
+?>
 
     

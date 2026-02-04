@@ -1,25 +1,24 @@
 <?php 
 
-  require_once 'src/_header.php'; 
+  require_once '../src/sessions_handler.php'; 
 
-
-  if ( ! isset( $_GET['view_as'] ) )
+  if( ! isset( $_GET['view_as'] ) )
   {
-    require_once '../src/mysql_connect.php';
+    require_once 'src/_header.php'; 
     require_once 'src/_functions.php'; 
 
-    $is_admin = isset( $_SESSION['user_token'] ) && ( $_SESSION['logged_in'] );
+    $is_admin = isset( $_SESSION['user_token'] );
 
 ?>  
   <div class="container-fluid">
-    <?php if ( $is_admin ): ?>
+    <?php if( $is_admin ): ?>
       <div class="row">
         <div id="splash-screen" class="col-12 mt-3 text-center">
           <p>Loading your last competitions...</p>
           <progress value="50%" max="200">50%</progress> 
         </div>
       </div>
-      <script src="assets/js/index-actions.js"></script>
+      <script src="assets/js/index.js"></script>
     <?php else: ?>
       Please sign in as admin to continue
     <?php endif ?>
@@ -27,12 +26,11 @@
 
 <?php 
 
-    $conn->close();    
   } 
   else
   {
 
-    header( "Location: https://{$_SERVER['SERVER_NAME']}/{$site_alias}/statistics.php" );
+    header( "Location: /{$site_alias}/statistics.php?view_as={$_GET['view_as']}" );
     exit();
   }
   

@@ -13,15 +13,15 @@
   {
     [ $competition_data, $error ] = read_competition_data_from_public_wcif( $competition_id );
 
-    if ( ! $error )
+    if( ! $error )
     {
       $ordered_schedule = array();
 
-      foreach ( $competition_data['schedule']['venues'][0]['rooms'][0]['activities'] as $activity )
+      foreach( $competition_data['schedule']['venues'][0]['rooms'][0]['activities'] as $activity )
       {
-        if ( $activity['childActivities'] )
+        if( $activity['childActivities'] )
         {
-          foreach ( $activity['childActivities'] as $groups )
+          foreach( $activity['childActivities'] as $groups )
           {
             array_push( $ordered_schedule, [ 'name' => $groups['name'], 'startTime' => $groups['startTime'] ] );
           }
@@ -53,12 +53,12 @@
     
     $sql = "SELECT * FROM {$db['viewer']}_Current WHERE competition_id = '{$competition_id}'";
 
-    $query_results = $mysqli->query( $sql );
+    $results = $mysqli->query( $sql );
 
-    if ( $query_results->num_rows )
+    if( $results->num_rows )
     {
-      $result = $query_results->fetch_assoc();
-      return $result;
+      $row = $results->fetch_assoc();
+      return $row;
     }
     
     return null;

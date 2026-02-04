@@ -1,21 +1,15 @@
-<?php 
+<?php require_once 'src/_header.php' ?>  
 
-  ini_set('display_errors', 1);
-  ini_set('display_startup_errors', 1);
-  error_reporting(E_ERROR);
-
-  require_once 'src/_header.php';
-
-?>  
-
+<script src="assets/js/index.js"></script>
 <div class="container">
   <div class="row">
     <div class="col-12 text-center mb-4">
       <h3>Bienvenue sur ta session d'entraînement !</h3>
     </div>
-    <div class="col-12 col-md-9 col-lg-8 m-auto">
-      <p>Ton objectif est de fournir et valider la liste des inscriptions que tu dois accepter, <b>dans le bon ordre</b>. Une explication de la solution te sera fournie une fois ta réponse soumise. Attention cependant, certains compétiteurs peuvent ne pas faire partie de la solution.</p>
-      <p>Tu trouveras sur la page suivante la réplique de deux pages différentes :</p>
+    <div class="col-12 col-md-9 col-lg-8 m-auto ">
+      <p>Commence par lire le document suivant : <a class="pdf" href="assets/Gérer les inscriptions en compétitions.pdf">Gérer les inscriptions en compétitions.pdf</a>. Tu y trouveras les informations utiles pour comprendre comment gérer les inscriptions.</p>
+      <p>C'est fait ? Parfait ! Ton objectif est maintenant de fournir et valider la liste des inscriptions que tu dois accepter, <b>dans le bon ordre</b>. Une explication de la solution te sera fournie une fois ta réponse soumise. Attention cependant, certains compétiteurs peuvent ne pas faire partie de la solution.</p>
+      <p>Tu trouveras sur la page suivante la réplique de deux pages différentes, présenté dans le document ci-dessus :</p>
       <div class="row">
         <div class="col-12 col-md-6 p-1">
           <div class="alert alert-success p-4">
@@ -41,7 +35,7 @@
       </div>
     </div>
     <div class="col-12 text-center mt-3 mb-5">
-      <a href="study?case=1" class="btn btn-dark" role="button">Allons gérer quelques inscriptions !</a>
+      <a href="study?case=1"><button class="btn btn-dark" role="button">Allons gérer quelques inscriptions !</button></a>
     </div>
   </div>
 </div>

@@ -4,10 +4,11 @@
 
   if ( isset( $_GET['code'] ) )
   {
-    require_once dirname( __FILE__ ) . '/_functions-wcif.php';
-    require_once dirname( __FILE__ ) . '/mysql_connect.php';
-    require_once dirname( __FILE__ ) . '/oauth_wca-api.php';
-    require_once dirname( __FILE__ ) . '/oauth_wca-api.php';
+    require_once '_functions-wcif.php';
+    require_once 'mysqli.php';
+    require_once 'oauth_wca-api.php';
+
+    mysqli_open( $mysqli );
 
     require_once dirname( __DIR__, 1 ) . '/config/config_loader.php';
     $rights = load_config_yaml( 'config-rights' );
@@ -30,7 +31,6 @@
       $_SESSION['user_gender'] = $user->gender;
       $_SESSION['user_country'] = $user->country->name;
       $_SESSION['user_token'] = encrypt_data( $wca->get_access_token() );
-      $_SESSION['manageable_competitions'] = array();
 
       // Get additional information according to the target tool
       if ( isset( $_SESSION['captive'] ) )
@@ -47,13 +47,14 @@
       
         if ( in_array( $_SESSION['captive'], array_merge( $rights['need_admin'], $rights['force_admin'] ) ) and $_SESSION['request_orga'] )
         {
-          [ $_SESSION['manageable_competitions'], $error ] = get_competitions_managed_by_user( $_SESSION['user_token'] );
-          
-          if ( isset( $_SESSION['user_email'] ) )
-          {
-            $sql = "SELECT 1 FROM {$db['sessions']}_AdminCredentials WHERE administrator_email ='{$_SESSION['user_email']}'";
-            $_SESSION['can_manage'] = $conn->query( $sql ) ? true : false;
-          }
+          [ $_SESSION['manageable_competitions'], $error ] = get_competitions_managed_by_user( $_SESSION['user_token'] ); 
+        }
+
+        if ( isset( $_SESSION['user_email'] ) )
+        {
+          $sql = "SELECT 1 FROM {$db['sessions']}_AdminCredentials WHERE email ='{$_SESSION['user_email']}'";
+          $result = $mysqli->query( $sql )->num_rows;
+          $_SESSION['can_manage'] = $result ? true : false;
         }
       }
       $_SESSION['logged_in'] = true;
@@ -63,12 +64,12 @@
     {
       $error =  $e;
     }  
-    $conn->close();
+    $mysqli->close();
   }
 
   if ( ! $error )
   {
-    header( "Location: https://{$_SERVER['SERVER_NAME']}/{$_SESSION['captive']}" );
+    header( "Location: /{$_SESSION['captive']}" );
     exit();
   }      
   else 

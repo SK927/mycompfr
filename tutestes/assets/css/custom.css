@@ -6,6 +6,12 @@ body{
   color: #000;
 }
 
+a.pdf, a.pdf:hover, a.pdf:visited
+{
+  color: #008858;  
+  text-decoration: none
+}
+
 a.paid, a.paid:hover, a.paid:visited{
   color: #000;
   text-decoration: none

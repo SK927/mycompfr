@@ -10,14 +10,14 @@
   $scopes = 'public';
 
   // Set scopes according to the selected tool requirements
-  if ( isset( $_GET['captive_for'] ) )
+  if( isset( $_GET['captive_for'] ) )
   {
     $_SESSION['captive'] = $_GET['captive_for'];
 
     $scopes .= in_array( $_SESSION['captive'], $rights['need_email'] ) ? '+email' : '';
     $scopes .= in_array( $_SESSION['captive'], $rights['need_dob'] ) ? '+dob' : '';
   
-    if ( in_array( $_SESSION['captive'], array_merge( $rights['need_admin'], $rights['force_admin'] ) ) and $_POST['request_orga'] )
+    if( in_array( $_SESSION['captive'], array_merge( $rights['need_admin'], $rights['force_admin'] ) ) and $_POST['request_orga'] )
     {
       $_SESSION['request_orga'] = true;
       $scopes .= '+manage_competitions'; 

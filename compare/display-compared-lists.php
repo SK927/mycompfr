@@ -1,12 +1,13 @@
 <?php
-
+  
+  require_once '../src/sessions_handler.php'; 
   require_once 'src/_header.php';
   require_once 'src/_functions.php';
 
   $competition1_id = $_GET['competition1'];
   $competition2_id = $_GET['competition2'];
 
-  if ( $competition1_id && $competition2_id )
+  if( $competition1_id && $competition2_id )
   {
     [ $comparison_list, $competition1_data, $competition2_data ] = get_compared_list( $competition1_id, $competition2_id );
   }
@@ -21,7 +22,7 @@
           <div class="col px-3">
             <table class="table table-striped">
               <tbody>
-                <?php foreach ( $comparison_list as $person_name => $person_info ): ?>
+                <?php foreach( $comparison_list as $person_name => $person_info ): ?>
                   <tr>
                     <th scope="row"><?php echo $person_info['wca_id'] ?></th>
                     <td><?php echo $person_name ?></td>

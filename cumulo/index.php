@@ -1,5 +1,6 @@
 <?php require_once 'src/_header.php' ?>  
   
+<script src="assets/js/cumulative.js"></script>
 <div class="container">
   <div class="row mt-4 text-center">
     <div class='col-12 col-md-4 mb-3'>

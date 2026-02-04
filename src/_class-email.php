@@ -21,6 +21,7 @@
       $this->header .= "Content-type: text/html; charset=utf-8\r\n";
       $this->header .= "From: MyComp\r\nBcc: [email]{$bcc}[/email]\r\n";
       $this->header .= "Reply-To: {$from}\r\nX-Mailer: PHP/" . phpversion();
+      
     }
 
     public function replace_subject_text( $search, $replace_by )

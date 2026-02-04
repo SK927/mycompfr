@@ -1,15 +1,19 @@
 <?php 
 
+  require_once '../src/sessions_handler.php'; 
   require_once 'src/_header.php';
   require_once 'src/_functions.php';
-  require_once '../src/mysql_connect.php';
+  require_once '../src/mysqli.php';
 
+  mysqli_open( $mysqli );
   $competition_id = $_GET['id'];
-  $stored_info = get_stored_info( $competition_id, $conn );
+  $stored_info = get_stored_info( $competition_id, $mysqli );
+  $mysqli->close();
 
 ?>  
 
   <body>
+    <script src="assets/js/viewer.js"></script>
     <div class="container-fluid flex-column min-vh-100">
       <div class="row flex-column min-vh-100">
         <div class="timeline col-12">
@@ -30,8 +34,5 @@
         </div>
       </div>
     </div>
-    <script src="assets/js/viewer-actions.js"></script>
 	</body>
 </html>
-
-<?php $conn->close() ?>
